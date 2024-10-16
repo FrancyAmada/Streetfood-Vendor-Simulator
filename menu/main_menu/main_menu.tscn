@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://da8x36hcorblr"]
+
+[ext_resource type="Texture2D" uid="uid://btqj5mjkadaa7" path="res://icon.svg" id="1_2gwi6"]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="MainBG" type="Sprite2D" parent="Background"]
+position = Vector2(575.5, 323)
+scale = Vector2(8.97656, 5.04688)
+texture = ExtResource("1_2gwi6")
+
+[node name="MainUI" type="Node2D" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainUI"]
+offset_left = 380.0
+offset_top = 435.0
+offset_right = 772.0
+offset_bottom = 563.0
+
+[node name="Play" type="TextureButton" parent="MainUI/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_2gwi6")
+
+[node name="Settings" type="TextureButton" parent="MainUI/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_2gwi6")
+
+[node name="Quit" type="TextureButton" parent="MainUI/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_2gwi6")
