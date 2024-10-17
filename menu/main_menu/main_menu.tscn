@@ -1,32 +1,54 @@
-[gd_scene load_steps=2 format=3 uid="uid://da8x36hcorblr"]
+[gd_scene load_steps=6 format=3 uid="uid://da8x36hcorblr"]
 
-[ext_resource type="Texture2D" uid="uid://btqj5mjkadaa7" path="res://icon.svg" id="1_2gwi6"]
+[ext_resource type="Script" path="res://menu/main_menu/main_menu.gd" id="1_e3kcb"]
+[ext_resource type="Texture2D" uid="uid://c30j5adu2r066" path="res://assets/experimental/menu/main_menu/menu-bg.png" id="2_4jge8"]
+[ext_resource type="Texture2D" uid="uid://cdxt34wiwp1fa" path="res://assets/experimental/menu/main_menu/play_button.png" id="3_ykw6j"]
+[ext_resource type="Texture2D" uid="uid://dg1dgqk0yyd1q" path="res://assets/experimental/menu/main_menu/settings_button.png" id="4_tkix5"]
+[ext_resource type="Texture2D" uid="uid://5uqw1hdcqxry" path="res://assets/experimental/menu/main_menu/exit_button.png" id="5_0xuuv"]
 
 [node name="MainMenu" type="Node2D"]
+script = ExtResource("1_e3kcb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="Background" type="Node2D" parent="."]
 
-[node name="MainBG" type="Sprite2D" parent="Background"]
-position = Vector2(575.5, 323)
-scale = Vector2(8.97656, 5.04688)
-texture = ExtResource("1_2gwi6")
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+position = Vector2(575, 326)
+scale = Vector2(0.614, 0.6)
+texture = ExtResource("2_4jge8")
 
 [node name="MainUI" type="Node2D" parent="."]
 
+[node name="Label" type="Label" parent="MainUI"]
+offset_left = 7.0
+offset_top = 188.0
+offset_right = 1150.0
+offset_bottom = 325.0
+theme_override_font_sizes/font_size = 80
+text = "Streetfood Vendor Simulator"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="HBoxContainer" type="HBoxContainer" parent="MainUI"]
-offset_left = 380.0
-offset_top = 435.0
-offset_right = 772.0
-offset_bottom = 563.0
+offset_left = 323.0
+offset_top = 417.0
+offset_right = 858.0
+offset_bottom = 598.0
+alignment = 1
 
 [node name="Play" type="TextureButton" parent="MainUI/HBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("1_2gwi6")
+texture_normal = ExtResource("3_ykw6j")
 
 [node name="Settings" type="TextureButton" parent="MainUI/HBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("1_2gwi6")
+texture_normal = ExtResource("4_tkix5")
 
-[node name="Quit" type="TextureButton" parent="MainUI/HBoxContainer"]
+[node name="Exit" type="TextureButton" parent="MainUI/HBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("1_2gwi6")
+texture_normal = ExtResource("5_0xuuv")
+
+[connection signal="pressed" from="MainUI/HBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MainUI/HBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MainUI/HBoxContainer/Exit" to="." method="_on_exit_pressed"]
