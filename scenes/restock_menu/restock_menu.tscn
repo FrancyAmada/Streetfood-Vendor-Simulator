@@ -1,0 +1,91 @@
+[gd_scene load_steps=4 format=3 uid="uid://7mbctmvn4iiv"]
+
+[ext_resource type="PackedScene" uid="uid://b7gwwhnck8cog" path="res://scenes/restock_menu/item.tscn" id="1_d40ht"]
+[ext_resource type="Script" path="res://scenes/restock_menu/restock_menu.gd" id="1_vaiqw"]
+[ext_resource type="PackedScene" uid="uid://cqr7m6q65prfj" path="res://scenes/restock_menu/oil.tscn" id="3_2di2q"]
+
+[node name="RestockMenu" type="Node2D"]
+script = ExtResource("1_vaiqw")
+
+[node name="Items" type="GridContainer" parent="."]
+offset_left = 35.0
+offset_top = 35.0
+offset_right = 721.0
+offset_bottom = 587.0
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="Fishball" parent="Items" instance=ExtResource("1_d40ht")]
+layout_mode = 2
+item_name = "Fishball"
+price = 75
+pack_size = 50
+
+[node name="Kikiam" parent="Items" instance=ExtResource("1_d40ht")]
+layout_mode = 2
+item_name = "Kikiam"
+price = 100
+pack_size = 50
+
+[node name="Squidball" parent="Items" instance=ExtResource("1_d40ht")]
+layout_mode = 2
+item_name = "Squidball"
+price = 90
+pack_size = 50
+
+[node name="Kwek-kwek" parent="Items" instance=ExtResource("1_d40ht")]
+layout_mode = 2
+item_name = "Kwek-kwek"
+price = 75
+pack_size = 20
+
+[node name="JapaneseSiomai" parent="Items" instance=ExtResource("1_d40ht")]
+layout_mode = 2
+item_name = "Japanese Siomai"
+price = 100
+pack_size = 30
+locked = true
+
+[node name="PorkSiomai" parent="Items" instance=ExtResource("1_d40ht")]
+layout_mode = 2
+item_name = "Pork Siomai"
+price = 100
+pack_size = 25
+locked = true
+
+[node name="ChickenSiomai" parent="Items" instance=ExtResource("1_d40ht")]
+layout_mode = 2
+item_name = "Chicken Siomai"
+price = 100
+pack_size = 20
+locked = true
+
+[node name="Juice" parent="Items" instance=ExtResource("1_d40ht")]
+layout_mode = 2
+item_name = "Juice"
+price = 80
+pack_size = 30
+locked = true
+
+[node name="Oil" parent="." instance=ExtResource("3_2di2q")]
+price = 50
+
+[node name="MoneyLabel" type="Label" parent="."]
+offset_left = 744.0
+offset_top = 40.0
+offset_right = 1122.0
+offset_bottom = 63.0
+text = "999999999999999999999999"
+horizontal_alignment = 2
+
+[node name="NextButton" type="Button" parent="."]
+offset_left = 968.0
+offset_top = 550.0
+offset_right = 1065.0
+offset_bottom = 607.0
+theme_override_font_sizes/font_size = 35
+text = "NEXT
+"
+
+[connection signal="button_down" from="NextButton" to="." method="_on_next_button_button_down"]
