@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://by8jqacilhix"]
+
+[ext_resource type="Script" path="res://scenes/area_selection_menu/area_selection_menu.gd" id="1_mlgwy"]
+[ext_resource type="PackedScene" uid="uid://ceqt5en1n83e2" path="res://scenes/area_selection_menu/components/place_button/place_button.tscn" id="2_w5fv4"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qytsy"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8t6ah"]
+
+[sub_resource type="SystemFont" id="SystemFont_sks5g"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_j586r"]
+font = SubResource("SystemFont_sks5g")
+font_size = 35
+font_color = Color(0, 0.216667, 1, 1)
+
+[node name="AreaSelectionMenu" type="Node2D"]
+script = ExtResource("1_mlgwy")
+
+[node name="Backround" type="Node2D" parent="."]
+
+[node name="Main" type="Sprite2D" parent="Backround"]
+position = Vector2(574.75, 321.75)
+scale = Vector2(1150.5, 644.5)
+texture = SubResource("PlaceholderTexture2D_qytsy")
+
+[node name="Highway" type="Sprite2D" parent="Backround"]
+modulate = Color(1, 1, 0.572549, 1)
+position = Vector2(575.275, 574.153)
+scale = Vector2(-1148.5, 138.504)
+texture = SubResource("PlaceholderTexture2D_8t6ah")
+
+[node name="AreaSelectionLabel" type="Label" parent="."]
+offset_left = 28.0
+offset_top = 18.0
+offset_right = 270.0
+offset_bottom = 67.0
+text = "Area Selection"
+label_settings = SubResource("LabelSettings_j586r")
+
+[node name="Street" parent="." instance=ExtResource("2_w5fv4")]
+offset_left = 55.0
+offset_top = 304.0
+offset_right = 375.0
+offset_bottom = 504.0
+text = "Street"
+description = "This is the description of the street."
+
+[node name="School" parent="." instance=ExtResource("2_w5fv4")]
+offset_left = 410.0
+offset_top = 305.0
+offset_right = 730.0
+offset_bottom = 505.0
+text = "School"
+description = "This is the description of the school."
+
+[node name="Festive" parent="." instance=ExtResource("2_w5fv4")]
+offset_left = 771.0
+offset_top = 305.0
+offset_right = 1091.0
+offset_bottom = 505.0
+text = "Festive
+"
+description = "This is the description of the Festive."
+
+[connection signal="pressed" from="Street" to="." method="_on_street_pressed"]
+[connection signal="pressed" from="School" to="." method="_on_school_pressed"]
+[connection signal="pressed" from="Festive" to="." method="_on_festive_pressed"]

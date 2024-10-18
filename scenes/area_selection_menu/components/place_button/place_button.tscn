@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://ceqt5en1n83e2"]
+
+[ext_resource type="Script" path="res://scenes/area_selection_menu/components/place_button/place_button.gd" id="1_vgmwx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_r2k6v"]
+font_size = 18
+
+[node name="PlaceButton" type="Button"]
+offset_right = 320.0
+offset_bottom = 200.0
+script = ExtResource("1_vgmwx")
+
+[node name="Description" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = -100.0
+offset_right = 320.0
+offset_bottom = -30.0
+label_settings = SubResource("LabelSettings_r2k6v")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
