@@ -1,5 +1,4 @@
 extends VBoxContainer
-class_name Oil
 
 signal refill_oil
 

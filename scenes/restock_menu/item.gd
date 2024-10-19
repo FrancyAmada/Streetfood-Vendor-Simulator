@@ -1,7 +1,7 @@
 extends VBoxContainer
 class_name Item
 
-signal buy_item(item_name)
+signal buy_item(item: Item)
 
 @onready var item_label = $ItemLabel
 @onready var price_label = $PriceLabel
@@ -42,4 +42,4 @@ func buy() -> void:
 		update_stocks_label()
 
 func _on_buy_button_button_down() -> void:
-	emit_signal("buy_item", item_name)
+	emit_signal("buy_item", self)

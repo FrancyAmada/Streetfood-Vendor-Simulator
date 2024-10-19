@@ -19,16 +19,14 @@ func _process(_delta: float) -> void:
 func update_money_label() -> void:
 	money_label.text = str(money)
 
-func _on_buy_item(item_name: String) -> void:
-	for item in items:
-		if item.item_name == item_name:
-			if money < item.price:
-				print("NOT ENOUGH MONEY")
-				return
-			money -= item.price
-			item.buy()
-			update_money_label()
-			
+func _on_buy_item(item: Item) -> void:
+	if money < item.price:
+		print("NOT ENOUGH MONEY")
+		return
+	money -= item.price
+	item.buy()
+	update_money_label()
+
 func _on_refill_oil() -> void:
 	if money < oil.price:
 		print("NOT ENOUGH MONEY")
