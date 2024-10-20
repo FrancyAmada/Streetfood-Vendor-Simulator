@@ -1,40 +1,186 @@
-[gd_scene load_steps=6 format=3 uid="uid://da8x36hcorblr"]
+[gd_scene load_steps=17 format=3 uid="uid://da8x36hcorblr"]
 
 [ext_resource type="Script" path="res://menu/main_menu/main_menu.gd" id="1_e3kcb"]
-[ext_resource type="Texture2D" uid="uid://c30j5adu2r066" path="res://assets/experimental/menu/main_menu/menu-bg.png" id="2_4jge8"]
+[ext_resource type="PackedScene" uid="uid://dbt5dv3jetjqb" path="res://menu/clouds/clouds.tscn" id="2_nnb4s"]
+[ext_resource type="Texture2D" uid="uid://c8ba1w1ycn4km" path="res://assets/menu/main_menu/building-layer.png" id="2_odpfy"]
+[ext_resource type="Texture2D" uid="uid://diewiydxjkmnu" path="res://assets/menu/main_menu/sky-layer.png" id="3_8f4w8"]
+[ext_resource type="Script" path="res://menu/clouds/clouds.gd" id="3_o13d8"]
+[ext_resource type="Texture2D" uid="uid://k6e7xb88ta60" path="res://assets/others/clouds/cloud_1.png" id="3_wtqis"]
 [ext_resource type="Texture2D" uid="uid://cdxt34wiwp1fa" path="res://assets/experimental/menu/main_menu/play_button.png" id="3_ykw6j"]
 [ext_resource type="Texture2D" uid="uid://dg1dgqk0yyd1q" path="res://assets/experimental/menu/main_menu/settings_button.png" id="4_tkix5"]
+[ext_resource type="Texture2D" uid="uid://mig33mly5623" path="res://assets/others/clouds/cloud_2.png" id="4_yvgs0"]
 [ext_resource type="Texture2D" uid="uid://5uqw1hdcqxry" path="res://assets/experimental/menu/main_menu/exit_button.png" id="5_0xuuv"]
+[ext_resource type="Script" path="res://menu/clouds/cloud.gd" id="5_bpluu"]
+[ext_resource type="Texture2D" uid="uid://0j7gugsbcymb" path="res://assets/others/clouds/cloud_3.png" id="5_ioobx"]
+[ext_resource type="Texture2D" uid="uid://b4ey6id0drkym" path="res://assets/menu/main_menu/title.png" id="10_0don7"]
+
+[sub_resource type="Animation" id="Animation_cyev8"]
+resource_name = "title_idle_animation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainUI/Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.633333, 0.966667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(583, 220), Vector2(583, 225), Vector2(583, 220), Vector2(583, 215)]
+}
+
+[sub_resource type="Animation" id="Animation_crwdl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainUI/Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(583, 219)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tckpc"]
+_data = {
+"RESET": SubResource("Animation_crwdl"),
+"title_idle_animation": SubResource("Animation_cyev8")
+}
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_e3kcb")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tckpc")
+}
+
+[node name="Clouds" parent="." instance=ExtResource("2_nnb4s")]
+position = Vector2(1335, 107)
+script = ExtResource("3_o13d8")
+
+[node name="Cloud1" type="Sprite2D" parent="Clouds"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("3_wtqis")
+script = ExtResource("5_bpluu")
+
+[node name="Cloud2" type="Sprite2D" parent="Clouds"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("4_yvgs0")
+script = ExtResource("5_bpluu")
+
+[node name="Cloud3" type="Sprite2D" parent="Clouds"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("5_ioobx")
+script = ExtResource("5_bpluu")
+
+[node name="Cloud4" type="Sprite2D" parent="Clouds"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("5_ioobx")
+script = ExtResource("5_bpluu")
+
+[node name="Cloud5" type="Sprite2D" parent="Clouds"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("5_ioobx")
+script = ExtResource("5_bpluu")
+
+[node name="Cloud6" type="Sprite2D" parent="Clouds"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("5_ioobx")
+script = ExtResource("5_bpluu")
+
+[node name="Cloud7" type="Sprite2D" parent="Clouds"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("3_wtqis")
+script = ExtResource("5_bpluu")
+
+[node name="Cloud8" type="Sprite2D" parent="Clouds"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("4_yvgs0")
+script = ExtResource("5_bpluu")
+
+[node name="Cloud9" type="Sprite2D" parent="Clouds"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("5_ioobx")
+script = ExtResource("5_bpluu")
+
+[node name="Cloud10" type="Sprite2D" parent="Clouds"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("5_ioobx")
+script = ExtResource("5_bpluu")
+
+[node name="Cloud11" type="Sprite2D" parent="Clouds"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("5_ioobx")
+script = ExtResource("5_bpluu")
+
+[node name="Cloud12" type="Sprite2D" parent="Clouds"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("3_wtqis")
+script = ExtResource("5_bpluu")
+
+[node name="Cloud13" type="Sprite2D" parent="Clouds"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("4_yvgs0")
+script = ExtResource("5_bpluu")
+
+[node name="Cloud14" type="Sprite2D" parent="Clouds"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("5_ioobx")
+script = ExtResource("5_bpluu")
+
+[node name="Cloud15" type="Sprite2D" parent="Clouds"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("5_ioobx")
+script = ExtResource("5_bpluu")
+
+[node name="Cloud16" type="Sprite2D" parent="Clouds"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("5_ioobx")
+script = ExtResource("5_bpluu")
+
+[node name="Cloud17" type="Sprite2D" parent="Clouds"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("5_ioobx")
+script = ExtResource("5_bpluu")
+
+[node name="Cloud18" type="Sprite2D" parent="Clouds"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("5_ioobx")
+script = ExtResource("5_bpluu")
 
 [node name="Background" type="Node2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="Background"]
-position = Vector2(575, 326)
-scale = Vector2(0.614, 0.6)
-texture = ExtResource("2_4jge8")
+[node name="Buildings" type="Sprite2D" parent="Background"]
+z_index = 1
+position = Vector2(585, 323)
+scale = Vector2(0.65, 0.635)
+texture = ExtResource("2_odpfy")
+
+[node name="Skies" type="Sprite2D" parent="Background"]
+z_index = -1
+position = Vector2(583, 320)
+scale = Vector2(0.65, 0.64)
+texture = ExtResource("3_8f4w8")
 
 [node name="MainUI" type="Node2D" parent="."]
 
-[node name="Label" type="Label" parent="MainUI"]
-offset_left = 7.0
-offset_top = 188.0
-offset_right = 1150.0
-offset_bottom = 325.0
-theme_override_font_sizes/font_size = 80
-text = "Streetfood Vendor Simulator"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Title" type="Sprite2D" parent="MainUI"]
+z_index = 1
+position = Vector2(583, 219)
+scale = Vector2(2, 1.998)
+texture = ExtResource("10_0don7")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MainUI"]
-offset_left = 323.0
-offset_top = 417.0
-offset_right = 858.0
-offset_bottom = 598.0
+z_index = 1
+offset_left = 311.0
+offset_top = 378.0
+offset_right = 846.0
+offset_bottom = 559.0
 alignment = 1
 
 [node name="Play" type="TextureButton" parent="MainUI/HBoxContainer"]
