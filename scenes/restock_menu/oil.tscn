@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqr7m6q65prfj"]
+
+[ext_resource type="Script" path="res://scenes/restock_menu/oil.gd" id="1_s3c2i"]
+
+[node name="Oil" type="VBoxContainer"]
+offset_left = 804.0
+offset_top = 122.0
+offset_right = 1013.0
+offset_bottom = 504.0
+script = ExtResource("1_s3c2i")
+
+[node name="OilLabel" type="Label" parent="."]
+layout_mode = 2
+text = "Oil"
+horizontal_alignment = 1
+
+[node name="PriceLabel" type="Label" parent="."]
+layout_mode = 2
+text = "40"
+horizontal_alignment = 1
+
+[node name="OilBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+step = 25.0
+value = 100.0
+fill_mode = 3
+
+[node name="OilButton" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 40
+text = "REFILL OIL"
+
+[connection signal="button_down" from="OilButton" to="." method="_on_oil_button_button_down"]
