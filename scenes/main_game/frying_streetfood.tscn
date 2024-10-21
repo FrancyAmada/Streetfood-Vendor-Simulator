@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cypow47ojio8q"]
+
+[ext_resource type="Script" path="res://scenes/main_game/frying_streetfood.gd" id="1_ak74e"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_i4vbl"]
+friction = 0.8
+bounce = 0.8
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0g562"]
+radius = 16.0
+
+[node name="FryingStreetfood" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 4
+mass = 0.5
+physics_material_override = SubResource("PhysicsMaterial_i4vbl")
+gravity_scale = 0.0
+script = ExtResource("1_ak74e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0g562")

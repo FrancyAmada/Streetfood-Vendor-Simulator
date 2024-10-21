@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2j6rkennar2h"]
+
+[ext_resource type="Texture2D" uid="uid://btqj5mjkadaa7" path="res://icon.svg" id="1_qp8pv"]
+[ext_resource type="Script" path="res://scenes/main_game/customer.gd" id="1_srtab"]
+
+[node name="Customer" type="Node2D"]
+script = ExtResource("1_srtab")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_qp8pv")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_left = -120.0
+offset_top = -173.0
+offset_right = 115.0
+offset_bottom = -76.0
+
+[node name="Orders" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
