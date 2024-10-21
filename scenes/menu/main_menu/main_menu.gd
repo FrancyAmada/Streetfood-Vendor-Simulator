@@ -1,6 +1,7 @@
 extends Node2D
 
 signal play_is_pressed()
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var play_button: TextureButton = $MainUI/HBoxContainer/Play
 @onready var settings_button: TextureButton = $MainUI/HBoxContainer/Settings
@@ -12,7 +13,7 @@ func _ready():
 
 
 func _on_play_pressed():
-	pass
+	emit_signal("play_is_pressed")
 
 
 func _on_settings_pressed():

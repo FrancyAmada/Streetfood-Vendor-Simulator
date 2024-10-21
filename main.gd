@@ -1,11 +1,20 @@
 extends Node2D
 
+@onready var main_game: Node2D = $Game
+@onready var main_menu: Node2D = $MainMenu
+@onready var restock_menu: Node2D = $RestockMenu
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	main_menu.connect("play_is_pressed", _on_play_is_pressed)
+	main_game.connect("day_is_finished", _on_day_is_finished)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_play_is_pressed():
+	main_menu.visible = false
+	main_game.visible = true
+	main_game.start_day()
+
+func _on_day_is_finished():
+	main_game.visible = false
+	restock_menu.visible = true

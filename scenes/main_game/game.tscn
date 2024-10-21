@@ -126,6 +126,8 @@ text = "Juice:"
 visible = false
 position = Vector2(0, -1)
 
+[node name="DaytimeTimer" type="Timer" parent="."]
+
 [connection signal="pressed" from="FoodItemsButtons/Fishball" to="." method="_on_fishball_pressed"]
 [connection signal="pressed" from="FoodItemsButtons/Squidball" to="." method="_on_squidball_pressed"]
 [connection signal="pressed" from="FoodItemsButtons/Kikiam" to="." method="_on_kikiam_pressed"]
@@ -134,3 +136,4 @@ position = Vector2(0, -1)
 [connection signal="pressed" from="FoodItemsButtons/PorkSiomai" to="." method="_on_pork_siomai_pressed"]
 [connection signal="pressed" from="FoodItemsButtons/JapaneseSiomai" to="." method="_on_japanese_siomai_pressed"]
 [connection signal="pressed" from="FoodItemsButtons/Juice" to="." method="_on_juice_pressed"]
+[connection signal="timeout" from="DaytimeTimer" to="." method="_on_daytime_timer_timeout"]

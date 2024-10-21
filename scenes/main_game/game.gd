@@ -2,8 +2,11 @@ extends Node2D
 
 const CUSTOMER_SCENE = preload("res://scenes/main_game/customer.tscn")
 
+signal day_is_finished()
+
 @onready var minigame_node: Node2D = $Minigame
 @onready var food_fryer_node: FoodFryer = $FoodFryer
+@onready var daytime_timer: Timer = $DaytimeTimer
 
 
 # Called when the node enters the scene tree for the first time.
@@ -18,6 +21,12 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func start_day():
+	daytime_timer.start(20)
+	
+func _on_daytime_timer_timeout() -> void:
+	emit_signal("day_is_finished")
 
 func _on_fishball_pressed() -> void:
 	food_fryer_node.add_streetfood("fishball")

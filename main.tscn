@@ -1,9 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4xm1kg85j21r"]
+[gd_scene load_steps=5 format=3 uid="uid://b4xm1kg85j21r"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_m0q6e"]
+[ext_resource type="PackedScene" uid="uid://da8x36hcorblr" path="res://scenes/menu/main_menu/main_menu.tscn" id="3_am2i7"]
 [ext_resource type="PackedScene" uid="uid://hxidr1h70ruk" path="res://scenes/main_game/game.tscn" id="3_jbd57"]
+[ext_resource type="PackedScene" uid="uid://7mbctmvn4iiv" path="res://scenes/restock_menu/restock_menu.tscn" id="4_gayht"]
 
 [node name="Main" type="Node2D"]
+texture_filter = 5
 script = ExtResource("1_m0q6e")
 
+[node name="RestockMenu" parent="." instance=ExtResource("4_gayht")]
+visible = false
+
 [node name="Game" parent="." instance=ExtResource("3_jbd57")]
+visible = false
+
+[node name="MainMenu" parent="." instance=ExtResource("3_am2i7")]
