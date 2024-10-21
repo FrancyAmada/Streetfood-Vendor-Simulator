@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dixkld3hedyhj"]
+
+[ext_resource type="Script" path="res://scenes/main_game/order.gd" id="1_00056"]
+
+[node name="Order" type="Button"]
+custom_minimum_size = Vector2(64, 64)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Fishball"
+script = ExtResource("1_00056")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

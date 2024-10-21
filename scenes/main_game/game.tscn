@@ -1,0 +1,136 @@
+[gd_scene load_steps=4 format=3 uid="uid://hxidr1h70ruk"]
+
+[ext_resource type="Script" path="res://scenes/main_game/game.gd" id="1_73igr"]
+[ext_resource type="PackedScene" uid="uid://d2g5x0hbh8ofm" path="res://scenes/minigame/minigame.tscn" id="2_xsin3"]
+[ext_resource type="PackedScene" uid="uid://cp4c4ufchbjoe" path="res://scenes/main_game/food_fryer.tscn" id="3_4fqso"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_73igr")
+
+[node name="FoodItemsButtons" type="Node2D" parent="."]
+
+[node name="Fishball" type="Button" parent="FoodItemsButtons"]
+offset_left = 296.0
+offset_top = 467.0
+offset_right = 407.0
+offset_bottom = 572.0
+text = "Fishball"
+
+[node name="Squidball" type="Button" parent="FoodItemsButtons"]
+offset_left = 297.0
+offset_top = 587.0
+offset_right = 408.0
+offset_bottom = 697.0
+text = "Squidball"
+
+[node name="Kikiam" type="Button" parent="FoodItemsButtons"]
+offset_left = 432.0
+offset_top = 466.0
+offset_right = 547.0
+offset_bottom = 573.0
+text = "Kikiam"
+
+[node name="KwekKwek" type="Button" parent="FoodItemsButtons"]
+offset_left = 432.0
+offset_top = 586.0
+offset_right = 546.0
+offset_bottom = 696.0
+text = "KwekKwek"
+
+[node name="ChickenSiomai" type="Button" parent="FoodItemsButtons"]
+offset_left = 21.0
+offset_top = 619.0
+offset_right = 262.0
+offset_bottom = 697.0
+text = "Chicken Siomai"
+
+[node name="PorkSiomai" type="Button" parent="FoodItemsButtons"]
+offset_left = 23.0
+offset_top = 533.0
+offset_right = 263.0
+offset_bottom = 609.0
+text = "Pork Siomai"
+
+[node name="JapaneseSiomai" type="Button" parent="FoodItemsButtons"]
+offset_left = 22.0
+offset_top = 446.0
+offset_right = 264.0
+offset_bottom = 524.0
+text = "Japanese Siomai"
+
+[node name="Juice" type="Button" parent="FoodItemsButtons"]
+offset_left = 44.0
+offset_top = 182.0
+offset_right = 224.0
+offset_bottom = 424.0
+text = "Juice Dispenser"
+
+[node name="FoodFryer" parent="." instance=ExtResource("3_4fqso")]
+position = Vector2(1050, 545)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 570.0
+offset_top = 495.0
+offset_right = 860.0
+offset_bottom = 647.0
+theme_override_constants/separation = 20
+
+[node name="FriedItems" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Fishball" type="Label" parent="HBoxContainer/FriedItems"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Fishball: "
+
+[node name="Kikiam" type="Label" parent="HBoxContainer/FriedItems"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Kikiam:"
+
+[node name="Squidball" type="Label" parent="HBoxContainer/FriedItems"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Squidball:"
+
+[node name="Kwekkwek" type="Label" parent="HBoxContainer/FriedItems"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Kwekkwek:"
+
+[node name="UpgradeItems" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="ChickenSiomai" type="Label" parent="HBoxContainer/UpgradeItems"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "ChickenSiomai:"
+
+[node name="PorkSiomai" type="Label" parent="HBoxContainer/UpgradeItems"]
+layout_mode = 2
+text = "PorkSiomai:"
+
+[node name="JapaneseSiomai" type="Label" parent="HBoxContainer/UpgradeItems"]
+layout_mode = 2
+text = "JapaneseSiomai: "
+
+[node name="Juice" type="Label" parent="HBoxContainer/UpgradeItems"]
+layout_mode = 2
+text = "Juice:"
+
+[node name="Customers" type="Node2D" parent="."]
+
+[node name="Minigame" parent="." instance=ExtResource("2_xsin3")]
+visible = false
+position = Vector2(0, -1)
+
+[connection signal="pressed" from="FoodItemsButtons/Fishball" to="." method="_on_fishball_pressed"]
+[connection signal="pressed" from="FoodItemsButtons/Squidball" to="." method="_on_squidball_pressed"]
+[connection signal="pressed" from="FoodItemsButtons/Kikiam" to="." method="_on_kikiam_pressed"]
+[connection signal="pressed" from="FoodItemsButtons/KwekKwek" to="." method="_on_kwek_kwek_pressed"]
+[connection signal="pressed" from="FoodItemsButtons/ChickenSiomai" to="." method="_on_chicken_siomai_pressed"]
+[connection signal="pressed" from="FoodItemsButtons/PorkSiomai" to="." method="_on_pork_siomai_pressed"]
+[connection signal="pressed" from="FoodItemsButtons/JapaneseSiomai" to="." method="_on_japanese_siomai_pressed"]
+[connection signal="pressed" from="FoodItemsButtons/Juice" to="." method="_on_juice_pressed"]

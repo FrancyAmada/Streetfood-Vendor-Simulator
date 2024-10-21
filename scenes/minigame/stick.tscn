@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://moakaieorp3s"]
+
+[ext_resource type="Script" path="res://scenes/minigame/stick.gd" id="1_t35yn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8rrtv"]
+size = Vector2(20, 500)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hyr8a"]
+
+[node name="Stick" type="Node2D"]
+script = ExtResource("1_t35yn")
+
+[node name="StickBodyArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StickBodyArea"]
+position = Vector2(0, 140)
+shape = SubResource("RectangleShape2D_8rrtv")
+
+[node name="StickHeadArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StickHeadArea"]
+position = Vector2(0, -120)
+shape = SubResource("CapsuleShape2D_hyr8a")
+
+[node name="ItemsNode" type="Node2D" parent="."]
+
+[connection signal="area_entered" from="StickHeadArea" to="." method="_on_stick_head_area_area_entered"]
