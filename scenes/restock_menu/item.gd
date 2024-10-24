@@ -18,7 +18,7 @@ var current_stocks: int = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	item_label.text = item_name
-	price_label.text = str(price)
+	price_label.text = "Price: " + str(price)
 	update_stocks_label()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,11 +28,13 @@ func _process(_delta: float) -> void:
 func update_stocks_label() -> void:
 	if locked: 
 		buy_button.text = "UNLOCK"
+	else:
+		buy_button.text = "BUY " + "x" + str(pack_size)
 	stocks_label.text = "Current Stocks: " + str(current_stocks)
 
 func unlock() -> void:
 	locked = false
-	buy_button.text = "BUY"
+	buy_button.text = "BUY " + "x" + str(pack_size)
 
 func buy() -> void:
 	if locked:
