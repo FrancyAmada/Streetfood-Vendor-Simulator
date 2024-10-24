@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://by8jqacilhix"]
+[gd_scene load_steps=24 format=3 uid="uid://by8jqacilhix"]
 
 [ext_resource type="Script" path="res://scenes/area_selection_menu/area_selection_menu.gd" id="1_mlgwy"]
 [ext_resource type="Texture2D" uid="uid://ck8em8fak080y" path="res://assets/menu/area_selection/road.png" id="2_7qf1x"]
@@ -13,7 +13,13 @@
 [ext_resource type="Texture2D" uid="uid://0j7gugsbcymb" path="res://assets/others/clouds/cloud_3.png" id="8_pjr46"]
 [ext_resource type="Texture2D" uid="uid://0ps58ke2rfyr" path="res://assets/menu/area_selection/normal/normal_street.png" id="11_7wmkq"]
 [ext_resource type="Texture2D" uid="uid://d2pd8v2botmca" path="res://assets/menu/area_selection/normal/normal_school.png" id="12_noito"]
+[ext_resource type="Texture2D" uid="uid://dnsf66e1e0slw" path="res://assets/menu/area_selection/hover/hover_street.png" id="13_2jmam"]
+[ext_resource type="Texture2D" uid="uid://cqi774l4cpf5u" path="res://assets/menu/area_selection/pressed/pressed_street.png" id="13_o5sc8"]
 [ext_resource type="Texture2D" uid="uid://247bs8yg3a8w" path="res://assets/menu/area_selection/normal/normal_mall.png" id="13_xb0sr"]
+[ext_resource type="Texture2D" uid="uid://xwvvlis2p38t" path="res://assets/menu/area_selection/hover/hover_school.png" id="15_btqjj"]
+[ext_resource type="Texture2D" uid="uid://d2u6vq42dmxq8" path="res://assets/menu/area_selection/pressed/pressed_school.png" id="16_05070"]
+[ext_resource type="Texture2D" uid="uid://cvwmlyh8tbe4y" path="res://assets/menu/area_selection/hover/hover_mall.png" id="17_rgne6"]
+[ext_resource type="Texture2D" uid="uid://cu5ul1a0yrroi" path="res://assets/menu/area_selection/pressed/pressed_mall.png" id="19_hrcyd"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_e1xh5"]
 
@@ -213,6 +219,8 @@ grow_horizontal = 1
 grow_vertical = 1
 scale = Vector2(1.2, 1.2)
 texture_normal = ExtResource("11_7wmkq")
+texture_pressed = ExtResource("13_o5sc8")
+texture_hover = ExtResource("13_2jmam")
 description = "This is the street."
 
 [node name="School" parent="." instance=ExtResource("2_w5fv4")]
@@ -221,6 +229,8 @@ offset_top = 397.0
 offset_right = 836.0
 offset_bottom = 554.0
 texture_normal = ExtResource("12_noito")
+texture_pressed = ExtResource("16_05070")
+texture_hover = ExtResource("15_btqjj")
 description = "This is school"
 
 [node name="Festive" parent="." instance=ExtResource("2_w5fv4")]
@@ -230,6 +240,8 @@ offset_right = 1186.0
 offset_bottom = 517.0
 scale = Vector2(1.25, 1.25)
 texture_normal = ExtResource("13_xb0sr")
+texture_pressed = ExtResource("19_hrcyd")
+texture_hover = ExtResource("17_rgne6")
 description = "This is mall"
 
 [connection signal="pressed" from="Street" to="." method="_on_street_pressed"]
