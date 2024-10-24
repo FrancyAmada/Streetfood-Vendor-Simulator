@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var items = $Items.get_children()
 @onready var oil = $Oil
-@onready var money_label = $MoneyLabel
+@onready var money_label = $Money/MoneyLabel
 
 @export var money: int = 500
 
