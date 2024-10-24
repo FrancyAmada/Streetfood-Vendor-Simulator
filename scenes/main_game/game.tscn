@@ -37,34 +37,6 @@ offset_right = 546.0
 offset_bottom = 696.0
 text = "KwekKwek"
 
-[node name="ChickenSiomai" type="Button" parent="FoodItemsButtons"]
-offset_left = 21.0
-offset_top = 619.0
-offset_right = 262.0
-offset_bottom = 697.0
-text = "Chicken Siomai"
-
-[node name="PorkSiomai" type="Button" parent="FoodItemsButtons"]
-offset_left = 23.0
-offset_top = 533.0
-offset_right = 263.0
-offset_bottom = 609.0
-text = "Pork Siomai"
-
-[node name="JapaneseSiomai" type="Button" parent="FoodItemsButtons"]
-offset_left = 22.0
-offset_top = 446.0
-offset_right = 264.0
-offset_bottom = 524.0
-text = "Japanese Siomai"
-
-[node name="Juice" type="Button" parent="FoodItemsButtons"]
-offset_left = 44.0
-offset_top = 182.0
-offset_right = 224.0
-offset_bottom = 424.0
-text = "Juice Dispenser"
-
 [node name="FoodFryer" parent="." instance=ExtResource("3_4fqso")]
 position = Vector2(1050, 545)
 
@@ -132,8 +104,4 @@ position = Vector2(0, -1)
 [connection signal="pressed" from="FoodItemsButtons/Squidball" to="." method="_on_squidball_pressed"]
 [connection signal="pressed" from="FoodItemsButtons/Kikiam" to="." method="_on_kikiam_pressed"]
 [connection signal="pressed" from="FoodItemsButtons/KwekKwek" to="." method="_on_kwek_kwek_pressed"]
-[connection signal="pressed" from="FoodItemsButtons/ChickenSiomai" to="." method="_on_chicken_siomai_pressed"]
-[connection signal="pressed" from="FoodItemsButtons/PorkSiomai" to="." method="_on_pork_siomai_pressed"]
-[connection signal="pressed" from="FoodItemsButtons/JapaneseSiomai" to="." method="_on_japanese_siomai_pressed"]
-[connection signal="pressed" from="FoodItemsButtons/Juice" to="." method="_on_juice_pressed"]
 [connection signal="timeout" from="DaytimeTimer" to="." method="_on_daytime_timer_timeout"]

@@ -44,20 +44,6 @@ func _on_kwek_kwek_pressed() -> void:
 	food_fryer_node.add_streetfood("kwekkwek")
 
 
-func _on_chicken_siomai_pressed() -> void:
-	pass # Replace with function body.
-
-
-func _on_pork_siomai_pressed() -> void:
-	pass # Replace with function body.
-
-
-func _on_japanese_siomai_pressed() -> void:
-	pass # Replace with function body.
-
-
-func _on_juice_pressed() -> void:
-	pass # Replace with function body.
 
 func spawn_customer():
 	var customer_instance: Customer = CUSTOMER_SCENE.instantiate()
