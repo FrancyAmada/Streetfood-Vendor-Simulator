@@ -24,11 +24,22 @@ func start_minigame(streetfood_name: String):
 	visible = true
 	stick_node.activate_stick(true)
 	dropper_node.activate_spawner(true)
-	dropper_node.set_spawnable_item({'spawnable_count': 5})
+	dropper_node.set_spawnable_item({'name': 'fishball','spawnable_count': 5})
 
-func _on_dropper_is_finished() -> void:
+func reset_minigame():
+	stick_node.reset()
+
+func finish_minigame():
+	dropper_node.activate_spawner(false)
 	await get_tree().create_timer(3).timeout
 	stick_node.activate_stick(false)
 	stick_node.move_to_center()
 	await get_tree().create_timer(1.5).timeout
 	emit_signal("minigame_finished", stick_node.current_catched_index)
+	reset_minigame()
+
+func _on_dropper_is_finished() -> void:
+	finish_minigame()
+
+func _on_stick_is_max_catch() -> void:
+	finish_minigame()

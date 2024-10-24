@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 	pass
 
 func start_day():
-	daytime_timer.start(20)
+	daytime_timer.start(60)
 	
 func _on_daytime_timer_timeout() -> void:
 	emit_signal("day_is_finished")

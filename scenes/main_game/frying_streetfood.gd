@@ -4,6 +4,9 @@ class_name FryingStreetfood
 
 const FRICTION_CONSTANT: float = 0.9
 
+@onready var uncooked_sprite: Sprite2D = $UncookedSprite
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D
+
 var velocity: Vector2 = Vector2.ZERO
 var random_vel: Vector2 = Vector2.ZERO
 
@@ -26,6 +29,8 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	linear_velocity *= FRICTION_CONSTANT
 
 func set_food_item(food_name: String):
+	set_texture(food_name)
+	set_collision_shape(food_name)
 	await get_tree().create_timer(20).timeout
 	queue_free()
 
@@ -41,3 +46,15 @@ func get_random_velocity():
 
 func set_food_fryer_pos(pos: Vector2):
 	food_fryer_pos = pos
+
+func set_texture(food_name: String):
+	uncooked_sprite.texture = load("res://assets/streetfoods/raw/" + food_name + ".png")
+	
+func set_collision_shape(food_name: String):
+	if food_name == "kikiam":
+		collision_shape.shape = CapsuleShape2D.new()
+		collision_shape.shape.height = 40
+		collision_shape.rotation_degrees = 70
+	elif food_name == "kwekkwek":
+		collision_shape.shape.radius = 20
+		uncooked_sprite.scale = Vector2(0.2, 0.2)
