@@ -1,23 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://ceqt5en1n83e2"]
+[gd_scene load_steps=3 format=3 uid="uid://cb7jwaiqeln66"]
 
 [ext_resource type="Script" path="res://scenes/area_selection_menu/components/place_button/place_button.gd" id="1_vgmwx"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_r2k6v"]
-font_size = 18
+[sub_resource type="LabelSettings" id="LabelSettings_5d4em"]
+font_size = 24
+font_color = Color(0, 0, 0, 1)
 
-[node name="PlaceButton" type="Button"]
-offset_right = 320.0
-offset_bottom = 200.0
+[node name="PlaceButton" type="TextureButton"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_vgmwx")
 
 [node name="Description" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 0
-offset_top = -100.0
-offset_right = 320.0
-offset_bottom = -30.0
-label_settings = SubResource("LabelSettings_r2k6v")
+offset_left = 40.0
+offset_top = -114.0
+offset_right = 340.0
+offset_bottom = -64.0
+label_settings = SubResource("LabelSettings_5d4em")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
-clip_text = true
