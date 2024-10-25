@@ -2,7 +2,7 @@ extends Node2D
 
 class_name Customer
 
-@onready var texture = $Sprite2D
+@onready var sprite = $Sprite2D
 const STREETFOOD_ORDER_SCENE = preload("res://scenes/main_game/order.tscn")
 
 @export_enum('student', 'normal', 'rich') var character_type: String = 'normal'
@@ -13,7 +13,7 @@ signal start_minigame(streetfood_name: String, order: OrderButton)
 func _ready() -> void:
 	var n = randi_range(0, 1)
 	var gender = 'male' if (n==0) else 'female'
-	texture = load('res://assets/customers/' + gender + '-' + character_type + '.png')
+	sprite.texture = load('res://assets/customers/' + gender + '-' + character_type + '.png')
 	generate_orders()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
