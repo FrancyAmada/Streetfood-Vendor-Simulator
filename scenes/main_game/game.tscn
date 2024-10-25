@@ -197,7 +197,7 @@ scale = Vector2(0.8, 0.8)
 offset_left = 578.0
 offset_top = 402.0
 offset_right = 914.0
-offset_bottom = 694.0
+offset_bottom = 666.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CookedFoodContainer"]
 layout_mode = 2
@@ -214,7 +214,7 @@ layout_mode = 2
 [node name="TextureRect" type="TextureRect" parent="CookedFoodContainer/HBoxContainer/FriedItems/FishballContainer"]
 custom_minimum_size = Vector2(0, 96)
 layout_mode = 2
-tooltip_text = "Fishball"
+tooltip_text = "FIshball"
 texture = ExtResource("3_4lvat")
 expand_mode = 3
 
@@ -294,7 +294,6 @@ layout_mode = 2
 text = "0
 "
 script = ExtResource("19_mgmco")
-food_item_name = "chicken_siomai"
 
 [node name="PorkSiomaiContainer" type="HBoxContainer" parent="CookedFoodContainer/HBoxContainer/UpgradeItems"]
 layout_mode = 2
@@ -310,7 +309,6 @@ expand_mode = 2
 layout_mode = 2
 text = "0"
 script = ExtResource("19_mgmco")
-food_item_name = "pork_siomai"
 
 [node name="JapaneseSiomaiContainer" type="HBoxContainer" parent="CookedFoodContainer/HBoxContainer/UpgradeItems"]
 layout_mode = 2
@@ -326,7 +324,6 @@ expand_mode = 2
 layout_mode = 2
 text = "0"
 script = ExtResource("19_mgmco")
-food_item_name = "japanese_siomai"
 
 [node name="JuiceContainer" type="HBoxContainer" parent="CookedFoodContainer/HBoxContainer/UpgradeItems"]
 layout_mode = 2
@@ -344,13 +341,42 @@ layout_mode = 2
 text = "0
 "
 script = ExtResource("19_mgmco")
-food_item_name = "juice"
 
 [node name="Customers" type="Node2D" parent="."]
+
+[node name="1" type="Marker2D" parent="Customers"]
+position = Vector2(368, 209)
+
+[node name="2" type="Marker2D" parent="Customers"]
+position = Vector2(709, 209)
+
+[node name="3" type="Marker2D" parent="Customers"]
+position = Vector2(1003, 209)
+
+[node name="MoneyContainer" type="HBoxContainer" parent="."]
+offset_left = 1051.0
+offset_top = 6.0
+offset_right = 1264.0
+offset_bottom = 75.0
+script = ExtResource("30_kkvto")
+
+[node name="TextureRect" type="TextureRect" parent="MoneyContainer"]
+layout_mode = 2
+texture = ExtResource("31_yxgy1")
+expand_mode = 2
+
+[node name="MoneyLabel" type="Label" parent="MoneyContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme = ExtResource("32_oq5tw")
+theme_override_font_sizes/font_size = 32
+text = "999999"
 
 [node name="Minigame" parent="." instance=ExtResource("2_xsin3")]
 visible = false
 position = Vector2(0, -1)
+
+[node name="SpawnIntervalTimer" type="Timer" parent="."]
 
 [node name="DaytimeTimer" type="Timer" parent="."]
 
@@ -383,4 +409,5 @@ text = "999999"
 [connection signal="pressed" from="FoodItemsButtons/Squidball" to="." method="_on_squidball_pressed"]
 [connection signal="pressed" from="FoodItemsButtons/Kikiam" to="." method="_on_kikiam_pressed"]
 [connection signal="pressed" from="FoodItemsButtons/KwekKwek" to="." method="_on_kwek_kwek_pressed"]
+[connection signal="timeout" from="SpawnIntervalTimer" to="." method="_on_spawn_interval_timer_timeout"]
 [connection signal="timeout" from="DaytimeTimer" to="." method="_on_daytime_timer_timeout"]

@@ -2,18 +2,19 @@ extends Node2D
 
 class_name Customer
 
-@onready var texture = $Sprite2D
+@onready var sprite = $Sprite2D
 const STREETFOOD_ORDER_SCENE = preload("res://scenes/main_game/order.tscn")
 
 @export_enum('student', 'normal', 'rich') var character_type: String = 'normal'
 
 signal start_minigame(streetfood_name: String, order: OrderButton)
+signal remove_character()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var n = randi_range(0, 1)
 	var gender = 'male' if (n==0) else 'female'
-	texture = load('res://assets/customers/' + gender + '-' + character_type + '.png')
+	sprite.texture = load('res://assets/customers/' + gender + '-' + character_type + '.png')
 	generate_orders()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,6 +36,7 @@ func _on_start_minigame(streetfood_name: String, order: OrderButton):
 	
 func remove_customer():
 	if is_instance_valid(self):
+		emit_signal("remove_character")
 		queue_free()
 
 func generate_orders():
