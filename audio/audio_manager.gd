@@ -1,6 +1,6 @@
 extends Node
 
-#signal mute_state_changed(is_muted)
+signal mute_state_changed(is_muted)
 
 #music
 @onready var main_menu_music: AudioStream = preload("res://assets/sounds/bg-music/main_menu-music.wav")
