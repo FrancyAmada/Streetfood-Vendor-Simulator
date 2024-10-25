@@ -26,12 +26,12 @@ const REQUIRED_COOKED_FOOD: Dictionary = {
 const STREETFOOD_SELL_PRICE: Dictionary = {
 	"fishball": 20,
 	"kikiam": 20,
-	"squidball": 20,
-	"kwekkwek": 20,
+	"squidball": 25,
+	"kwekkwek": 25,
 	"chicken_siomai": 30,
 	"pork_siomai": 35,
 	"japanese_siomai": 40,
-	"juice": 30,
+	"juice": 15,
 }
 
 const STREETFOOD_FRYING_SPACE: Dictionary = {

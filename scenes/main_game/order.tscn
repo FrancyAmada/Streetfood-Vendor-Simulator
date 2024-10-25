@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dixkld3hedyhj"]
+[gd_scene load_steps=5 format=3 uid="uid://dixkld3hedyhj"]
 
 [ext_resource type="Script" path="res://scenes/main_game/order.gd" id="1_00056"]
+[ext_resource type="Theme" uid="uid://ct05pg6dp071m" path="res://assets/tooltip_theme.tres" id="1_orngl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w1ugv"]
 bg_color = Color(1, 0.8, 0, 1)
@@ -24,6 +25,7 @@ corner_radius_bottom_left = 15
 custom_minimum_size = Vector2(64, 64)
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme = ExtResource("1_orngl")
 theme_override_styles/hover = SubResource("StyleBoxFlat_w1ugv")
 theme_override_styles/normal = SubResource("StyleBoxFlat_0jbfg")
 expand_icon = true

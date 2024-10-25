@@ -25,6 +25,7 @@ func _ready() -> void:
 	price_label.text = "Price: " + str(price)
 	update_stocks_label()
 	Global.connect("unlock_siomai", _on_siomai_unlock)
+	Global.connect("unlock_juice", _on_juice_unlock)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -55,4 +56,8 @@ func _on_buy_button_button_down() -> void:
 
 func _on_siomai_unlock():
 	if locked and is_siomai:
+		unlock()
+
+func _on_juice_unlock():
+	if locked and streetfood_name == "juice":
 		unlock()

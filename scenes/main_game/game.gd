@@ -39,6 +39,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	update_food_items_buttons()
 	update_siomai_steamer()
+	update_juice_dispenser()
 	if is_out_of_stock():
 		end_day()
 	
@@ -87,10 +88,33 @@ func update_siomai_steamer():
 		$SiomaiSteamer/JapaneseSiomai.visible = false
 	else:
 		$SiomaiSteamer/JapaneseSiomai.visible = true
+		
+	$SiomaiSteamer/ChickenSiomaiTooltipPanel.tooltip_text = "Chicken Siomai: " + str(PlayerData.cooked_items["chicken_siomai"])
+	$SiomaiSteamer/PorkSiomaiTooltipPanel.tooltip_text = "Pork Siomai: " + str(PlayerData.cooked_items["pork_siomai"])
+	$SiomaiSteamer/JapaneseSiomaiTooltipPanel.tooltip_text = "Japanese Siomai: " + str(PlayerData.cooked_items["japanese_siomai"])
+	
+	
+func update_juice_dispenser():
+	if PlayerData.juice_unlocked:
+		$JuiceDispenser.visible = true
+	else:
+		$JuiceDispenser.visible = false
+		
+	if PlayerData.cooked_items["juice"] <= 0:
+		$JuiceDispenser/JuiceContainerFull.visible = false
+	else:
+		$JuiceDispenser/JuiceContainerFull.visible = true
+	$JuiceDispenser/TooltipPanel.tooltip_text = "Juice: " + str(PlayerData.cooked_items["juice"])
 
 func start_day():
 	daytime_timer.start(60)
 	PlayerData.RESET_COOKED_ITEMS_COUNT()
+	set_upgrades_cooked_stock_count()
+	
+func set_upgrades_cooked_stock_count():
+	for item in PlayerData.stock_items:
+		if item in StreetfoodData.SIOMAI_STREETFOODS or item == "juice":
+			PlayerData.UPDATE_COOKED_ITEM(item, PlayerData.stock_items[item])
 	
 func _on_daytime_timer_timeout() -> void:
 	if in_minigame:
@@ -101,6 +125,7 @@ func end_day():
 	daytime_timer.stop()
 	var new_oil_level: int = randi_range(0, PlayerData.oil_level)
 	PlayerData.UPDATE_OIL_LEVEL(new_oil_level)
+	PlayerData.UPDATE_UPGRADES()
 	emit_signal("day_is_finished")
 
 func is_out_of_stock():
@@ -115,28 +140,30 @@ func is_out_of_stock():
 	return out_of_stock and out_of_cooked_food
 	
 func _on_fishball_pressed() -> void:
-	if PlayerData.stock_items["fishball"] > 0:
+	if can_fry_food("fishball"):
 		PlayerData.stock_items["fishball"] -= 1
 		food_fryer_node.add_streetfood("fishball")
 
 
 func _on_squidball_pressed() -> void:
-	if PlayerData.stock_items["squidball"] > 0:
+	if can_fry_food("squidball"):
 		PlayerData.stock_items["squidball"] -= 1
 		food_fryer_node.add_streetfood("squidball")
 
 
 func _on_kikiam_pressed() -> void:
-	if PlayerData.stock_items["kikiam"] > 0:
+	if can_fry_food("kikiam"):
 		PlayerData.stock_items["kikiam"] -= 1
 		food_fryer_node.add_streetfood("kikiam")
 
 
 func _on_kwek_kwek_pressed() -> void:
-	if PlayerData.stock_items["kwekkwek"] > 0:
+	if can_fry_food("kwekkwek"):
 		PlayerData.stock_items["kwekkwek"] -= 1
 		food_fryer_node.add_streetfood("kwekkwek")
 		
+func can_fry_food(food_name: String):
+	return PlayerData.stock_items[food_name] > 0 and food_fryer_node.can_fry(food_name)
 
 func spawn_customer():
 	var customer_instance: Customer = CUSTOMER_SCENE.instantiate()

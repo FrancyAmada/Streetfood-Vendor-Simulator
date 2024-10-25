@@ -3,13 +3,14 @@ extends Node
 signal cooked_item_updated(food_name: String)
 signal oil_level_updated(level: int)
 
-var money: int = 500
+var money: int = 1000
 
 var reputation: int = 50
 
-var oil_level: int = 4
+var oil_level: int = 2
 
 var siomai_unlocked = false
+var juice_unlocked = false
 
 const COOKED_ITEMS_DEFAULT: Dictionary = {
 	"fishball": 0,
@@ -54,7 +55,12 @@ func UPDATE_OIL_LEVEL(level: int):
 
 func RESET_COOKED_ITEMS_COUNT():
 	for item in cooked_items:
-		UPDATE_COOKED_ITEM(item, 0)
+		UPDATE_COOKED_ITEM(item, -cooked_items[item])
 	for siomai in StreetfoodData.SIOMAI_STREETFOODS:
-		UPDATE_COOKED_ITEM(siomai, stock_items[siomai])
-	UPDATE_COOKED_ITEM("juice", stock_items["juice"])
+		UPDATE_COOKED_ITEM(siomai, -cooked_items[siomai])
+	UPDATE_COOKED_ITEM("juice", -cooked_items["juice"])
+
+func UPDATE_UPGRADES():
+	for siomai in StreetfoodData.SIOMAI_STREETFOODS:
+		stock_items[siomai] = cooked_items[siomai]
+	stock_items["juice"] = cooked_items["juice"]
