@@ -200,6 +200,10 @@ script = ExtResource("6_7c8ce")
 position = Vector2(1270, 494)
 texture = ExtResource("11_7wmkq")
 
+[node name="NormalStreet2" type="Sprite2D" parent="Backround"]
+position = Vector2(894, 486)
+texture = ExtResource("11_7wmkq")
+
 [node name="AreaSelectionLabel" type="Label" parent="."]
 offset_left = 43.0
 offset_top = 39.0
