@@ -31,7 +31,8 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 func set_food_item(food_name: String):
 	set_texture(food_name)
 	set_collision_shape(food_name)
-	await get_tree().create_timer(20).timeout
+	await get_tree().create_timer(StreetfoodData.STREETFOOD_COOKTIME[food_name]).timeout
+	PlayerData.UPDATE_COOKED_ITEM(food_name, 1)
 	queue_free()
 
 func map_range(value, start1, stop1, start2, stop2):

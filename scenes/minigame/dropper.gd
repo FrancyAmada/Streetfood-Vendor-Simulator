@@ -6,6 +6,9 @@ const DROPPING_STREETFOOD_SCENE = preload("res://scenes/minigame/dropping_street
 
 @onready var spawn_timer: Timer = $SpawnTimer
 
+var activated: bool = false
+var finished: bool = false
+
 var spawnable_item_name: String = ""
 var spawnable_items_count: int = 0
 
@@ -15,19 +18,26 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if spawn_timer.is_stopped() and spawnable_items_count > 0:
-		spawn_timer.start(0.3)
-	
-	if spawnable_items_count <= 0:
-		activate_spawner(false)
-		emit_signal("is_finished")
+	if activated:
+		if spawn_timer.is_stopped() and spawnable_items_count > 0:
+			spawn_timer.start(0.3)
+		
+		if spawnable_items_count <= 0 and !finished:
+			stop()
 
 func activate_spawner(to_on: bool):
+	activated = to_on
 	set_process(to_on)
 	if to_on:
 		spawn_timer.start(1.5)
 	else:
 		spawn_timer.stop()
+		
+func stop():
+	finished = true
+	if activated:
+		activate_spawner(false)
+		emit_signal("is_finished")
 		
 	
 func set_spawnable_item(item):

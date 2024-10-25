@@ -12,6 +12,7 @@ signal buy_item(item: Item)
 @export var price: int = 0
 @export var pack_size: int = 0
 @export var locked: bool = false
+@export var is_siomai: bool = false
 
 var current_stocks: int = 0
 
@@ -20,6 +21,7 @@ func _ready() -> void:
 	item_label.text = item_name
 	price_label.text = "Price: " + str(price)
 	update_stocks_label()
+	Global.connect("unlock_siomai", _on_siomai_unlock)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -37,11 +39,14 @@ func unlock() -> void:
 	buy_button.text = "BUY " + "x" + str(pack_size)
 
 func buy() -> void:
-	if locked:
-		unlock()
-	else:
+	if !locked:
+		PlayerData.stock_items[item_name.to_lower()] += pack_size
 		current_stocks += pack_size
 		update_stocks_label()
 
 func _on_buy_button_button_down() -> void:
 	emit_signal("buy_item", self)
+
+func _on_siomai_unlock():
+	if locked and is_siomai:
+		unlock()

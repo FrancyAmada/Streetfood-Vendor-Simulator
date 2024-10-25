@@ -15,13 +15,15 @@ var streetfood_drop_speed: int = 800
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	global_position = Vector2(640, -100)
+	global_position = Vector2(640, -200)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	if dropping and !catched:
 		global_position.y += streetfood_drop_speed * delta
 		#print_debug(global_position)
+		if global_position.y >= 1000:
+			queue_free()
 	
 func set_x_position(x_pos: int):
 	global_position.x = x_pos
@@ -29,6 +31,14 @@ func set_x_position(x_pos: int):
 func set_streetfood(food_name: String, spoiled: bool):
 	is_spoiled = spoiled
 	set_streetfood_texture(food_name)
+	update_streetfood_scale(food_name)
+
+func update_streetfood_scale(food_name):
+	if food_name == "kwekkwek":
+		streetfood_sprite.scale = Vector2(1, 1)
+		$StreetfoodArea/CollisionShape2D.shape.radius = 100
+		streetfood_drop_speed = 1200
+		streetfood_area_size = 100
 	
 func set_streetfood_texture(food_name: String):
 	if is_spoiled:

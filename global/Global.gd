@@ -1,11 +1,10 @@
 extends Node
 
+signal unlock_siomai()
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+signal minigame_started()
+signal minigame_finished()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func UNLOCK_SIOMAI():
+	emit_signal("unlock_siomai")
