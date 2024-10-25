@@ -3,6 +3,7 @@ extends Node2D
 class_name Customer
 
 @onready var sprite = $Sprite2D
+@onready var animation_player = $AnimationPlayer
 const STREETFOOD_ORDER_SCENE = preload("res://scenes/main_game/order.tscn")
 
 @export_enum('student', 'normal', 'rich') var character_type: String = 'normal'
@@ -12,6 +13,8 @@ signal remove_character()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	var idle_anim = "idle_anim" + str(randi_range(1, 2))
+	animation_player.play(idle_anim)
 	var n = randi_range(0, 1)
 	var gender = 'male' if (n==0) else 'female'
 	sprite.texture = load('res://assets/customers/' + gender + '-' + character_type + '.png')

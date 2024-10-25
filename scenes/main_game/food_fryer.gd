@@ -30,7 +30,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if items_count <= 0:
+	if items_node.get_child_count() <= 0:
 		AudioManager.stop_sfx(oil_sizzling_sound)
 	max_cookable_items_count = Global.OIL_LEVEL_FRYING_SPACE[PlayerData.oil_level]
 	$TooltipPanel.tooltip_text = str("Oil Percentage: " + str(PlayerData.oil_level * 25) + "%" + "\n" +

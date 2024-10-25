@@ -33,6 +33,7 @@ func _process(delta: float) -> void:
 
 func start_minigame(streetfood_name: String, order: OrderButton):
 	AudioManager.play_minigame_start_sfx()
+	AudioManager.play_minigame_music()
 	finished = false
 	current_order = order
 	current_streetfood = streetfood_name
@@ -79,6 +80,7 @@ func set_minigame_type(food_name: String):
 		item_is_siomai = true
 		siomai_plate_node.visible = true
 	if food_name == "juice":
+		AudioManager.play_juice_pouring_sfx()
 		item_is_juice = true
 		plastic_cup_node.visible = true
 
@@ -105,9 +107,10 @@ func finish_minigame():
 	if item_is_siomai:
 		catched_item_count = siomai_plate_node.current_catched_index
 		catched_spoiled_count = siomai_plate_node.catched_spoiled_count
-	AudioManager.play_correct_order_sfx()
 	if item_is_juice:
 		catched_item_count = plastic_cup_node.current_catched_index
+	AudioManager.play_correct_order_sfx()
+	AudioManager.play_game_music()
 	emit_signal("minigame_finished", current_streetfood, catched_item_count, catched_spoiled_count)
 	reset_minigame()
 	
