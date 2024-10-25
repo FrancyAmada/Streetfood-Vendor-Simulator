@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://hxidr1h70ruk"]
+[gd_scene load_steps=41 format=3 uid="uid://hxidr1h70ruk"]
 
 [ext_resource type="Script" path="res://scenes/main_game/game.gd" id="1_73igr"]
 [ext_resource type="Texture2D" uid="uid://cssvc6fl5u4ol" path="res://assets/main_game/areas/street.png" id="2_8ah13"]
@@ -6,13 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://d2g5x0hbh8ofm" path="res://scenes/minigame/minigame.tscn" id="2_xsin3"]
 [ext_resource type="PackedScene" uid="uid://cp4c4ufchbjoe" path="res://scenes/main_game/food_fryer.tscn" id="3_4fqso"]
 [ext_resource type="Texture2D" uid="uid://c87hoqqkkiwkv" path="res://assets/streetfoods/cooked/fishball.png" id="3_4lvat"]
-[ext_resource type="FontFile" uid="uid://pps1p2nmmn6s" path="res://assets/font/Fredoka/static/Fredoka-Regular.ttf" id="3_leplk"]
 [ext_resource type="Texture2D" uid="uid://cehulu2fhbxd1" path="res://assets/streetfoods/cooked/kikiam.png" id="4_0a7n4"]
+[ext_resource type="Texture2D" uid="uid://gbbxdpqx4jp7" path="res://assets/food_stall/juice_container/juice_container-empty.png" id="4_6yf3x"]
 [ext_resource type="Texture2D" uid="uid://cnyphiwx3sw36" path="res://assets/food_stall/steamer/steamer_base.png" id="4_nu3v5"]
 [ext_resource type="Texture2D" uid="uid://meqfvp5njhfc" path="res://assets/streetfoods/cooked/squidball.png" id="5_qyupf"]
+[ext_resource type="Texture2D" uid="uid://drrwpfad33h84" path="res://assets/food_stall/juice_container/juice_container-full.png" id="5_towyv"]
 [ext_resource type="Texture2D" uid="uid://chl72snoa8s2h" path="res://assets/food_stall/steamer/steamer-chicken_siomai.png" id="5_u5r45"]
 [ext_resource type="Texture2D" uid="uid://crhksqmmr28p5" path="res://assets/food_stall/steamer/steamer_front.png" id="5_xbejk"]
 [ext_resource type="Texture2D" uid="uid://c4lcekjw24rhw" path="res://assets/food_stall/steamer/steamer-pork_siomai.png" id="6_5acmp"]
+[ext_resource type="Theme" uid="uid://ct05pg6dp071m" path="res://assets/tooltip_theme.tres" id="6_jb85f"]
 [ext_resource type="Texture2D" uid="uid://dqqap6q16l1ao" path="res://assets/main_game/food_trays/fishball_tray.png" id="6_upaje"]
 [ext_resource type="Texture2D" uid="uid://b16sxcmys35tx" path="res://assets/streetfoods/cooked/kwekkwek.png" id="6_xm2hg"]
 [ext_resource type="Texture2D" uid="uid://bnw2n2t7u6d6x" path="res://assets/main_game/food_trays/fishball_tray-highlight.png" id="7_0vjl5"]
@@ -34,10 +36,26 @@
 [ext_resource type="Texture2D" uid="uid://c7gr4e67rrwht" path="res://assets/restock_menu/money-icon.png" id="31_yxgy1"]
 [ext_resource type="Theme" uid="uid://c2lcebayb3f8q" path="res://assets/game_theme.tres" id="32_oq5tw"]
 
-[sub_resource type="Theme" id="Theme_ynjel"]
-Label/constants/outline_size = 10
-Label/font_sizes/font_size = 32
-Label/fonts/font = ExtResource("3_leplk")
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ygnqi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qkxot"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6a408"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jvwe2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sdchy"]
+bg_color = Color(1, 0.709804, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 0.623529, 0, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_73igr")
@@ -55,29 +73,67 @@ position = Vector2(640, 360)
 scale = Vector2(2, 2)
 texture = ExtResource("2_liho8")
 
+[node name="JuiceDispenser" type="Node2D" parent="."]
+position = Vector2(1118, 290)
+scale = Vector2(0.6, 0.6)
+
+[node name="JuiceContainerEmpty" type="Sprite2D" parent="JuiceDispenser"]
+texture = ExtResource("4_6yf3x")
+
+[node name="JuiceContainerFull" type="Sprite2D" parent="JuiceDispenser"]
+texture = ExtResource("5_towyv")
+
+[node name="TooltipPanel" type="Panel" parent="JuiceDispenser"]
+offset_left = -110.0
+offset_top = -147.0
+offset_right = 147.0
+offset_bottom = 217.0
+theme = ExtResource("6_jb85f")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ygnqi")
+
 [node name="SiomaiSteamer" type="Node2D" parent="."]
-position = Vector2(186, 264)
+position = Vector2(163, 295)
+scale = Vector2(0.7, 0.7)
 metadata/_edit_group_ = true
 
 [node name="SiomaiSteamerSprite" type="Sprite2D" parent="SiomaiSteamer"]
-scale = Vector2(0.8, 0.8)
 texture = ExtResource("4_nu3v5")
 
 [node name="ChickenSiomai" type="Sprite2D" parent="SiomaiSteamer"]
-scale = Vector2(0.8, 0.8)
 texture = ExtResource("5_u5r45")
 
 [node name="PorkSiomai" type="Sprite2D" parent="SiomaiSteamer"]
-scale = Vector2(0.8, 0.8)
 texture = ExtResource("6_5acmp")
 
 [node name="JapaneseSiomai" type="Sprite2D" parent="SiomaiSteamer"]
-scale = Vector2(0.8, 0.8)
 texture = ExtResource("7_kux0b")
 
 [node name="SiomaiSteamerGlassSprite" type="Sprite2D" parent="SiomaiSteamer"]
-scale = Vector2(0.8, 0.8)
 texture = ExtResource("5_xbejk")
+
+[node name="ChickenSiomaiTooltipPanel" type="Panel" parent="SiomaiSteamer"]
+offset_left = -141.0
+offset_top = 36.0
+offset_right = 149.0
+offset_bottom = 80.0
+theme = ExtResource("6_jb85f")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_qkxot")
+
+[node name="PorkSiomaiTooltipPanel" type="Panel" parent="SiomaiSteamer"]
+offset_left = -140.0
+offset_top = -20.0
+offset_right = 149.0
+offset_bottom = 24.0
+theme = ExtResource("6_jb85f")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_6a408")
+
+[node name="JapaneseSiomaiTooltipPanel" type="Panel" parent="SiomaiSteamer"]
+offset_left = -139.0
+offset_top = -73.0
+offset_right = 150.0
+offset_bottom = -30.0
+theme = ExtResource("6_jb85f")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_jvwe2")
 
 [node name="FoodItemsButtons" type="Node2D" parent="."]
 
@@ -87,6 +143,7 @@ offset_top = 400.0
 offset_right = 549.0
 offset_bottom = 900.0
 scale = Vector2(0.45, 0.45)
+theme = ExtResource("6_jb85f")
 texture_normal = ExtResource("6_upaje")
 texture_pressed = ExtResource("7_0vjl5")
 texture_hover = ExtResource("7_0vjl5")
@@ -99,6 +156,7 @@ offset_top = 506.0
 offset_right = 533.0
 offset_bottom = 1006.0
 scale = Vector2(0.5, 0.5)
+theme = ExtResource("6_jb85f")
 texture_normal = ExtResource("10_6ikmg")
 texture_pressed = ExtResource("11_0vyq0")
 texture_hover = ExtResource("11_0vyq0")
@@ -111,6 +169,7 @@ offset_top = 398.0
 offset_right = 826.0
 offset_bottom = 898.0
 scale = Vector2(0.45, 0.45)
+theme = ExtResource("6_jb85f")
 texture_normal = ExtResource("12_dtye2")
 texture_pressed = ExtResource("13_aon60")
 texture_hover = ExtResource("13_aon60")
@@ -123,6 +182,7 @@ offset_top = 509.0
 offset_right = 816.0
 offset_bottom = 1009.0
 scale = Vector2(0.5, 0.5)
+theme = ExtResource("6_jb85f")
 texture_normal = ExtResource("14_ss5h1")
 texture_pressed = ExtResource("15_yxjjy")
 texture_hover = ExtResource("15_yxjjy")
@@ -130,7 +190,8 @@ texture_disabled = ExtResource("8_so6jo")
 texture_click_mask = ExtResource("9_g2w7y")
 
 [node name="FoodFryer" parent="." instance=ExtResource("3_4fqso")]
-position = Vector2(1101, 528)
+position = Vector2(1087, 562)
+scale = Vector2(0.8, 0.8)
 
 [node name="CookedFoodContainer" type="PanelContainer" parent="."]
 offset_left = 578.0
@@ -140,7 +201,7 @@ offset_bottom = 666.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CookedFoodContainer"]
 layout_mode = 2
-theme = SubResource("Theme_ynjel")
+theme = ExtResource("6_jb85f")
 theme_override_constants/separation = 0
 
 [node name="FriedItems" type="VBoxContainer" parent="CookedFoodContainer/HBoxContainer"]
@@ -233,6 +294,7 @@ layout_mode = 2
 text = "0
 "
 script = ExtResource("19_mgmco")
+food_item_name = "chicken_siomai"
 
 [node name="PorkSiomaiContainer" type="HBoxContainer" parent="CookedFoodContainer/HBoxContainer/UpgradeItems"]
 layout_mode = 2
@@ -248,6 +310,7 @@ expand_mode = 2
 layout_mode = 2
 text = "0"
 script = ExtResource("19_mgmco")
+food_item_name = "pork_siomai"
 
 [node name="JapaneseSiomaiContainer" type="HBoxContainer" parent="CookedFoodContainer/HBoxContainer/UpgradeItems"]
 layout_mode = 2
@@ -263,6 +326,7 @@ expand_mode = 2
 layout_mode = 2
 text = "0"
 script = ExtResource("19_mgmco")
+food_item_name = "japanese_siomai"
 
 [node name="JuiceContainer" type="HBoxContainer" parent="CookedFoodContainer/HBoxContainer/UpgradeItems"]
 layout_mode = 2
@@ -280,6 +344,7 @@ layout_mode = 2
 text = "0
 "
 script = ExtResource("19_mgmco")
+food_item_name = "juice"
 
 [node name="Customers" type="Node2D" parent="."]
 
@@ -287,24 +352,38 @@ script = ExtResource("19_mgmco")
 position = Vector2(368, 209)
 
 [node name="2" type="Marker2D" parent="Customers"]
-position = Vector2(709, 209)
+position = Vector2(665, 209)
 
 [node name="3" type="Marker2D" parent="Customers"]
-position = Vector2(1003, 209)
+position = Vector2(955, 209)
 
-[node name="MoneyContainer" type="HBoxContainer" parent="."]
-offset_left = 1051.0
-offset_top = 6.0
-offset_right = 1264.0
-offset_bottom = 75.0
+[node name="EndDayButton" type="Button" parent="."]
+offset_left = 1124.0
+offset_top = 81.0
+offset_right = 1246.0
+offset_bottom = 136.0
+theme = ExtResource("32_oq5tw")
+text = "End Day?"
+
+[node name="MoneyContainer" type="PanelContainer" parent="."]
+offset_left = 1053.0
+offset_top = 15.0
+offset_right = 1250.0
+offset_bottom = 77.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_sdchy")
+
+[node name="MoneyBoxContainer" type="HBoxContainer" parent="MoneyContainer"]
+layout_mode = 2
+tooltip_text = "Player Money"
+theme = ExtResource("6_jb85f")
 script = ExtResource("30_kkvto")
 
-[node name="TextureRect" type="TextureRect" parent="MoneyContainer"]
+[node name="TextureRect" type="TextureRect" parent="MoneyContainer/MoneyBoxContainer"]
 layout_mode = 2
 texture = ExtResource("31_yxgy1")
 expand_mode = 2
 
-[node name="MoneyLabel" type="Label" parent="MoneyContainer"]
+[node name="MoneyLabel" type="Label" parent="MoneyContainer/MoneyBoxContainer"]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 theme = ExtResource("32_oq5tw")
@@ -323,5 +402,6 @@ position = Vector2(0, -1)
 [connection signal="pressed" from="FoodItemsButtons/Squidball" to="." method="_on_squidball_pressed"]
 [connection signal="pressed" from="FoodItemsButtons/Kikiam" to="." method="_on_kikiam_pressed"]
 [connection signal="pressed" from="FoodItemsButtons/KwekKwek" to="." method="_on_kwek_kwek_pressed"]
+[connection signal="pressed" from="EndDayButton" to="." method="_on_end_day_button_pressed"]
 [connection signal="timeout" from="SpawnIntervalTimer" to="." method="_on_spawn_interval_timer_timeout"]
 [connection signal="timeout" from="DaytimeTimer" to="." method="_on_daytime_timer_timeout"]

@@ -17,6 +17,8 @@ func _on_pressed() -> void:
 
 func set_streetfood(order_name: String):
 	streetfood_name = order_name
+	if order_name == "juice":
+		order_name = "blue_lemonade"
 	#text = streetfood_name.capitalize()
 	var order_icon = load('res://assets/customer_orders/' + order_name + '.png')
 	icon = order_icon

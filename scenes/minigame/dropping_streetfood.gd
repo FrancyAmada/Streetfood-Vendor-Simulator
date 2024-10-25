@@ -11,7 +11,7 @@ var catched: bool = false
 var is_spoiled: bool = false
 
 var streetfood_area_size: int = 50
-var streetfood_drop_speed: int = 800
+var streetfood_drop_speed: int = 900
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -53,7 +53,7 @@ func catch_streetfood(catcher_node: Node2D):
 	set_physics_process(false)
 	catched = true
 	dropping = false
-	streetfood_area.set_deferred('monitoring', false)
+	streetfood_area.monitoring = false
 	get_parent().remove_child(self)
 	catcher_node.items_node.add_child(self)
 

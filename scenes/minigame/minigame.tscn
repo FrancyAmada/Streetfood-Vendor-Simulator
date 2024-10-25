@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://d2g5x0hbh8ofm"]
+[gd_scene load_steps=7 format=3 uid="uid://d2g5x0hbh8ofm"]
 
 [ext_resource type="PackedScene" uid="uid://moakaieorp3s" path="res://scenes/minigame/stick.tscn" id="1_flwk3"]
 [ext_resource type="Script" path="res://scenes/minigame/minigame.gd" id="1_iuaff"]
 [ext_resource type="PackedScene" uid="uid://y8qmqgob5bfe" path="res://scenes/minigame/dropper.tscn" id="3_4sjvc"]
 [ext_resource type="PackedScene" uid="uid://bfljpfy3l3q1o" path="res://scenes/minigame/siomai_plate.tscn" id="4_3m7pr"]
+[ext_resource type="PackedScene" uid="uid://b4h5abxuca0yf" path="res://scenes/minigame/plastic_cup.tscn" id="5_r05gf"]
+[ext_resource type="PackedScene" uid="uid://bfe68xwdl42ky" path="res://scenes/minigame/juice_dropper.tscn" id="6_j31ym"]
 
 [node name="Minigame" type="Node2D"]
 script = ExtResource("1_iuaff")
@@ -20,8 +22,16 @@ position = Vector2(640, 600)
 [node name="SiomaiPlate" parent="." instance=ExtResource("4_3m7pr")]
 position = Vector2(644, 689)
 
+[node name="PlasticCup" parent="." instance=ExtResource("5_r05gf")]
+position = Vector2(644, 600)
+scale = Vector2(0.8, 0.8)
+
 [node name="Dropper" parent="." instance=ExtResource("3_4sjvc")]
+
+[node name="JuiceDropper" parent="." instance=ExtResource("6_j31ym")]
 
 [connection signal="is_max_catch" from="Stick" to="." method="_on_stick_is_max_catch"]
 [connection signal="is_max_catch" from="SiomaiPlate" to="." method="_on_siomai_plate_is_max_catch"]
+[connection signal="is_max_catch" from="PlasticCup" to="." method="_on_plastic_cup_is_max_catch"]
 [connection signal="is_finished" from="Dropper" to="." method="_on_dropper_is_finished"]
+[connection signal="is_finished" from="JuiceDropper" to="." method="_on_juice_dropper_is_finished"]
