@@ -41,8 +41,8 @@ func _ready() -> void:
 		spawn_interval_timer.start(MapData.MAP_SPAWN_INTERVAL[location])
 		
 	# TEST BLOCK --------------------------
-	if !customer1:
-		spawn_customer(1)
+	#if !customer1:
+		#spawn_customer(1)
 	# -------------------------------------
 
 

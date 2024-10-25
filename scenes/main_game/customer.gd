@@ -52,23 +52,24 @@ func generate_orders():
 		if PlayerData.stock_items[item] != 0:
 			available_items.append(item)
 			
-	if character_type == 'student':
-		add_order(available_items.pick_random())
-	
-	if character_type == 'normal':
-		var n = randi_range(0, 1)
-		if n == 0: 
-			add_order(available_items.pick_random())
-		else:
-			add_order(available_items.pick_random())
+	if !get_parent().get_parent().get_parent().is_out_of_stock():
+		if character_type == 'student':
 			add_order(available_items.pick_random())
 		
-	if character_type == 'rich':
-		var n = randi_range(0, 9)
-		if n < 3:
-			add_order(available_items.pick_random())
-			add_order(available_items.pick_random())
-		else:
-			add_order(available_items.pick_random())
-			add_order(available_items.pick_random())
-			add_order(available_items.pick_random())
+		if character_type == 'normal':
+			var n = randi_range(0, 1)
+			if n == 0: 
+				add_order(available_items.pick_random())
+			else:
+				add_order(available_items.pick_random())
+				add_order(available_items.pick_random())
+			
+		if character_type == 'rich':
+			var n = randi_range(0, 9)
+			if n < 3:
+				add_order(available_items.pick_random())
+				add_order(available_items.pick_random())
+			else:
+				add_order(available_items.pick_random())
+				add_order(available_items.pick_random())
+				add_order(available_items.pick_random())

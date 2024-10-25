@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://qs4gxciyt5vx"
-path="res://.godot/imported/japanese_siomai.png.png-b8ac8e73eb8b73da5b94d614c4287915.ctex"
+path="res://.godot/imported/japanese_siomai.png-9683dfcae8e865ae23c4b243e3dc9f98.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/customer_orders/japanese_siomai.png.png"
-dest_files=["res://.godot/imported/japanese_siomai.png.png-b8ac8e73eb8b73da5b94d614c4287915.ctex"]
+source_file="res://assets/customer_orders/japanese_siomai.png"
+dest_files=["res://.godot/imported/japanese_siomai.png-9683dfcae8e865ae23c4b243e3dc9f98.ctex"]
 
 [params]
 
