@@ -18,6 +18,7 @@ extends Node
 @onready var correct_order_sfx: AudioStream = preload("res://assets/sounds/sfx/correct-order.wav")
 @onready var oil_sizzling_sfx: AudioStream = preload("res://assets/sounds/sfx/oil-sizzling.wav")
 @onready var fail_sfx: AudioStream = preload("res://assets/sounds/sfx/fail.wav")
+@onready var minigame_start_sfx: AudioStream = preload("res://assets/sounds/sfx/minigame_start.wav")
 
 var music_bus = AudioServer.get_bus_index("Music")
 var sfx_bus = AudioServer.get_bus_index("SFX")
@@ -132,3 +133,6 @@ func play_oil_sizzling_sfx():
 	
 func play_fail_sfx():
 	play_sfx(fail_sfx)
+	
+func play_minigame_start_sfx():
+	play_sfx(minigame_start_sfx)

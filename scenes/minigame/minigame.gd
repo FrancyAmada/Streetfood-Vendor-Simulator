@@ -29,6 +29,7 @@ func _process(delta: float) -> void:
 	pass
 
 func start_minigame(streetfood_name: String, order: OrderButton):
+	AudioManager.play_minigame_start_sfx()
 	finished = false
 	current_order = order
 	current_streetfood = streetfood_name
