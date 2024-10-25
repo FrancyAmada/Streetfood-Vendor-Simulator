@@ -13,13 +13,13 @@ func _ready():
 	animation_player.play("title_idle_animation")
 	settings.connect("back_to_menu_pressed", _on_settings_back_pressed)
 
-
 func _on_play_pressed():
 	emit_signal("play_is_pressed")
-
+	AudioManager.play_click_sfx()
 
 func _on_settings_pressed():
 	animation_player.play("settings_pressed")
+	AudioManager.play_click_sfx()
 
 func _on_settings_back_pressed():
 	AudioManager.play_click_sfx()

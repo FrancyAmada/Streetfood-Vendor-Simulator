@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b7gwwhnck8cog" path="res://scenes/restock_menu/item.tscn" id="1_d40ht"]
 [ext_resource type="Script" path="res://scenes/restock_menu/restock_menu.gd" id="1_vaiqw"]
 [ext_resource type="PackedScene" uid="uid://cqr7m6q65prfj" path="res://scenes/restock_menu/oil.tscn" id="3_2di2q"]
-[ext_resource type="Theme" uid="uid://c2lcebayb3f8q" path="res://assets/game_theme.tres" id="3_y0nda"]
+[ext_resource type="Theme" uid="uid://envhjmnpsmmu" path="res://assets/game_theme.tres" id="3_y0nda"]
 [ext_resource type="Texture2D" uid="uid://c7gr4e67rrwht" path="res://assets/restock_menu/money-icon.png" id="3_yu5g3"]
 [ext_resource type="Texture2D" uid="uid://dx6cspm410aiw" path="res://assets/restock_menu/store-bg.png" id="6_brll0"]
 
@@ -55,6 +55,35 @@ theme = ExtResource("3_y0nda")
 price = 50
 
 [node name="Money" type="Node2D" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+visible = true
+modulate = Color(1, 1, 1, 1)
+self_modulate = Color(1, 1, 1, 1)
+show_behind_parent = false
+top_level = false
+clip_children = 0
+light_mask = 1
+visibility_layer = 1
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
+texture_filter = 0
+texture_repeat = 0
+material = null
+use_parent_material = false
+position = Vector2(0, 0)
+rotation = 0.0
+scale = Vector2(1, 1)
+skew = 0.0
+script = null
 
 [node name="Sprite2D" type="Sprite2D" parent="Money"]
 position = Vector2(908, 54)

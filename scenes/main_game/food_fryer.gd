@@ -7,9 +7,9 @@ const FRYING_STREETFOOD = preload("res://scenes/main_game/frying_streetfood.tscn
 
 @onready var main_game: Node2D = get_parent()
 @onready var items_node: Node2D = $ItemsNode
+@onready var oil_sizzling_sound = "res://assets/sounds/sfx/oil-sizzling.wav".get_file().get_basename()
 
 var max_cookable_items_count: int = 50
-
 var items_count: int = 0
 
 
@@ -29,6 +29,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if items_count <= 0:
+		AudioManager.stop_sfx(oil_sizzling_sound)
 	max_cookable_items_count = Global.OIL_LEVEL_FRYING_SPACE[PlayerData.oil_level]
 	$TooltipPanel.tooltip_text = "Frying Amount: " + str(items_count) + " / " + str(max_cookable_items_count)
 	

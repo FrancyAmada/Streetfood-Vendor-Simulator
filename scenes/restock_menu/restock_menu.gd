@@ -38,6 +38,7 @@ func _on_refill_oil() -> void:
 	
 	
 func _on_next_button_button_down() -> void:
+	AudioManager.play_click_sfx()
 	if PlayerData.oil_level <= 0 :
 		print("BUY MORE OIL")
 		return
@@ -45,6 +46,7 @@ func _on_next_button_button_down() -> void:
 	emit_signal("next_is_pressed")
 
 func _on_unlock_siomai_pressed() -> void:
+	AudioManager.play_click_sfx()
 	if PlayerData.money >= 500:
 		PlayerData.money -= 500
 		Global.UNLOCK_SIOMAI()

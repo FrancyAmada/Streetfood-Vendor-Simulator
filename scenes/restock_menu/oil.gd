@@ -31,4 +31,5 @@ func buy() -> void:
 	update_oil_bar()
 
 func _on_oil_button_button_down() -> void:
+	AudioManager.play_click_sfx()
 	emit_signal("refill_oil")

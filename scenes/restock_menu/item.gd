@@ -51,6 +51,7 @@ func buy() -> void:
 		update_stocks_label()
 
 func _on_buy_button_button_down() -> void:
+	AudioManager.play_click_sfx()
 	emit_signal("buy_item", self)
 
 func _on_siomai_unlock():

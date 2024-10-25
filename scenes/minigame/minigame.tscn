@@ -3,9 +3,37 @@
 [ext_resource type="PackedScene" uid="uid://moakaieorp3s" path="res://scenes/minigame/stick.tscn" id="1_flwk3"]
 [ext_resource type="Script" path="res://scenes/minigame/minigame.gd" id="1_iuaff"]
 [ext_resource type="PackedScene" uid="uid://y8qmqgob5bfe" path="res://scenes/minigame/dropper.tscn" id="3_4sjvc"]
-[ext_resource type="PackedScene" uid="uid://bfljpfy3l3q1o" path="res://scenes/minigame/siomai_plate.tscn" id="4_3m7pr"]
+[ext_resource type="PackedScene" uid="uid://ca2jmchoennjf" path="res://scenes/minigame/siomai_plate.tscn" id="4_3m7pr"]
 
 [node name="Minigame" type="Node2D"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+visible = true
+modulate = Color(1, 1, 1, 1)
+self_modulate = Color(1, 1, 1, 1)
+show_behind_parent = false
+top_level = false
+clip_children = 0
+light_mask = 1
+visibility_layer = 1
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
+texture_filter = 0
+texture_repeat = 0
+material = null
+use_parent_material = false
+position = Vector2(0, 0)
+rotation = 0.0
+scale = Vector2(1, 1)
+skew = 0.0
 script = ExtResource("1_iuaff")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
@@ -21,6 +49,34 @@ position = Vector2(640, 600)
 position = Vector2(644, 689)
 
 [node name="Dropper" parent="." instance=ExtResource("3_4sjvc")]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+visible = true
+modulate = Color(1, 1, 1, 1)
+self_modulate = Color(1, 1, 1, 1)
+show_behind_parent = false
+top_level = false
+clip_children = 0
+light_mask = 1
+visibility_layer = 1
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
+texture_filter = 0
+texture_repeat = 0
+material = null
+use_parent_material = false
+position = Vector2(0, 0)
+rotation = 0.0
+scale = Vector2(1, 1)
+skew = 0.0
 
 [connection signal="is_max_catch" from="Stick" to="." method="_on_stick_is_max_catch"]
 [connection signal="is_max_catch" from="SiomaiPlate" to="." method="_on_siomai_plate_is_max_catch"]

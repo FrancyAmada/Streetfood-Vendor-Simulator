@@ -12,7 +12,6 @@ func _ready():
 	sfx_slider.value = db_to_linear(AudioServer.get_bus_volume_db(AudioManager.sfx_bus))
 	music_slider.value = db_to_linear(AudioServer.get_bus_volume_db(AudioManager.music_bus))
 	update_mute_button_texture()
-	#mute_button.connect("pressed", _on_mute_button_pressed)
 
 func _on_back_button_pressed():
 	AudioManager.play_click_sfx()
@@ -38,10 +37,9 @@ func update_mute_button_texture():
 	else:
 		mute_button.texture_normal = preload("res://assets/menu/settings/mute_button-unpressed.png")
 	
-	
 func _on_music_volume_slider_value_changed(value):
-	AudioManager.set_sfx_volume(value)
-	AudioManager.play_click_sfx()
+	AudioManager.set_music_volume(value)
 
 func _on_sfx_volume_slider_value_changed(value):
-	AudioManager.set_music_volume(value)
+	AudioManager.set_sfx_volume(value)
+	AudioManager.play_click_sfx()

@@ -53,8 +53,10 @@ func _on_stick_head_area_area_entered(area: Area2D) -> void:
 		var streetfood_item: DroppingStreetfood = area.get_parent()
 		if !streetfood_item.catched:
 			streetfood_item.catch_streetfood(self)
+			AudioManager.play_correct_catch_sfx()
 			current_catched_index += 1
 			if streetfood_item.is_spoiled:
+				AudioManager.play_wrong_catch_sfx()
 				catched_spoiled_count += 1
 			print("CATCHED ITEM!")
 			if current_catched_index >= max_catched_index and activated:

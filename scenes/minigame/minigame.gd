@@ -88,6 +88,7 @@ func finish_minigame():
 	if item_is_siomai:
 		catched_item_count = siomai_plate_node.current_catched_index
 		catched_spoiled_count = siomai_plate_node.catched_spoiled_count
+	AudioManager.play_correct_order_sfx()
 	emit_signal("minigame_finished", current_streetfood, catched_item_count, catched_spoiled_count)
 	reset_minigame()
 	

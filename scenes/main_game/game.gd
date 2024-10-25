@@ -115,24 +115,28 @@ func is_out_of_stock():
 	return out_of_stock and out_of_cooked_food
 	
 func _on_fishball_pressed() -> void:
+	AudioManager.play_click_sfx()
 	if PlayerData.stock_items["fishball"] > 0:
 		PlayerData.stock_items["fishball"] -= 1
 		food_fryer_node.add_streetfood("fishball")
 
 
 func _on_squidball_pressed() -> void:
+	AudioManager.play_click_sfx()
 	if PlayerData.stock_items["squidball"] > 0:
 		PlayerData.stock_items["squidball"] -= 1
 		food_fryer_node.add_streetfood("squidball")
 
 
 func _on_kikiam_pressed() -> void:
+	AudioManager.play_click_sfx()
 	if PlayerData.stock_items["kikiam"] > 0:
 		PlayerData.stock_items["kikiam"] -= 1
 		food_fryer_node.add_streetfood("kikiam")
 
 
 func _on_kwek_kwek_pressed() -> void:
+	AudioManager.play_click_sfx()
 	if PlayerData.stock_items["kwekkwek"] > 0:
 		PlayerData.stock_items["kwekkwek"] -= 1
 		food_fryer_node.add_streetfood("kwekkwek")
@@ -150,14 +154,16 @@ func _on_start_minigame(streetfood_name: String, order: OrderButton):
 	
 func _on_minigame_finished(food_name: String, catched_count: int, catched_spoiled_count: int):
 	if catched_count <= 0:
-		pass
+		AudioManager.play_fail_sfx()
 	elif catched_count / StreetfoodData.REQUIRED_COOKED_FOOD[food_name] > 0.5:
 		var tip: int = get_tip(food_name, catched_count)
 		if tip > 0:
 			emit_signal("received_tip", tip)
 			print("RECEIVED TIP: ", tip)
+		AudioManager.play_chaching_sfx()
 		PlayerData.money += StreetfoodData.STREETFOOD_SELL_PRICE[food_name] + tip
 	elif catched_count / StreetfoodData.REQUIRED_COOKED_FOOD[food_name] < 0.5:
+		AudioManager.play_chaching_sfx()
 		PlayerData.money += StreetfoodData.STREETFOOD_SELL_PRICE[food_name] / 2
 	minigame_node.visible = false
 	in_minigame = false

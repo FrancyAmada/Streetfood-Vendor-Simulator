@@ -11,6 +11,7 @@ func _ready() -> void:
 	Global.connect("minigame_finished", _on_minigame_finished)
 
 func _on_pressed() -> void:
+	AudioManager.play_click_sfx()
 	if PlayerData.cooked_items[streetfood_name] >= StreetfoodData.REQUIRED_COOKED_FOOD[streetfood_name]:
 		PlayerData.UPDATE_COOKED_ITEM(streetfood_name, -StreetfoodData.REQUIRED_COOKED_FOOD[streetfood_name])
 		emit_signal("start_minigame", streetfood_name, self)

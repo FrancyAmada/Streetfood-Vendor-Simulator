@@ -6,6 +6,7 @@ extends Node
 @onready var main_menu_music: AudioStream = preload("res://assets/sounds/bg-music/main_menu-music.wav")
 @onready var level_select_music: AudioStream = preload("res://assets/sounds/bg-music/level_select-music.wav")
 @onready var game_music: AudioStream = preload("res://assets/sounds/bg-music/game-music.wav")
+@onready var restock_menu_music: AudioStream = preload("res://assets/sounds/bg-music/restock_menu-music.wav")
 
 #ui_sfx
 @onready var click_sfx: AudioStream = preload("res://assets/sounds/ui-sfx/click.wav")
@@ -16,6 +17,7 @@ extends Node
 @onready var wrong_catch_sfx: AudioStream = preload("res://assets/sounds/sfx/wrong-catch.wav")
 @onready var correct_order_sfx: AudioStream = preload("res://assets/sounds/sfx/correct-order.wav")
 @onready var oil_sizzling_sfx: AudioStream = preload("res://assets/sounds/sfx/oil-sizzling.wav")
+@onready var fail_sfx: AudioStream = preload("res://assets/sounds/sfx/fail.wav")
 
 var music_bus = AudioServer.get_bus_index("Music")
 var sfx_bus = AudioServer.get_bus_index("SFX")
@@ -107,6 +109,9 @@ func play_level_select_music():
 func play_game_music():
 	play_music(game_music)
 	
+func play_restock_menu_music():
+	play_music(restock_menu_music)
+	
 func play_click_sfx():
 	play_sfx(click_sfx)
 	
@@ -124,3 +129,6 @@ func play_correct_order_sfx():
 	
 func play_oil_sizzling_sfx():
 	play_sfx(oil_sizzling_sfx)
+	
+func play_fail_sfx():
+	play_sfx(fail_sfx)
