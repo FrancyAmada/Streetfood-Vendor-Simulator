@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://da8x36hcorblr"]
+[gd_scene load_steps=22 format=3 uid="uid://da8x36hcorblr"]
 
 [ext_resource type="Script" path="res://scenes/menu/main_menu/main_menu.gd" id="1_e3kcb"]
 [ext_resource type="PackedScene" uid="uid://dhf0slbx1ay6e" path="res://scenes/settings/settings.tscn" id="2_4yo52"]
@@ -13,6 +13,9 @@
 [ext_resource type="Script" path="res://scenes/menu/clouds/cloud.gd" id="5_bpluu"]
 [ext_resource type="Texture2D" uid="uid://0j7gugsbcymb" path="res://assets/others/clouds/cloud_3.png" id="5_ioobx"]
 [ext_resource type="Texture2D" uid="uid://b4ey6id0drkym" path="res://assets/menu/main_menu/title.png" id="10_0don7"]
+[ext_resource type="Texture2D" uid="uid://d28y7j7p82ga1" path="res://assets/experimental/menu/main_menu/play_button-pressed.png" id="12_5scym"]
+[ext_resource type="Texture2D" uid="uid://x4kp4nelnqib" path="res://assets/experimental/menu/main_menu/settings_button-pressed.png" id="14_3cy33"]
+[ext_resource type="Texture2D" uid="uid://bqwtar24nb8lm" path="res://assets/experimental/menu/main_menu/exit_button-pressed.png" id="16_d7u2r"]
 
 [sub_resource type="Animation" id="Animation_crwdl"]
 length = 0.001
@@ -196,7 +199,7 @@ z_index = 2
 position = Vector2(-1000, 0)
 
 [node name="Clouds" parent="." instance=ExtResource("2_nnb4s")]
-position = Vector2(1335, 107)
+position = Vector2(1435, 112)
 
 [node name="Cloud1" type="Sprite2D" parent="Clouds"]
 scale = Vector2(0.75, 0.75)
@@ -433,7 +436,7 @@ shortcut = null
 shortcut_feedback = true
 shortcut_in_tooltip = true
 texture_normal = ExtResource("3_ykw6j")
-texture_pressed = null
+texture_pressed = ExtResource("12_5scym")
 texture_hover = null
 texture_disabled = null
 texture_focused = null
@@ -501,7 +504,7 @@ shortcut = null
 shortcut_feedback = true
 shortcut_in_tooltip = true
 texture_normal = ExtResource("4_tkix5")
-texture_pressed = null
+texture_pressed = ExtResource("14_3cy33")
 texture_hover = null
 texture_disabled = null
 texture_focused = null
@@ -569,7 +572,7 @@ shortcut = null
 shortcut_feedback = true
 shortcut_in_tooltip = true
 texture_normal = ExtResource("5_0xuuv")
-texture_pressed = null
+texture_pressed = ExtResource("16_d7u2r")
 texture_hover = null
 texture_disabled = null
 texture_focused = null

@@ -25,6 +25,7 @@ func _on_settings_back_pressed():
 	AudioManager.play_click_sfx()
 	animation_player.play("exit_settings_pressed")
 	await animation_player.animation_finished
+	animation_player.play("title_idle_animation")
 
 func _on_exit_pressed():
 	get_tree().quit()

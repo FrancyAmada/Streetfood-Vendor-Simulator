@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://dbt5dv3jetjqb"]
+[gd_scene load_steps=2 format=3 uid="uid://dbt5dv3jetjqb"]
+
+[ext_resource type="Script" path="res://scenes/menu/clouds/clouds.gd" id="1_37gen"]
 
 [node name="Clouds" type="Node2D"]
 _import_path = NodePath("")
@@ -29,4 +31,4 @@ position = Vector2(0, 0)
 rotation = 0.0
 scale = Vector2(1, 1)
 skew = 0.0
-script = null
+script = ExtResource("1_37gen")
