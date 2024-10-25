@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://by8jqacilhix"]
+[gd_scene load_steps=24 format=3 uid="uid://by8jqacilhix"]
 
 [ext_resource type="Script" path="res://scenes/area_selection_menu/area_selection_menu.gd" id="1_mlgwy"]
 [ext_resource type="Texture2D" uid="uid://ck8em8fak080y" path="res://assets/menu/area_selection/road.png" id="2_7qf1x"]
@@ -11,15 +11,16 @@
 [ext_resource type="Script" path="res://scenes/menu/clouds/cloud.gd" id="6_7c8ce"]
 [ext_resource type="Texture2D" uid="uid://mig33mly5623" path="res://assets/others/clouds/cloud_2.png" id="7_okjql"]
 [ext_resource type="Texture2D" uid="uid://0j7gugsbcymb" path="res://assets/others/clouds/cloud_3.png" id="8_pjr46"]
-[ext_resource type="Texture2D" uid="uid://0ps58ke2rfyr" path="res://assets/menu/area_selection/normal/normal_street.png" id="11_7wmkq"]
-[ext_resource type="Texture2D" uid="uid://d2pd8v2botmca" path="res://assets/menu/area_selection/normal/normal_school.png" id="12_noito"]
-[ext_resource type="Texture2D" uid="uid://dnsf66e1e0slw" path="res://assets/menu/area_selection/hover/hover_street.png" id="13_2jmam"]
+[ext_resource type="Texture2D" uid="uid://b252i0w5st8cy" path="res://assets/menu/area_selection/normal/normal_street.png" id="11_7wmkq"]
+[ext_resource type="Texture2D" uid="uid://bvwf2enaa300c" path="res://assets/menu/area_selection/normal/normal_school.png" id="12_noito"]
+[ext_resource type="Texture2D" uid="uid://dot27yo5nwnho" path="res://assets/menu/area_selection/hover/hover_street.png" id="13_2jmam"]
 [ext_resource type="Texture2D" uid="uid://cqi774l4cpf5u" path="res://assets/menu/area_selection/pressed/pressed_street.png" id="13_o5sc8"]
-[ext_resource type="Texture2D" uid="uid://247bs8yg3a8w" path="res://assets/menu/area_selection/normal/normal_mall.png" id="13_xb0sr"]
-[ext_resource type="Texture2D" uid="uid://xwvvlis2p38t" path="res://assets/menu/area_selection/hover/hover_school.png" id="15_btqjj"]
+[ext_resource type="Texture2D" uid="uid://dw51bcdylmq6s" path="res://assets/menu/area_selection/normal/normal_mall.png" id="13_xb0sr"]
+[ext_resource type="Texture2D" uid="uid://ctsdy27lggcs" path="res://assets/menu/area_selection/hover/hover_school.png" id="15_btqjj"]
 [ext_resource type="Texture2D" uid="uid://d2u6vq42dmxq8" path="res://assets/menu/area_selection/pressed/pressed_school.png" id="16_05070"]
-[ext_resource type="Texture2D" uid="uid://cvwmlyh8tbe4y" path="res://assets/menu/area_selection/hover/hover_mall.png" id="17_rgne6"]
+[ext_resource type="Texture2D" uid="uid://dn2qtm08neohy" path="res://assets/menu/area_selection/hover/hover_mall.png" id="17_rgne6"]
 [ext_resource type="Texture2D" uid="uid://cu5ul1a0yrroi" path="res://assets/menu/area_selection/pressed/pressed_mall.png" id="19_hrcyd"]
+[ext_resource type="Texture2D" uid="uid://d1msp017ckcd0" path="res://assets/menu/area_selection/disabled/disabled_mall.png" id="21_kabvl"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_e1xh5"]
 
@@ -210,38 +211,48 @@ label_settings = SubResource("LabelSettings_j586r")
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_top = 415.0
-offset_right = 367.0
-offset_bottom = 531.0
+offset_left = -22.0
+offset_top = 426.0
+offset_right = 445.0
+offset_bottom = 562.0
 grow_horizontal = 1
 grow_vertical = 1
-scale = Vector2(1.2, 1.2)
 texture_normal = ExtResource("11_7wmkq")
 texture_pressed = ExtResource("13_o5sc8")
 texture_hover = ExtResource("13_2jmam")
 description = "A lively spot with a steady stream of locals, offering balanced sales and income from loyal and new customers alike."
 
 [node name="School" parent="." instance=ExtResource("2_w5fv4")]
-offset_left = 436.0
-offset_top = 397.0
-offset_right = 836.0
-offset_bottom = 554.0
+offset_left = 430.0
+offset_top = 388.0
+offset_right = 841.0
+offset_bottom = 558.0
 texture_normal = ExtResource("12_noito")
 texture_pressed = ExtResource("16_05070")
 texture_hover = ExtResource("15_btqjj")
 description = "A high-traffic spot packed with students and teachers, leading to more sales but at a smaller profit per customer."
 
 [node name="Mall" parent="." instance=ExtResource("2_w5fv4")]
-offset_left = 814.0
-offset_top = 351.0
-offset_right = 1186.0
-offset_bottom = 517.0
-scale = Vector2(1.25, 1.25)
+offset_left = 799.0
+offset_top = 349.0
+offset_right = 1213.0
+offset_bottom = 528.0
+scale = Vector2(1.2, 1.2)
 texture_normal = ExtResource("13_xb0sr")
 texture_pressed = ExtResource("19_hrcyd")
 texture_hover = ExtResource("17_rgne6")
+texture_disabled = ExtResource("21_kabvl")
 description = "A slower-paced spot with fewer customers, but each sale brings in a good amount."
+
+[node name="BuyPermit" type="Button" parent="Mall"]
+layout_mode = 0
+offset_left = 124.167
+offset_top = 70.0
+offset_right = 262.167
+offset_bottom = 126.0
+text = "Buy Permit"
 
 [connection signal="pressed" from="Street" to="." method="_on_street_pressed"]
 [connection signal="pressed" from="School" to="." method="_on_school_pressed"]
 [connection signal="pressed" from="Mall" to="." method="_on_mall_pressed"]
+[connection signal="pressed" from="Mall/BuyPermit" to="." method="_on_buy_permit_pressed"]
