@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://bfljpfy3l3q1o"]
+
+[ext_resource type="Script" path="res://scenes/minigame/siomai_plate.gd" id="1_0ntwb"]
+[ext_resource type="Texture2D" uid="uid://bnidvhd4hexio" path="res://assets/minigame/siomai_plate/siomai_plate.png" id="1_l3mrj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u3jyl"]
+size = Vector2(150, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7plww"]
+size = Vector2(150, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kyfkb"]
+size = Vector2(150, 20)
+
+[node name="SiomaiPlate" type="Node2D"]
+script = ExtResource("1_0ntwb")
+
+[node name="ItemsNode" type="Node2D" parent="."]
+
+[node name="PlateSprite" type="Sprite2D" parent="."]
+scale = Vector2(1.4, 1)
+texture = ExtResource("1_l3mrj")
+
+[node name="CatchAreas" type="Node2D" parent="."]
+
+[node name="LeftArea" type="Area2D" parent="CatchAreas"]
+position = Vector2(-155, 30)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CatchAreas/LeftArea"]
+shape = SubResource("RectangleShape2D_u3jyl")
+
+[node name="MiddleArea" type="Area2D" parent="CatchAreas"]
+position = Vector2(0, 30)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CatchAreas/MiddleArea"]
+shape = SubResource("RectangleShape2D_7plww")
+
+[node name="RightArea" type="Area2D" parent="CatchAreas"]
+position = Vector2(155, 30)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CatchAreas/RightArea"]
+shape = SubResource("RectangleShape2D_kyfkb")
+
+[connection signal="area_entered" from="CatchAreas/LeftArea" to="." method="_on_left_area_area_entered"]
+[connection signal="area_entered" from="CatchAreas/MiddleArea" to="." method="_on_middle_area_area_entered"]
+[connection signal="area_entered" from="CatchAreas/RightArea" to="." method="_on_right_area_area_entered"]

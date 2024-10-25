@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cssvc6fl5u4ol"
-path="res://.godot/imported/street.png-d2e5437b1aef9a61b85909a94ce9da57.ctex"
+uid="uid://bnidvhd4hexio"
+path="res://.godot/imported/siomai_plate.png-f25b28d43e3c7a0f29b87dff2b3a79b2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/main_game/areas/street.png"
-dest_files=["res://.godot/imported/street.png-d2e5437b1aef9a61b85909a94ce9da57.ctex"]
+source_file="res://assets/minigame/siomai_plate/siomai_plate.png"
+dest_files=["res://.godot/imported/siomai_plate.png-f25b28d43e3c7a0f29b87dff2b3a79b2.ctex"]
 
 [params]
 

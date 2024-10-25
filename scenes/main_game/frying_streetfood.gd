@@ -2,6 +2,8 @@ extends RigidBody2D
 
 class_name FryingStreetfood
 
+signal is_cooked(food_name: String)
+
 const FRICTION_CONSTANT: float = 0.9
 
 @onready var uncooked_sprite: Sprite2D = $UncookedSprite
@@ -32,6 +34,7 @@ func set_food_item(food_name: String):
 	set_texture(food_name)
 	set_collision_shape(food_name)
 	await get_tree().create_timer(StreetfoodData.STREETFOOD_COOKTIME[food_name]).timeout
+	emit_signal("is_cooked", food_name)
 	PlayerData.UPDATE_COOKED_ITEM(food_name, 1)
 	queue_free()
 

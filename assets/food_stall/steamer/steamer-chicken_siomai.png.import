@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cssvc6fl5u4ol"
-path="res://.godot/imported/street.png-d2e5437b1aef9a61b85909a94ce9da57.ctex"
+uid="uid://chl72snoa8s2h"
+path="res://.godot/imported/steamer-chicken_siomai.png-49fb9438fcf6d98c3808abadfed0c804.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/main_game/areas/street.png"
-dest_files=["res://.godot/imported/street.png-d2e5437b1aef9a61b85909a94ce9da57.ctex"]
+source_file="res://assets/food_stall/steamer/steamer-chicken_siomai.png"
+dest_files=["res://.godot/imported/steamer-chicken_siomai.png-49fb9438fcf6d98c3808abadfed0c804.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cssvc6fl5u4ol"
-path="res://.godot/imported/street.png-d2e5437b1aef9a61b85909a94ce9da57.ctex"
+uid="uid://jlebkaepnpq0"
+path="res://.godot/imported/blue_lemonade.png-049aa524548e60faa5feca82e1325038.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/main_game/areas/street.png"
-dest_files=["res://.godot/imported/street.png-d2e5437b1aef9a61b85909a94ce9da57.ctex"]
+source_file="res://assets/customer_orders/blue_lemonade.png"
+dest_files=["res://.godot/imported/blue_lemonade.png-049aa524548e60faa5feca82e1325038.ctex"]
 
 [params]
 

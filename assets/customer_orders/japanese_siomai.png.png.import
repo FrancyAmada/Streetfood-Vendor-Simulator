@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cssvc6fl5u4ol"
-path="res://.godot/imported/street.png-d2e5437b1aef9a61b85909a94ce9da57.ctex"
+uid="uid://qs4gxciyt5vx"
+path="res://.godot/imported/japanese_siomai.png.png-b8ac8e73eb8b73da5b94d614c4287915.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/main_game/areas/street.png"
-dest_files=["res://.godot/imported/street.png-d2e5437b1aef9a61b85909a94ce9da57.ctex"]
+source_file="res://assets/customer_orders/japanese_siomai.png.png"
+dest_files=["res://.godot/imported/japanese_siomai.png.png-b8ac8e73eb8b73da5b94d614c4287915.ctex"]
 
 [params]
 

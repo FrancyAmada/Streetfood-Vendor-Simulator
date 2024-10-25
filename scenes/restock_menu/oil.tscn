@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cqr7m6q65prfj"]
 
 [ext_resource type="Script" path="res://scenes/restock_menu/oil.gd" id="1_s3c2i"]
-[ext_resource type="Theme" uid="uid://bqlls726ggu3y" path="res://assets/game_theme.tres" id="2_p543d"]
+[ext_resource type="Theme" uid="uid://c2lcebayb3f8q" path="res://assets/game_theme.tres" id="2_p543d"]
 
 [node name="Oil" type="VBoxContainer"]
 offset_left = 804.0

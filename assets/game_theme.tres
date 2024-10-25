@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=10 format=3 uid="uid://c2lcebayb3f8q"]
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://c2lcebayb3f8q"]
 
 [ext_resource type="FontFile" uid="uid://cwxricpksvnf0" path="res://assets/font/Fredoka/static/Fredoka-Bold.ttf" id="1_qdjsc"]
 [ext_resource type="FontFile" uid="uid://b6s4gtawcuew2" path="res://assets/font/Fredoka/static/Fredoka-SemiBold.ttf" id="2_6up7s"]
@@ -54,6 +54,21 @@ expand_margin_right = 30.0
 expand_margin_bottom = 20.0
 shadow_offset = Vector2(0, 50)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dorxm"]
+bg_color = Color(1, 0.384314, 0, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_color = Color(0.82, 0.300667, 0, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(1, 0.8, 0, 1)
+shadow_size = 1
+shadow_offset = Vector2(0, 10)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yc4if"]
 bg_color = Color(0.298039, 0.298039, 0.298039, 1)
 corner_radius_top_left = 10
@@ -82,5 +97,6 @@ Label/font_sizes/font_size = 20
 Label/fonts/font = ExtResource("2_6up7s")
 Label/styles/normal = SubResource("StyleBoxFlat_t0070")
 Panel/styles/panel = SubResource("StyleBoxFlat_y7qgi")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_dorxm")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_yc4if")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_8j3bm")

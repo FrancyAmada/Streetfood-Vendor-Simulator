@@ -27,6 +27,7 @@ func _physics_process(delta: float) -> void:
 	if global_position.x > 1260: global_position.x = 1260
 
 func activate_stick(to_on: bool):
+	global_position.y = starting_y
 	activated = to_on
 	set_physics_process(to_on)
 
@@ -39,7 +40,6 @@ func set_initial_catched_position(pos: Vector2):
 func reset():
 	for child in items_node.get_children():
 		items_node.remove_child(child)
-	global_position.y = starting_y
 	current_catched_index = 0
 	catched_spoiled_count = 0
 	initial_catched_position = Vector2(0, 300)
@@ -53,6 +53,7 @@ func _on_stick_head_area_area_entered(area: Area2D) -> void:
 		var streetfood_item: DroppingStreetfood = area.get_parent()
 		if !streetfood_item.catched:
 			streetfood_item.catch_streetfood(self)
+			streetfood_item.set_stick_position(self)
 			current_catched_index += 1
 			if streetfood_item.is_spoiled:
 				catched_spoiled_count += 1

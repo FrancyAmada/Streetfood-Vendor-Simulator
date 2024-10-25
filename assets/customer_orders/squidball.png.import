@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cssvc6fl5u4ol"
-path="res://.godot/imported/street.png-d2e5437b1aef9a61b85909a94ce9da57.ctex"
+uid="uid://ceby20f0ukkoh"
+path="res://.godot/imported/squidball.png-8e620995f666a252d35fa5adfe2c8819.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/main_game/areas/street.png"
-dest_files=["res://.godot/imported/street.png-d2e5437b1aef9a61b85909a94ce9da57.ctex"]
+source_file="res://assets/customer_orders/squidball.png"
+dest_files=["res://.godot/imported/squidball.png-8e620995f666a252d35fa5adfe2c8819.ctex"]
 
 [params]
 
