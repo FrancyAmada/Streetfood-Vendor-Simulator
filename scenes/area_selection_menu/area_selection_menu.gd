@@ -24,7 +24,7 @@ func _on_mall_pressed() -> void:
 
 
 func _on_buy_permit_pressed() -> void:
-	unlock_mall()
+	unlock_mall() # instant unlock for now
 	
 
 func unlock_mall():

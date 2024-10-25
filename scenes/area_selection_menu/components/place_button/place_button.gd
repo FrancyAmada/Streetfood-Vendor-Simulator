@@ -3,7 +3,6 @@ extends TextureButton
 class_name PlaceButton
 
 @onready var Description: Label = %Description
-@onready var Effects: AnimationPlayer = %AnimationPlayer
 
 @export var description: String
 
