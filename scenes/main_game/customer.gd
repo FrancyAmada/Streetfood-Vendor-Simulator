@@ -49,10 +49,10 @@ func remove_customer():
 func generate_orders():
 	var available_items: Array[String]
 	for item in PlayerData.stock_items:
-		if PlayerData.stock_items[item] != 0:
+		if PlayerData.stock_items[item] != 0 or PlayerData.cooked_items[item] != 0:
 			available_items.append(item)
 			
-	if !get_parent().get_parent().get_parent().is_out_of_stock():
+	if !get_parent().get_parent().get_parent().is_out_of_stock() or len(available_items) > 0:
 		if character_type == 'student':
 			add_order(available_items.pick_random())
 		

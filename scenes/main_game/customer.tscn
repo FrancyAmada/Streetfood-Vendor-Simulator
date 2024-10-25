@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/main_game/customer.gd" id="1_srtab"]
 [ext_resource type="Texture2D" uid="uid://b37432hl170ex" path="res://assets/customers/male-normal.png" id="2_ec5p6"]
-[ext_resource type="Theme" uid="uid://c2lcebayb3f8q" path="res://assets/game_theme.tres" id="3_kj74f"]
+[ext_resource type="Theme" uid="uid://envhjmnpsmmu" path="res://assets/game_theme.tres" id="3_kj74f"]
 
 [node name="Customer" type="Node2D"]
 script = ExtResource("1_srtab")
