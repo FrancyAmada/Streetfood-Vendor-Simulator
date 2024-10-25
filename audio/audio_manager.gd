@@ -4,7 +4,7 @@ signal mute_state_changed(is_muted)
 
 #music
 @onready var main_menu_music: AudioStream = preload("res://assets/sounds/bg-music/main_menu-music.wav")
-@onready var level_select_music: AudioStream = preload("res://assets/sounds/bg-music/level_select-music.wav")
+@onready var area_select_music: AudioStream = preload("res://assets/sounds/bg-music/level_select-music.wav")
 @onready var game_music: AudioStream = preload("res://assets/sounds/bg-music/game-music.wav")
 @onready var restock_menu_music: AudioStream = preload("res://assets/sounds/bg-music/restock_menu-music.wav")
 
@@ -104,8 +104,8 @@ func toggle_mute():
 func play_main_menu_music():
 	play_music(main_menu_music)
 	
-func play_level_select_music():
-	play_music(level_select_music)
+func play_area_select_music():
+	play_music(area_select_music)
 	
 func play_game_music():
 	play_music(game_music)

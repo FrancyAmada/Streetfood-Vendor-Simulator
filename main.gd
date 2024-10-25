@@ -38,6 +38,7 @@ func _on_next_is_pressed():
 	await animation_player.animation_finished
 	restock_menu.visible = false
 	area_selection_menu.visible = true
+	AudioManager.play_area_select_music()
 	animation_player.play("fade_out")
 	await animation_player.animation_finished
 	

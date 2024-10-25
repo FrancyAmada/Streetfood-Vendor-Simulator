@@ -373,10 +373,10 @@ texture = ExtResource("10_0don7")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MainUI"]
 z_index = 1
-offset_left = 334.0
-offset_top = 422.0
-offset_right = 869.0
-offset_bottom = 603.0
+offset_left = 369.0
+offset_top = 412.0
+offset_right = 904.0
+offset_bottom = 593.0
 alignment = 1
 
 [node name="Play" type="TextureButton" parent="MainUI/HBoxContainer"]

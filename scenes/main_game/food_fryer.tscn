@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cp4c4ufchbjoe"]
+[gd_scene load_steps=9 format=3 uid="uid://cp4c4ufchbjoe"]
 
 [ext_resource type="Script" path="res://scenes/main_game/food_fryer.gd" id="1_rpbqd"]
 [ext_resource type="Texture2D" uid="uid://ctikjd6e23q4t" path="res://assets/main_game/cooking_pan.png" id="2_x0n1m"]
+[ext_resource type="Theme" path="res://assets/tooltip_theme.tres" id="3_4iclm"]
 [ext_resource type="AudioStream" uid="uid://co0e06tjnrnve" path="res://assets/sounds/sfx/oil-sizzling.wav" id="3_7j8p6"]
-[ext_resource type="Theme" uid="uid://ct05pg6dp071m" path="res://assets/tooltip_theme.tres" id="3_4iclm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rmw1j"]
 radius = 160.0
