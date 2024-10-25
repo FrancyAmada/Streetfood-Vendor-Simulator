@@ -1,10 +1,10 @@
 extends Node2D
 
+signal next_is_pressed()
+
 @onready var items = $Items.get_children()
 @onready var oil = $Oil
-@onready var money_label = $MoneyLabel
-
-@export var money: int = 500
+@onready var money_label = $Money/MoneyLabel
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,29 +14,39 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	pass
+	update_money_label()
 
 func update_money_label() -> void:
-	money_label.text = str(money)
+	money_label.text = str(PlayerData.money)
 
 func _on_buy_item(item: Item) -> void:
-	if money < item.price:
+	if PlayerData.money < item.price:
 		print("NOT ENOUGH MONEY")
 		return
-	money -= item.price
+	PlayerData.money -= item.price
 	item.buy()
-	update_money_label()
 
 func _on_refill_oil() -> void:
-	if money < oil.price:
+	if PlayerData.money < oil.price:
 		print("NOT ENOUGH MONEY")
 		return
-	if oil.oil_level >= 100:
+	if oil.oil_level >= 100 or PlayerData.oil_level >= 4:
 		print("MAXIMUM CAPACITY")
 		return
-	money -= oil.price
+	PlayerData.money -= oil.price
 	oil.buy()
-	update_money_label()
+	
 	
 func _on_next_button_button_down() -> void:
+	if PlayerData.oil_level <= 0 :
+		print("BUY MORE OIL")
+		return
 	print("NEXT")
+	emit_signal("next_is_pressed")
+
+func _on_unlock_siomai_pressed() -> void:
+	if PlayerData.money >= 500:
+		PlayerData.money -= 500
+		Global.UNLOCK_SIOMAI()
+		$UnlockSiomai.disabled = true
+		$UnlockSiomai.visible = false

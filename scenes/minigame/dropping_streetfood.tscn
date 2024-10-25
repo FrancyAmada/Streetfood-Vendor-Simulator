@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://6epxudrmdvmc"]
 
 [ext_resource type="Script" path="res://scenes/minigame/dropping_streetfood.gd" id="1_hnpul"]
-[ext_resource type="Texture2D" uid="uid://btqj5mjkadaa7" path="res://icon.svg" id="2_wg21s"]
+[ext_resource type="Texture2D" uid="uid://c87hoqqkkiwkv" path="res://assets/streetfoods/cooked/fishball.png" id="2_vkpkh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pf5ui"]
 radius = 50.0
@@ -18,5 +18,7 @@ monitoring = false
 shape = SubResource("CircleShape2D_pf5ui")
 
 [node name="StreetfoodSprite" type="Sprite2D" parent="."]
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("2_wg21s")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_vkpkh")
+
+[connection signal="area_entered" from="StreetfoodArea" to="." method="_on_streetfood_area_area_entered"]

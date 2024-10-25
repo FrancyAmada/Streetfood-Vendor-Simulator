@@ -1,8 +1,11 @@
-extends Button
+extends TextureButton
 
-@export var description: String
+class_name PlaceButton
 
 @onready var Description: Label = %Description
+@onready var Effects: AnimationPlayer = %AnimationPlayer
+
+@export var description: String
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,12 +14,4 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	handle_hover()
-	
-	
-func handle_hover() -> void:
-	if is_hovered():
-		Description.visible = true
-	else:
-		Description.visible = false
-	
+	Description.visible = is_hovered()

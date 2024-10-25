@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b7gwwhnck8cog"]
+[gd_scene load_steps=3 format=3 uid="uid://b7gwwhnck8cog"]
 
 [ext_resource type="Script" path="res://scenes/restock_menu/item.gd" id="1_8vy5j"]
+[ext_resource type="Theme" uid="uid://c2lcebayb3f8q" path="res://assets/game_theme.tres" id="2_3bx0x"]
 
 [node name="Item" type="VBoxContainer"]
 offset_right = 300.0
@@ -12,19 +13,23 @@ script = ExtResource("1_8vy5j")
 
 [node name="ItemLabel" type="Label" parent="."]
 layout_mode = 2
+theme = ExtResource("2_3bx0x")
 text = "Fishball"
 
 [node name="PriceLabel" type="Label" parent="."]
 layout_mode = 2
-text = "75
+theme = ExtResource("2_3bx0x")
+text = "Price: 75
 "
 
 [node name="StocksLabel" type="Label" parent="."]
 layout_mode = 2
+theme = ExtResource("2_3bx0x")
 text = "Current Stocks: 100"
 
 [node name="BuyButton" type="Button" parent="."]
 layout_mode = 2
-text = "BUY"
+theme = ExtResource("2_3bx0x")
+text = "BUY x20"
 
 [connection signal="button_down" from="BuyButton" to="." method="_on_buy_button_button_down"]

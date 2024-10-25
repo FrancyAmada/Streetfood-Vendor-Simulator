@@ -17,13 +17,17 @@ func _ready() -> void:
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	pass
+	update_oil_level()
+
+func update_oil_level():
+	oil_level = PlayerData.oil_level * 25
+	update_oil_bar()
 
 func update_oil_bar() -> void:
 	oil_bar.value = oil_level
 
 func buy() -> void:
-	oil_level += 25
+	PlayerData.UPDATE_OIL_LEVEL(PlayerData.oil_level+1)
 	update_oil_bar()
 
 func _on_oil_button_button_down() -> void:

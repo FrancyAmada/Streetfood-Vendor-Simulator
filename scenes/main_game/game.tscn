@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://hxidr1h70ruk"]
+[gd_scene load_steps=35 format=3 uid="uid://hxidr1h70ruk"]
 
 [ext_resource type="Script" path="res://scenes/main_game/game.gd" id="1_73igr"]
-[ext_resource type="Texture2D" uid="uid://cssvc6fl5u4ol" path="res://assets/main_game/areas/street.png" id="2_8ah13"]
+[ext_resource type="Texture2D" uid="uid://bw0365a5xnoxg" path="res://assets/main_game/areas/street.png" id="2_8ah13"]
 [ext_resource type="Texture2D" uid="uid://bja5f8dobfwp2" path="res://assets/main_game/stall.png" id="2_liho8"]
 [ext_resource type="PackedScene" uid="uid://d2g5x0hbh8ofm" path="res://scenes/minigame/minigame.tscn" id="2_xsin3"]
 [ext_resource type="PackedScene" uid="uid://cp4c4ufchbjoe" path="res://scenes/main_game/food_fryer.tscn" id="3_4fqso"]
@@ -32,7 +32,7 @@
 [ext_resource type="Script" path="res://scenes/main_game/cooked_streetfood_label.gd" id="19_mgmco"]
 [ext_resource type="Script" path="res://scenes/main_game/money_container.gd" id="30_kkvto"]
 [ext_resource type="Texture2D" uid="uid://c7gr4e67rrwht" path="res://assets/restock_menu/money-icon.png" id="31_yxgy1"]
-[ext_resource type="Theme" uid="uid://c2lcebayb3f8q" path="res://assets/game_theme.tres" id="32_oq5tw"]
+[ext_resource type="Theme" uid="uid://bqlls726ggu3y" path="res://assets/game_theme.tres" id="32_oq5tw"]
 
 [sub_resource type="Theme" id="Theme_ynjel"]
 Label/constants/outline_size = 10
@@ -77,35 +77,6 @@ scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_8ah13")
 
 [node name="Sprites" type="Node2D" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-visible = true
-modulate = Color(1, 1, 1, 1)
-self_modulate = Color(1, 1, 1, 1)
-show_behind_parent = false
-top_level = false
-clip_children = 0
-light_mask = 1
-visibility_layer = 1
-z_index = 0
-z_as_relative = true
-y_sort_enabled = false
-texture_filter = 0
-texture_repeat = 0
-material = null
-use_parent_material = false
-position = Vector2(0, 0)
-rotation = 0.0
-scale = Vector2(1, 1)
-skew = 0.0
-script = null
 
 [node name="StallSprite" type="Sprite2D" parent="Sprites"]
 position = Vector2(640, 360)
@@ -113,35 +84,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_liho8")
 
 [node name="SiomaiSteamer" type="Node2D" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-visible = true
-modulate = Color(1, 1, 1, 1)
-self_modulate = Color(1, 1, 1, 1)
-show_behind_parent = false
-top_level = false
-clip_children = 0
-light_mask = 1
-visibility_layer = 1
-z_index = 0
-z_as_relative = true
-y_sort_enabled = false
-texture_filter = 0
-texture_repeat = 0
-material = null
-use_parent_material = false
 position = Vector2(186, 264)
-rotation = 0.0
-scale = Vector2(1, 1)
-skew = 0.0
-script = null
 metadata/_edit_group_ = true
 
 [node name="SiomaiSteamerSprite" type="Sprite2D" parent="SiomaiSteamer"]
@@ -196,373 +139,66 @@ skew = 0.0
 script = null
 
 [node name="Fishball" type="TextureButton" parent="FoodItemsButtons"]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 2
-auto_translate_mode = 0
-editor_description = ""
-visible = true
-modulate = Color(1, 1, 1, 1)
-self_modulate = Color(1, 1, 1, 1)
-show_behind_parent = false
-top_level = false
-clip_children = 0
-light_mask = 1
-visibility_layer = 1
-z_index = 0
-z_as_relative = true
-y_sort_enabled = false
-texture_filter = 0
-texture_repeat = 0
-material = null
-use_parent_material = false
-clip_contents = false
-custom_minimum_size = Vector2(0, 0)
-layout_direction = 0
-layout_mode = 3
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 offset_left = 49.0
 offset_top = 400.0
 offset_right = 549.0
 offset_bottom = 900.0
-grow_horizontal = 1
-grow_vertical = 1
-rotation = 0.0
 scale = Vector2(0.45, 0.45)
-pivot_offset = Vector2(0, 0)
-size_flags_horizontal = 1
-size_flags_vertical = 1
-size_flags_stretch_ratio = 1.0
-localize_numeral_system = true
-tooltip_text = ""
-focus_neighbor_left = NodePath("")
-focus_neighbor_top = NodePath("")
-focus_neighbor_right = NodePath("")
-focus_neighbor_bottom = NodePath("")
-focus_next = NodePath("")
-focus_previous = NodePath("")
-focus_mode = 2
-mouse_filter = 0
-mouse_force_pass_scroll_events = true
-mouse_default_cursor_shape = 0
-theme = null
-theme_type_variation = &""
-disabled = false
-toggle_mode = false
-button_pressed = false
-action_mode = 1
-button_mask = 1
-keep_pressed_outside = false
-button_group = null
-shortcut = null
-shortcut_feedback = true
-shortcut_in_tooltip = true
 texture_normal = ExtResource("6_upaje")
 texture_pressed = ExtResource("7_0vjl5")
 texture_hover = ExtResource("7_0vjl5")
 texture_disabled = ExtResource("8_so6jo")
-texture_focused = null
 texture_click_mask = ExtResource("9_g2w7y")
-ignore_texture_size = false
-stretch_mode = 2
-flip_h = false
-flip_v = false
-script = null
 
 [node name="Squidball" type="TextureButton" parent="FoodItemsButtons"]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 2
-auto_translate_mode = 0
-editor_description = ""
-visible = true
-modulate = Color(1, 1, 1, 1)
-self_modulate = Color(1, 1, 1, 1)
-show_behind_parent = false
-top_level = false
-clip_children = 0
-light_mask = 1
-visibility_layer = 1
-z_index = 0
-z_as_relative = true
-y_sort_enabled = false
-texture_filter = 0
-texture_repeat = 0
-material = null
-use_parent_material = false
-clip_contents = false
-custom_minimum_size = Vector2(0, 0)
-layout_direction = 0
-layout_mode = 3
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 offset_left = 33.0
 offset_top = 506.0
 offset_right = 533.0
 offset_bottom = 1006.0
-grow_horizontal = 1
-grow_vertical = 1
-rotation = 0.0
 scale = Vector2(0.5, 0.5)
-pivot_offset = Vector2(0, 0)
-size_flags_horizontal = 1
-size_flags_vertical = 1
-size_flags_stretch_ratio = 1.0
-localize_numeral_system = true
-tooltip_text = ""
-focus_neighbor_left = NodePath("")
-focus_neighbor_top = NodePath("")
-focus_neighbor_right = NodePath("")
-focus_neighbor_bottom = NodePath("")
-focus_next = NodePath("")
-focus_previous = NodePath("")
-focus_mode = 2
-mouse_filter = 0
-mouse_force_pass_scroll_events = true
-mouse_default_cursor_shape = 0
-theme = null
-theme_type_variation = &""
-disabled = false
-toggle_mode = false
-button_pressed = false
-action_mode = 1
-button_mask = 1
-keep_pressed_outside = false
-button_group = null
-shortcut = null
-shortcut_feedback = true
-shortcut_in_tooltip = true
 texture_normal = ExtResource("10_6ikmg")
 texture_pressed = ExtResource("11_0vyq0")
 texture_hover = ExtResource("11_0vyq0")
 texture_disabled = ExtResource("8_so6jo")
-texture_focused = null
 texture_click_mask = ExtResource("9_g2w7y")
-ignore_texture_size = false
-stretch_mode = 2
-flip_h = false
-flip_v = false
-script = null
 
 [node name="Kikiam" type="TextureButton" parent="FoodItemsButtons"]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 2
-auto_translate_mode = 0
-editor_description = ""
-visible = true
-modulate = Color(1, 1, 1, 1)
-self_modulate = Color(1, 1, 1, 1)
-show_behind_parent = false
-top_level = false
-clip_children = 0
-light_mask = 1
-visibility_layer = 1
-z_index = 0
-z_as_relative = true
-y_sort_enabled = false
-texture_filter = 0
-texture_repeat = 0
-material = null
-use_parent_material = false
-clip_contents = false
-custom_minimum_size = Vector2(0, 0)
-layout_direction = 0
-layout_mode = 3
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 offset_left = 326.0
 offset_top = 398.0
 offset_right = 826.0
 offset_bottom = 898.0
-grow_horizontal = 1
-grow_vertical = 1
-rotation = 0.0
 scale = Vector2(0.45, 0.45)
-pivot_offset = Vector2(0, 0)
-size_flags_horizontal = 1
-size_flags_vertical = 1
-size_flags_stretch_ratio = 1.0
-localize_numeral_system = true
-tooltip_text = ""
-focus_neighbor_left = NodePath("")
-focus_neighbor_top = NodePath("")
-focus_neighbor_right = NodePath("")
-focus_neighbor_bottom = NodePath("")
-focus_next = NodePath("")
-focus_previous = NodePath("")
-focus_mode = 2
-mouse_filter = 0
-mouse_force_pass_scroll_events = true
-mouse_default_cursor_shape = 0
-theme = null
-theme_type_variation = &""
-disabled = false
-toggle_mode = false
-button_pressed = false
-action_mode = 1
-button_mask = 1
-keep_pressed_outside = false
-button_group = null
-shortcut = null
-shortcut_feedback = true
-shortcut_in_tooltip = true
 texture_normal = ExtResource("12_dtye2")
 texture_pressed = ExtResource("13_aon60")
 texture_hover = ExtResource("13_aon60")
 texture_disabled = ExtResource("8_so6jo")
-texture_focused = null
 texture_click_mask = ExtResource("9_g2w7y")
-ignore_texture_size = false
-stretch_mode = 2
-flip_h = false
-flip_v = false
-script = null
 
 [node name="KwekKwek" type="TextureButton" parent="FoodItemsButtons"]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 2
-auto_translate_mode = 0
-editor_description = ""
-visible = true
-modulate = Color(1, 1, 1, 1)
-self_modulate = Color(1, 1, 1, 1)
-show_behind_parent = false
-top_level = false
-clip_children = 0
-light_mask = 1
-visibility_layer = 1
-z_index = 0
-z_as_relative = true
-y_sort_enabled = false
-texture_filter = 0
-texture_repeat = 0
-material = null
-use_parent_material = false
-clip_contents = false
-custom_minimum_size = Vector2(0, 0)
-layout_direction = 0
-layout_mode = 3
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 offset_left = 316.0
 offset_top = 509.0
 offset_right = 816.0
 offset_bottom = 1009.0
-grow_horizontal = 1
-grow_vertical = 1
-rotation = 0.0
 scale = Vector2(0.5, 0.5)
-pivot_offset = Vector2(0, 0)
-size_flags_horizontal = 1
-size_flags_vertical = 1
-size_flags_stretch_ratio = 1.0
-localize_numeral_system = true
-tooltip_text = ""
-focus_neighbor_left = NodePath("")
-focus_neighbor_top = NodePath("")
-focus_neighbor_right = NodePath("")
-focus_neighbor_bottom = NodePath("")
-focus_next = NodePath("")
-focus_previous = NodePath("")
-focus_mode = 2
-mouse_filter = 0
-mouse_force_pass_scroll_events = true
-mouse_default_cursor_shape = 0
-theme = null
-theme_type_variation = &""
-disabled = false
-toggle_mode = false
-button_pressed = false
-action_mode = 1
-button_mask = 1
-keep_pressed_outside = false
-button_group = null
-shortcut = null
-shortcut_feedback = true
-shortcut_in_tooltip = true
 texture_normal = ExtResource("14_ss5h1")
 texture_pressed = ExtResource("15_yxjjy")
 texture_hover = ExtResource("15_yxjjy")
 texture_disabled = ExtResource("8_so6jo")
-texture_focused = null
 texture_click_mask = ExtResource("9_g2w7y")
-ignore_texture_size = false
-stretch_mode = 2
-flip_h = false
-flip_v = false
-script = null
 
 [node name="FoodFryer" parent="." instance=ExtResource("3_4fqso")]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-visible = true
-modulate = Color(1, 1, 1, 1)
-self_modulate = Color(1, 1, 1, 1)
-show_behind_parent = false
-top_level = false
-clip_children = 0
-light_mask = 1
-visibility_layer = 1
-z_index = 0
-z_as_relative = true
-y_sort_enabled = false
-texture_filter = 0
-texture_repeat = 0
-material = null
-use_parent_material = false
 position = Vector2(1101, 528)
-rotation = 0.0
-scale = Vector2(1, 1)
-skew = 0.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-offset_left = 570.0
-offset_top = 495.0
-offset_right = 860.0
-offset_bottom = 647.0
-theme_override_constants/separation = 20
+[node name="CookedFoodContainer" type="PanelContainer" parent="."]
+offset_left = 578.0
+offset_top = 402.0
+offset_right = 914.0
+offset_bottom = 666.0
 
-[node name="FriedItems" type="VBoxContainer" parent="HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CookedFoodContainer"]
 layout_mode = 2
-theme_override_constants/separation = 20
+theme = SubResource("Theme_ynjel")
+theme_override_constants/separation = 0
 
 [node name="FriedItems" type="VBoxContainer" parent="CookedFoodContainer/HBoxContainer"]
 layout_mode = 2
@@ -703,35 +339,6 @@ text = "0
 script = ExtResource("19_mgmco")
 
 [node name="Customers" type="Node2D" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-visible = true
-modulate = Color(1, 1, 1, 1)
-self_modulate = Color(1, 1, 1, 1)
-show_behind_parent = false
-top_level = false
-clip_children = 0
-light_mask = 1
-visibility_layer = 1
-z_index = 0
-z_as_relative = true
-y_sort_enabled = false
-texture_filter = 0
-texture_repeat = 0
-material = null
-use_parent_material = false
-position = Vector2(0, 0)
-rotation = 0.0
-scale = Vector2(1, 1)
-skew = 0.0
-script = null
 
 [node name="MoneyContainer" type="HBoxContainer" parent="."]
 offset_left = 1051.0
@@ -748,45 +355,9 @@ expand_mode = 2
 [node name="MoneyLabel" type="Label" parent="MoneyContainer"]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
-text = "Fishball: "
-
-[node name="Kikiam" type="Label" parent="HBoxContainer/FriedItems"]
-custom_minimum_size = Vector2(120, 0)
-layout_mode = 2
-text = "Kikiam:"
-
-[node name="Squidball" type="Label" parent="HBoxContainer/FriedItems"]
-custom_minimum_size = Vector2(120, 0)
-layout_mode = 2
-text = "Squidball:"
-
-[node name="Kwekkwek" type="Label" parent="HBoxContainer/FriedItems"]
-custom_minimum_size = Vector2(120, 0)
-layout_mode = 2
-text = "Kwekkwek:"
-
-[node name="UpgradeItems" type="VBoxContainer" parent="HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 20
-
-[node name="ChickenSiomai" type="Label" parent="HBoxContainer/UpgradeItems"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-text = "ChickenSiomai:"
-
-[node name="PorkSiomai" type="Label" parent="HBoxContainer/UpgradeItems"]
-layout_mode = 2
-text = "PorkSiomai:"
-
-[node name="JapaneseSiomai" type="Label" parent="HBoxContainer/UpgradeItems"]
-layout_mode = 2
-text = "JapaneseSiomai: "
-
-[node name="Juice" type="Label" parent="HBoxContainer/UpgradeItems"]
-layout_mode = 2
-text = "Juice:"
-
-[node name="Customers" type="Node2D" parent="."]
+theme = ExtResource("32_oq5tw")
+theme_override_font_sizes/font_size = 32
+text = "999999"
 
 [node name="Minigame" parent="." instance=ExtResource("2_xsin3")]
 _import_path = NodePath("")
@@ -824,8 +395,4 @@ skew = 0.0
 [connection signal="pressed" from="FoodItemsButtons/Squidball" to="." method="_on_squidball_pressed"]
 [connection signal="pressed" from="FoodItemsButtons/Kikiam" to="." method="_on_kikiam_pressed"]
 [connection signal="pressed" from="FoodItemsButtons/KwekKwek" to="." method="_on_kwek_kwek_pressed"]
-[connection signal="pressed" from="FoodItemsButtons/ChickenSiomai" to="." method="_on_chicken_siomai_pressed"]
-[connection signal="pressed" from="FoodItemsButtons/PorkSiomai" to="." method="_on_pork_siomai_pressed"]
-[connection signal="pressed" from="FoodItemsButtons/JapaneseSiomai" to="." method="_on_japanese_siomai_pressed"]
-[connection signal="pressed" from="FoodItemsButtons/Juice" to="." method="_on_juice_pressed"]
 [connection signal="timeout" from="DaytimeTimer" to="." method="_on_daytime_timer_timeout"]

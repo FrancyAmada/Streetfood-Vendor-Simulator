@@ -1,18 +1,32 @@
-[gd_scene load_steps=7 format=3 uid="uid://by8jqacilhix"]
+[gd_scene load_steps=23 format=3 uid="uid://by8jqacilhix"]
 
 [ext_resource type="Script" path="res://scenes/area_selection_menu/area_selection_menu.gd" id="1_mlgwy"]
-[ext_resource type="PackedScene" uid="uid://ceqt5en1n83e2" path="res://scenes/area_selection_menu/components/place_button/place_button.tscn" id="2_w5fv4"]
+[ext_resource type="Texture2D" uid="uid://ck8em8fak080y" path="res://assets/menu/area_selection/road.png" id="2_7qf1x"]
+[ext_resource type="Texture2D" uid="uid://ce0fudmolo04v" path="res://assets/menu/area_selection/background.png" id="2_n0kbx"]
+[ext_resource type="PackedScene" uid="uid://cb7jwaiqeln66" path="res://scenes/area_selection_menu/components/place_button/place_button.tscn" id="2_w5fv4"]
+[ext_resource type="Texture2D" uid="uid://dkxcorbdllm0m" path="res://assets/menu/area_selection/street_lamp.png" id="4_iwk18"]
+[ext_resource type="PackedScene" uid="uid://dbt5dv3jetjqb" path="res://scenes/menu/clouds/clouds.tscn" id="4_rht4b"]
+[ext_resource type="Script" path="res://scenes/menu/clouds/clouds.gd" id="5_tdm7s"]
+[ext_resource type="Texture2D" uid="uid://k6e7xb88ta60" path="res://assets/others/clouds/cloud_1.png" id="5_x1vqy"]
+[ext_resource type="Script" path="res://scenes/menu/clouds/cloud.gd" id="6_7c8ce"]
+[ext_resource type="Texture2D" uid="uid://mig33mly5623" path="res://assets/others/clouds/cloud_2.png" id="7_okjql"]
+[ext_resource type="Texture2D" uid="uid://0j7gugsbcymb" path="res://assets/others/clouds/cloud_3.png" id="8_pjr46"]
+[ext_resource type="Texture2D" uid="uid://0ps58ke2rfyr" path="res://assets/menu/area_selection/normal/normal_street.png" id="11_7wmkq"]
+[ext_resource type="Texture2D" uid="uid://d2pd8v2botmca" path="res://assets/menu/area_selection/normal/normal_school.png" id="12_noito"]
+[ext_resource type="Texture2D" uid="uid://dnsf66e1e0slw" path="res://assets/menu/area_selection/hover/hover_street.png" id="13_2jmam"]
+[ext_resource type="Texture2D" uid="uid://cqi774l4cpf5u" path="res://assets/menu/area_selection/pressed/pressed_street.png" id="13_o5sc8"]
+[ext_resource type="Texture2D" uid="uid://247bs8yg3a8w" path="res://assets/menu/area_selection/normal/normal_mall.png" id="13_xb0sr"]
+[ext_resource type="Texture2D" uid="uid://xwvvlis2p38t" path="res://assets/menu/area_selection/hover/hover_school.png" id="15_btqjj"]
+[ext_resource type="Texture2D" uid="uid://d2u6vq42dmxq8" path="res://assets/menu/area_selection/pressed/pressed_school.png" id="16_05070"]
+[ext_resource type="Texture2D" uid="uid://cvwmlyh8tbe4y" path="res://assets/menu/area_selection/hover/hover_mall.png" id="17_rgne6"]
+[ext_resource type="Texture2D" uid="uid://cu5ul1a0yrroi" path="res://assets/menu/area_selection/pressed/pressed_mall.png" id="19_hrcyd"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qytsy"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8t6ah"]
-
-[sub_resource type="SystemFont" id="SystemFont_sks5g"]
+[sub_resource type="CanvasTexture" id="CanvasTexture_e1xh5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_j586r"]
-font = SubResource("SystemFont_sks5g")
-font_size = 35
-font_color = Color(0, 0.216667, 1, 1)
+font_size = 44
+outline_size = 8
+outline_color = Color(0.3, 0.3, 0.3, 1)
 
 [node name="AreaSelectionMenu" type="Node2D"]
 script = ExtResource("1_mlgwy")
@@ -20,49 +34,214 @@ script = ExtResource("1_mlgwy")
 [node name="Backround" type="Node2D" parent="."]
 
 [node name="Main" type="Sprite2D" parent="Backround"]
-position = Vector2(574.75, 321.75)
-scale = Vector2(1150.5, 644.5)
-texture = SubResource("PlaceholderTexture2D_qytsy")
+position = Vector2(640, 358.5)
+scale = Vector2(1.282, 1.19231)
+texture = ExtResource("2_n0kbx")
+
+[node name="ground" type="Sprite2D" parent="Backround"]
+modulate = Color(1, 0.941667, 0.65, 1)
+position = Vector2(642.5, 614.5)
+scale = Vector2(1305, -58.9999)
+texture = SubResource("CanvasTexture_e1xh5")
 
 [node name="Highway" type="Sprite2D" parent="Backround"]
-modulate = Color(1, 1, 0.572549, 1)
-position = Vector2(575.275, 574.153)
-scale = Vector2(-1148.5, 138.504)
-texture = SubResource("PlaceholderTexture2D_8t6ah")
+texture_filter = 2
+position = Vector2(294, 579)
+scale = Vector2(1.60867, 0.594108)
+texture = ExtResource("2_7qf1x")
+
+[node name="Highway2" type="Sprite2D" parent="Backround"]
+position = Vector2(892, 579)
+scale = Vector2(1.60867, 0.594108)
+texture = ExtResource("2_7qf1x")
+
+[node name="Highway4" type="Sprite2D" parent="Backround"]
+position = Vector2(1490, 579)
+scale = Vector2(1.60867, 0.594108)
+texture = ExtResource("2_7qf1x")
+
+[node name="Highway3" type="Sprite2D" parent="Backround"]
+position = Vector2(296, 671.5)
+scale = Vector2(1.60541, 1.02299)
+texture = ExtResource("2_7qf1x")
+
+[node name="Highway5" type="Sprite2D" parent="Backround"]
+position = Vector2(893, 671.5)
+scale = Vector2(1.60541, 1.02299)
+texture = ExtResource("2_7qf1x")
+
+[node name="Highway6" type="Sprite2D" parent="Backround"]
+position = Vector2(1490, 671.5)
+scale = Vector2(1.60541, 1.02299)
+texture = ExtResource("2_7qf1x")
+
+[node name="StreetLamp2" type="Sprite2D" parent="Backround"]
+position = Vector2(156, 589)
+scale = Vector2(0.133242, 0.1195)
+texture = ExtResource("4_iwk18")
+
+[node name="StreetLamp3" type="Sprite2D" parent="Backround"]
+position = Vector2(383, 589)
+scale = Vector2(0.133242, 0.1195)
+texture = ExtResource("4_iwk18")
+
+[node name="StreetLamp4" type="Sprite2D" parent="Backround"]
+position = Vector2(621, 589)
+scale = Vector2(0.133242, 0.1195)
+texture = ExtResource("4_iwk18")
+
+[node name="StreetLamp5" type="Sprite2D" parent="Backround"]
+position = Vector2(857, 589)
+scale = Vector2(0.133242, 0.1195)
+texture = ExtResource("4_iwk18")
+
+[node name="StreetLamp6" type="Sprite2D" parent="Backround"]
+position = Vector2(1088, 589)
+scale = Vector2(0.133242, 0.1195)
+texture = ExtResource("4_iwk18")
+
+[node name="Clouds" parent="Backround" instance=ExtResource("4_rht4b")]
+position = Vector2(1335, 70)
+script = ExtResource("5_tdm7s")
+
+[node name="Cloud1" type="Sprite2D" parent="Backround/Clouds"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("5_x1vqy")
+script = ExtResource("6_7c8ce")
+
+[node name="Cloud2" type="Sprite2D" parent="Backround/Clouds"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_okjql")
+script = ExtResource("6_7c8ce")
+
+[node name="Cloud3" type="Sprite2D" parent="Backround/Clouds"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_pjr46")
+script = ExtResource("6_7c8ce")
+
+[node name="Cloud4" type="Sprite2D" parent="Backround/Clouds"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_pjr46")
+script = ExtResource("6_7c8ce")
+
+[node name="Cloud5" type="Sprite2D" parent="Backround/Clouds"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_pjr46")
+script = ExtResource("6_7c8ce")
+
+[node name="Cloud6" type="Sprite2D" parent="Backround/Clouds"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_pjr46")
+script = ExtResource("6_7c8ce")
+
+[node name="Cloud7" type="Sprite2D" parent="Backround/Clouds"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("5_x1vqy")
+script = ExtResource("6_7c8ce")
+
+[node name="Cloud8" type="Sprite2D" parent="Backround/Clouds"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_okjql")
+script = ExtResource("6_7c8ce")
+
+[node name="Cloud9" type="Sprite2D" parent="Backround/Clouds"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_pjr46")
+script = ExtResource("6_7c8ce")
+
+[node name="Cloud10" type="Sprite2D" parent="Backround/Clouds"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_pjr46")
+script = ExtResource("6_7c8ce")
+
+[node name="Cloud11" type="Sprite2D" parent="Backround/Clouds"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_pjr46")
+script = ExtResource("6_7c8ce")
+
+[node name="Cloud12" type="Sprite2D" parent="Backround/Clouds"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("5_x1vqy")
+script = ExtResource("6_7c8ce")
+
+[node name="Cloud13" type="Sprite2D" parent="Backround/Clouds"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_okjql")
+script = ExtResource("6_7c8ce")
+
+[node name="Cloud14" type="Sprite2D" parent="Backround/Clouds"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_pjr46")
+script = ExtResource("6_7c8ce")
+
+[node name="Cloud15" type="Sprite2D" parent="Backround/Clouds"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_pjr46")
+script = ExtResource("6_7c8ce")
+
+[node name="Cloud16" type="Sprite2D" parent="Backround/Clouds"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_pjr46")
+script = ExtResource("6_7c8ce")
+
+[node name="Cloud17" type="Sprite2D" parent="Backround/Clouds"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_pjr46")
+script = ExtResource("6_7c8ce")
+
+[node name="Cloud18" type="Sprite2D" parent="Backround/Clouds"]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_pjr46")
+script = ExtResource("6_7c8ce")
+
+[node name="NormalStreet" type="Sprite2D" parent="Backround"]
+position = Vector2(1270, 494)
+texture = ExtResource("11_7wmkq")
 
 [node name="AreaSelectionLabel" type="Label" parent="."]
-offset_left = 28.0
-offset_top = 18.0
-offset_right = 270.0
-offset_bottom = 67.0
+offset_left = 43.0
+offset_top = 39.0
+offset_right = 388.0
+offset_bottom = 108.0
 text = "Area Selection"
 label_settings = SubResource("LabelSettings_j586r")
 
 [node name="Street" parent="." instance=ExtResource("2_w5fv4")]
-offset_left = 55.0
-offset_top = 304.0
-offset_right = 375.0
-offset_bottom = 504.0
-text = "Street"
-description = "This is the description of the street."
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 415.0
+offset_right = 367.0
+offset_bottom = 531.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(1.2, 1.2)
+texture_normal = ExtResource("11_7wmkq")
+texture_pressed = ExtResource("13_o5sc8")
+texture_hover = ExtResource("13_2jmam")
+description = "A lively spot with a steady stream of locals, offering balanced sales and income from loyal and new customers alike."
 
 [node name="School" parent="." instance=ExtResource("2_w5fv4")]
-offset_left = 410.0
-offset_top = 305.0
-offset_right = 730.0
-offset_bottom = 505.0
-text = "School"
-description = "This is the description of the school."
+offset_left = 436.0
+offset_top = 397.0
+offset_right = 836.0
+offset_bottom = 554.0
+texture_normal = ExtResource("12_noito")
+texture_pressed = ExtResource("16_05070")
+texture_hover = ExtResource("15_btqjj")
+description = "A high-traffic spot packed with students and teachers, leading to more sales but at a smaller profit per customer."
 
-[node name="Festive" parent="." instance=ExtResource("2_w5fv4")]
-offset_left = 771.0
-offset_top = 305.0
-offset_right = 1091.0
-offset_bottom = 505.0
-text = "Festive
-"
-description = "This is the description of the Festive."
+[node name="Mall" parent="." instance=ExtResource("2_w5fv4")]
+offset_left = 814.0
+offset_top = 351.0
+offset_right = 1186.0
+offset_bottom = 517.0
+scale = Vector2(1.25, 1.25)
+texture_normal = ExtResource("13_xb0sr")
+texture_pressed = ExtResource("19_hrcyd")
+texture_hover = ExtResource("17_rgne6")
+description = "A slower-paced spot with fewer customers, but each sale brings in a good amount."
 
 [connection signal="pressed" from="Street" to="." method="_on_street_pressed"]
 [connection signal="pressed" from="School" to="." method="_on_school_pressed"]
-[connection signal="pressed" from="Festive" to="." method="_on_festive_pressed"]
+[connection signal="pressed" from="Mall" to="." method="_on_mall_pressed"]
