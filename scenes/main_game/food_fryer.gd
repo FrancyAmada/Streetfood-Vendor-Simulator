@@ -29,8 +29,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
-
+	max_cookable_items_count = Global.OIL_LEVEL_FRYING_SPACE[PlayerData.oil_level]
+	$TooltipPanel.tooltip_text = "Frying Amount: " + str(items_count) + " / " + str(max_cookable_items_count)
+	
 
 func add_streetfood(streetfood_name: String):
 	if items_count + StreetfoodData.STREETFOOD_FRYING_SPACE[streetfood_name] <= max_cookable_items_count:

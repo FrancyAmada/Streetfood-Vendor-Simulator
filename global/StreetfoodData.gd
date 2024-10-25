@@ -31,7 +31,7 @@ const STREETFOOD_SELL_PRICE: Dictionary = {
 	"chicken_siomai": 30,
 	"pork_siomai": 35,
 	"japanese_siomai": 40,
-	"juice": 20,
+	"juice": 30,
 }
 
 const STREETFOOD_FRYING_SPACE: Dictionary = {
@@ -40,3 +40,7 @@ const STREETFOOD_FRYING_SPACE: Dictionary = {
 	"squidball": 1,
 	"kwekkwek": 2,
 }
+
+const FRIED_STREETFOODS: Array[String] = ["fishball", "squidball", "kikiam", "kwekkwek"]
+
+const SIOMAI_STREETFOODS: Array[String] = ["chicken_siomai", "pork_siomai", "japanese_siomai"]

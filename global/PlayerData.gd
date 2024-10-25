@@ -51,3 +51,10 @@ func UPDATE_COOKED_ITEM(food_name: String, amount):
 func UPDATE_OIL_LEVEL(level: int):
 	oil_level = level
 	emit_signal("oil_level_updated", oil_level)
+
+func RESET_COOKED_ITEMS_COUNT():
+	for item in cooked_items:
+		UPDATE_COOKED_ITEM(item, 0)
+	for siomai in StreetfoodData.SIOMAI_STREETFOODS:
+		UPDATE_COOKED_ITEM(siomai, stock_items[siomai])
+	UPDATE_COOKED_ITEM("juice", stock_items["juice"])

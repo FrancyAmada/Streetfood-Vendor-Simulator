@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cp4c4ufchbjoe"]
+[gd_scene load_steps=7 format=3 uid="uid://cp4c4ufchbjoe"]
 
 [ext_resource type="Script" path="res://scenes/main_game/food_fryer.gd" id="1_rpbqd"]
 [ext_resource type="Texture2D" uid="uid://ctikjd6e23q4t" path="res://assets/main_game/cooking_pan.png" id="2_x0n1m"]
@@ -16,6 +16,8 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.8, 0.2)
 metadata/_snap_enabled = true
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_63b3v"]
 
 [node name="FoodFryer" type="Node2D"]
 _import_path = NodePath("")
@@ -93,3 +95,10 @@ script = null
 position = Vector2(0, 0.500004)
 scale = Vector2(7.8, 7.2)
 texture = SubResource("GradientTexture2D_lh4wk")
+
+[node name="TooltipPanel" type="Panel" parent="."]
+offset_left = -164.0
+offset_top = -152.0
+offset_right = 157.0
+offset_bottom = 134.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_63b3v")

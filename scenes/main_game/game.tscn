@@ -1,7 +1,7 @@
 [gd_scene load_steps=35 format=3 uid="uid://hxidr1h70ruk"]
 
 [ext_resource type="Script" path="res://scenes/main_game/game.gd" id="1_73igr"]
-[ext_resource type="Texture2D" uid="uid://bw0365a5xnoxg" path="res://assets/main_game/areas/street.png" id="2_8ah13"]
+[ext_resource type="Texture2D" uid="uid://cssvc6fl5u4ol" path="res://assets/main_game/areas/street.png" id="2_8ah13"]
 [ext_resource type="Texture2D" uid="uid://bja5f8dobfwp2" path="res://assets/main_game/stall.png" id="2_liho8"]
 [ext_resource type="PackedScene" uid="uid://d2g5x0hbh8ofm" path="res://scenes/minigame/minigame.tscn" id="2_xsin3"]
 [ext_resource type="PackedScene" uid="uid://cp4c4ufchbjoe" path="res://scenes/main_game/food_fryer.tscn" id="3_4fqso"]
@@ -32,7 +32,7 @@
 [ext_resource type="Script" path="res://scenes/main_game/cooked_streetfood_label.gd" id="19_mgmco"]
 [ext_resource type="Script" path="res://scenes/main_game/money_container.gd" id="30_kkvto"]
 [ext_resource type="Texture2D" uid="uid://c7gr4e67rrwht" path="res://assets/restock_menu/money-icon.png" id="31_yxgy1"]
-[ext_resource type="Theme" uid="uid://bqlls726ggu3y" path="res://assets/game_theme.tres" id="32_oq5tw"]
+[ext_resource type="Theme" uid="uid://c2lcebayb3f8q" path="res://assets/game_theme.tres" id="32_oq5tw"]
 
 [sub_resource type="Theme" id="Theme_ynjel"]
 Label/constants/outline_size = 10
@@ -193,7 +193,7 @@ position = Vector2(1101, 528)
 offset_left = 578.0
 offset_top = 402.0
 offset_right = 914.0
-offset_bottom = 666.0
+offset_bottom = 694.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CookedFoodContainer"]
 layout_mode = 2
@@ -210,7 +210,7 @@ layout_mode = 2
 [node name="TextureRect" type="TextureRect" parent="CookedFoodContainer/HBoxContainer/FriedItems/FishballContainer"]
 custom_minimum_size = Vector2(0, 96)
 layout_mode = 2
-tooltip_text = "FIshball"
+tooltip_text = "Fishball"
 texture = ExtResource("3_4lvat")
 expand_mode = 3
 
@@ -290,6 +290,7 @@ layout_mode = 2
 text = "0
 "
 script = ExtResource("19_mgmco")
+food_item_name = "chicken_siomai"
 
 [node name="PorkSiomaiContainer" type="HBoxContainer" parent="CookedFoodContainer/HBoxContainer/UpgradeItems"]
 layout_mode = 2
@@ -305,6 +306,7 @@ expand_mode = 2
 layout_mode = 2
 text = "0"
 script = ExtResource("19_mgmco")
+food_item_name = "pork_siomai"
 
 [node name="JapaneseSiomaiContainer" type="HBoxContainer" parent="CookedFoodContainer/HBoxContainer/UpgradeItems"]
 layout_mode = 2
@@ -320,6 +322,7 @@ expand_mode = 2
 layout_mode = 2
 text = "0"
 script = ExtResource("19_mgmco")
+food_item_name = "japanese_siomai"
 
 [node name="JuiceContainer" type="HBoxContainer" parent="CookedFoodContainer/HBoxContainer/UpgradeItems"]
 layout_mode = 2
@@ -337,6 +340,7 @@ layout_mode = 2
 text = "0
 "
 script = ExtResource("19_mgmco")
+food_item_name = "juice"
 
 [node name="Customers" type="Node2D" parent="."]
 

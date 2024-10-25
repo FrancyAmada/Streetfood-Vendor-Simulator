@@ -17,7 +17,9 @@ func _on_pressed() -> void:
 
 func set_streetfood(order_name: String):
 	streetfood_name = order_name
-	text = streetfood_name.capitalize()
+	#text = streetfood_name.capitalize()
+	var order_icon = load('res://assets/customer_orders/' + order_name + '.png')
+	icon = order_icon
 
 func _on_minigame_started():
 	disabled = true
