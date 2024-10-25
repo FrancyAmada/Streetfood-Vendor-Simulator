@@ -18,4 +18,5 @@ position = Vector2(640, 600)
 
 [node name="Dropper" parent="." instance=ExtResource("3_4sjvc")]
 
+[connection signal="is_max_catch" from="Stick" to="." method="_on_stick_is_max_catch"]
 [connection signal="is_finished" from="Dropper" to="." method="_on_dropper_is_finished"]

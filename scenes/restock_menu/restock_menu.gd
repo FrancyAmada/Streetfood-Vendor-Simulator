@@ -40,3 +40,9 @@ func _on_refill_oil() -> void:
 	
 func _on_next_button_button_down() -> void:
 	print("NEXT")
+
+func _on_unlock_siomai_pressed() -> void:
+	if money >= 500:
+		Global.UNLOCK_SIOMAI()
+		$UnlockSiomai.disabled = true
+		$UnlockSiomai.visible = false

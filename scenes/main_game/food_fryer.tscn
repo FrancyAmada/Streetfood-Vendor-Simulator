@@ -1,9 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://cp4c4ufchbjoe"]
+[gd_scene load_steps=6 format=3 uid="uid://cp4c4ufchbjoe"]
 
 [ext_resource type="Script" path="res://scenes/main_game/food_fryer.gd" id="1_rpbqd"]
+[ext_resource type="Texture2D" uid="uid://ctikjd6e23q4t" path="res://assets/main_game/cooking_pan.png" id="2_x0n1m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rmw1j"]
 radius = 160.0
+
+[sub_resource type="Gradient" id="Gradient_gd78r"]
+offsets = PackedFloat32Array(0.207792, 0.538961, 0.74026, 0.831169)
+colors = PackedColorArray(0.544522, 0.544659, 0.0556046, 0.392157, 0.666667, 0.666667, 0.0392157, 0.392157, 0.937255, 0.937255, 0.0823529, 0.392157, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lh4wk"]
+gradient = SubResource("Gradient_gd78r")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8, 0.2)
+metadata/_snap_enabled = true
 
 [node name="FoodFryer" type="Node2D"]
 script = ExtResource("1_rpbqd")
@@ -13,4 +25,14 @@ script = ExtResource("1_rpbqd")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_rmw1j")
 
+[node name="CookingPan" type="Sprite2D" parent="."]
+position = Vector2(0, 14)
+scale = Vector2(2.8, 2.8)
+texture = ExtResource("2_x0n1m")
+
 [node name="ItemsNode" type="Node2D" parent="."]
+
+[node name="Oil" type="Sprite2D" parent="."]
+position = Vector2(0, 0.500004)
+scale = Vector2(7.8, 7.2)
+texture = SubResource("GradientTexture2D_lh4wk")

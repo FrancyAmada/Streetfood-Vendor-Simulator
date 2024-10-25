@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://ceui5c78m5hfn"
+path="res://.godot/imported/streetfood_tray-clickmask.bmp-5004f4060ef6ca9915fb7b8354c47579.res"
+
+[deps]
+
+source_file="res://assets/main_game/food_trays/streetfood_tray-clickmask.bmp"
+dest_files=["res://.godot/imported/streetfood_tray-clickmask.bmp-5004f4060ef6ca9915fb7b8354c47579.res"]
+
+[params]
+
+create_from=0
+threshold=0.5
