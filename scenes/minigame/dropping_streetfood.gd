@@ -49,18 +49,24 @@ func set_streetfood_texture(food_name: String):
 func start_drop():
 	dropping = true
 	
-func catch_streetfood(stick_node: Node2D):
+func catch_streetfood(catcher_node: Node2D):
 	set_physics_process(false)
 	catched = true
 	dropping = false
 	streetfood_area.set_deferred('monitoring', false)
 	get_parent().remove_child(self)
-	stick_node.items_node.add_child(self)
+	catcher_node.items_node.add_child(self)
+
+func set_stick_position(stick_node: Node2D):
 	global_position.x = stick_node.global_position.x
 	position.y = stick_node.initial_catched_position.y - (stick_node.current_catched_index * streetfood_area_size * 2) - 10
+
+func set_siomai_plate_position(plate: Node2D, pos: Vector2):
+	global_position = plate.global_position
+	position = pos
 
 func _on_streetfood_area_area_entered(area: Area2D) -> void:
 	if area.get_parent() is DroppingStreetfood:
 		var collided_item = area.get_parent()
 		var direction: Vector2 = global_position.direction_to(collided_item.global_position).normalized()
-		global_position.x += -direction.x * streetfood_area_size
+		global_position.x += -direction.x * streetfood_area_size * 2

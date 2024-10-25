@@ -39,7 +39,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	update_food_items_buttons()
 	update_siomai_steamer()
-	
+	if is_out_of_stock():
+		end_day()
 	
 func update_food_items_buttons():
 	if PlayerData.stock_items["fishball"] <= 0:
@@ -88,17 +89,31 @@ func update_siomai_steamer():
 		$SiomaiSteamer/JapaneseSiomai.visible = true
 
 func start_day():
-	daytime_timer.start(30)
+	daytime_timer.start(60)
+	PlayerData.RESET_COOKED_ITEMS_COUNT()
 	
 func _on_daytime_timer_timeout() -> void:
 	if in_minigame:
 		await minigame_has_finished
-		
+	end_day()
+	
+func end_day():
+	daytime_timer.stop()
 	var new_oil_level: int = randi_range(0, PlayerData.oil_level)
 	PlayerData.UPDATE_OIL_LEVEL(new_oil_level)
 	emit_signal("day_is_finished")
-	
 
+func is_out_of_stock():
+	var out_of_stock: bool = true
+	for item in PlayerData.stock_items:
+		if PlayerData.stock_items[item] > 0:
+			out_of_stock = false
+	var out_of_cooked_food: bool = true
+	for item in PlayerData.cooked_items:
+		if PlayerData.cooked_items[item] > StreetfoodData.REQUIRED_COOKED_FOOD[item]:
+			out_of_cooked_food = false
+	return out_of_stock and out_of_cooked_food
+	
 func _on_fishball_pressed() -> void:
 	if PlayerData.stock_items["fishball"] > 0:
 		PlayerData.stock_items["fishball"] -= 1

@@ -11,7 +11,7 @@ signal start_minigame(streetfood_name: String, order: OrderButton)
 func _ready() -> void:
 	add_order("fishball")
 	add_order("kwekkwek")
-	add_order("squidball")
+	add_order("chicken_siomai")
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
