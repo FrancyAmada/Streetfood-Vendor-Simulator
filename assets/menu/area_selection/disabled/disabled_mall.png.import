@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b252i0w5st8cy"
-path="res://.godot/imported/normal_street.png-32e26792ed617f3826fc098f2d316edb.ctex"
+uid="uid://d1msp017ckcd0"
+path="res://.godot/imported/disabled_mall.png-94c071205036bd9b8ef074c1868b07ea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/menu/area_selection/normal/normal_street.png"
-dest_files=["res://.godot/imported/normal_street.png-32e26792ed617f3826fc098f2d316edb.ctex"]
+source_file="res://assets/menu/area_selection/disabled/disabled_mall.png"
+dest_files=["res://.godot/imported/disabled_mall.png-94c071205036bd9b8ef074c1868b07ea.ctex"]
 
 [params]
 
