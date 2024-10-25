@@ -15,7 +15,6 @@ scale = Vector2(5, 5)
 texture = ExtResource("2_ec5p6")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-z_index = 10
 offset_left = -120.0
 offset_top = -173.0
 offset_right = 115.0

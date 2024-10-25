@@ -30,6 +30,8 @@ func add_order(streetfood_name: String):
 	$PanelContainer/Orders.add_child(order_instance)
 	order_instance.set_streetfood(streetfood_name)
 	order_instance.connect("start_minigame", _on_start_minigame)
+	if get_parent().get_parent().get_parent().in_minigame:
+		order_instance._on_minigame_started()
 
 func _on_start_minigame(streetfood_name: String, order: OrderButton):
 	emit_signal("start_minigame", streetfood_name, order)

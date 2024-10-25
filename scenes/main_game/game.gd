@@ -58,27 +58,29 @@ func update_food_items_buttons():
 	if PlayerData.stock_items["fishball"] <= 0:
 		fishball_tray.disabled = true
 	else:
-		fishball_tray.tooltip_text = "Fishball: " + str(PlayerData.stock_items["fishball"])
 		fishball_tray.disabled = false
 		 
 	if PlayerData.stock_items["squidball"] <= 0:
 		squidball_tray.disabled = true
 	else:
-		squidball_tray.tooltip_text = "Squidball: " + str(PlayerData.stock_items["squidball"])
 		squidball_tray.disabled = false
 		
 	if PlayerData.stock_items["kikiam"] <= 0:
 		kikiam_tray.disabled = true
 	else:
-		kikiam_tray.tooltip_text = "Kikiam: " + str(PlayerData.stock_items["kikiam"])
 		kikiam_tray.disabled = false
 		
 	if PlayerData.stock_items["kwekkwek"] <= 0:
 		kwekkwek_tray.disabled = true
 	else:
-		kwekkwek_tray.tooltip_text = "Kwekkwek: " + str(PlayerData.stock_items["kwekkwek"])
 		kwekkwek_tray.disabled = false
 		
+	fishball_tray.tooltip_text = "Fishball: " + str(PlayerData.stock_items["fishball"])
+	squidball_tray.tooltip_text = "Squidball: " + str(PlayerData.stock_items["squidball"])
+	kikiam_tray.tooltip_text = "Kikiam: " + str(PlayerData.stock_items["kikiam"])
+	kwekkwek_tray.tooltip_text = "Kwekkwek: " + str(PlayerData.stock_items["kwekkwek"])
+	
+	
 func update_siomai_steamer():
 	if PlayerData.siomai_unlocked:
 		$SiomaiSteamer.visible = true
@@ -118,7 +120,7 @@ func update_juice_dispenser():
 	$JuiceDispenser/TooltipPanel.tooltip_text = "Juice: " + str(PlayerData.cooked_items["juice"])
 
 func start_day():
-	daytime_timer.start(60)
+	daytime_timer.start(300)
 	PlayerData.RESET_COOKED_ITEMS_COUNT()
 	set_upgrades_cooked_stock_count()
 	
@@ -133,6 +135,7 @@ func _on_daytime_timer_timeout() -> void:
 	end_day()
 	
 func end_day():
+	food_fryer_node.clear_items()
 	daytime_timer.stop()
 	var new_oil_level: int = randi_range(0, PlayerData.oil_level)
 	PlayerData.UPDATE_OIL_LEVEL(new_oil_level)
@@ -252,3 +255,6 @@ func get_tip(food_name: String, catched_count: int):
 
 func _on_spawn_interval_timer_timeout() -> void:
 	can_spawn = true
+
+func _on_end_day_button_pressed() -> void:
+	end_day()
