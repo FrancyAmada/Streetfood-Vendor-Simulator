@@ -7,6 +7,7 @@ signal mute_state_changed(is_muted)
 @onready var area_select_music: AudioStream = preload("res://assets/sounds/bg-music/level_select-music.wav")
 @onready var game_music: AudioStream = preload("res://assets/sounds/bg-music/game-music.wav")
 @onready var restock_menu_music: AudioStream = preload("res://assets/sounds/bg-music/restock_menu-music.wav")
+@onready var minigame_music: AudioStream = preload("res://assets/sounds/bg-music/minigame-music.wav")
 
 #ui_sfx
 @onready var click_sfx: AudioStream = preload("res://assets/sounds/ui-sfx/click.wav")
@@ -19,6 +20,7 @@ signal mute_state_changed(is_muted)
 @onready var oil_sizzling_sfx: AudioStream = preload("res://assets/sounds/sfx/oil-sizzling.wav")
 @onready var fail_sfx: AudioStream = preload("res://assets/sounds/sfx/fail.wav")
 @onready var minigame_start_sfx: AudioStream = preload("res://assets/sounds/sfx/minigame_start.wav")
+@onready var juice_pouring_minigame_sfx: AudioStream = preload("res://assets/sounds/sfx/juice_pouring.wav")
 
 var music_bus = AudioServer.get_bus_index("Music")
 var sfx_bus = AudioServer.get_bus_index("SFX")
@@ -113,6 +115,9 @@ func play_game_music():
 func play_restock_menu_music():
 	play_music(restock_menu_music)
 	
+func play_minigame_music():
+	play_music(minigame_music)
+	
 func play_click_sfx():
 	play_sfx(click_sfx)
 	
@@ -136,3 +141,6 @@ func play_fail_sfx():
 	
 func play_minigame_start_sfx():
 	play_sfx(minigame_start_sfx)
+	
+func play_juice_pouring_sfx():
+	play_sfx(juice_pouring_minigame_sfx)
