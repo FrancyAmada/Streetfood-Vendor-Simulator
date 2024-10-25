@@ -2,17 +2,19 @@ extends Node2D
 
 class_name Customer
 
+@onready var texture = $Sprite2D
 const STREETFOOD_ORDER_SCENE = preload("res://scenes/main_game/order.tscn")
+
+@export_enum('student', 'normal', 'rich') var character_type: String = 'normal'
 
 signal start_minigame(streetfood_name: String, order: OrderButton)
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	add_order("fishball")
-	add_order("kwekkwek")
-	add_order("squidball")
-	
+	var n = randi_range(0, 1)
+	var gender = 'male' if (n==0) else 'female'
+	texture = load('res://assets/customers/' + gender + '-' + character_type + '.png')
+	generate_orders()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -34,3 +36,30 @@ func _on_start_minigame(streetfood_name: String, order: OrderButton):
 func remove_customer():
 	if is_instance_valid(self):
 		queue_free()
+
+func generate_orders():
+	var available_items: Array[String]
+	for item in PlayerData.stock_items:
+		if PlayerData.stock_items[item] != 0:
+			available_items.append(item)
+			
+	if character_type == 'student':
+		add_order(available_items.pick_random())
+	
+	if character_type == 'normal':
+		var n = randi_range(0, 1)
+		if n == 0: 
+			add_order(available_items.pick_random())
+		else:
+			add_order(available_items.pick_random())
+			add_order(available_items.pick_random())
+		
+	if character_type == 'rich':
+		var n = randi_range(0, 9)
+		if n < 3:
+			add_order(available_items.pick_random())
+			add_order(available_items.pick_random())
+		else:
+			add_order(available_items.pick_random())
+			add_order(available_items.pick_random())
+			add_order(available_items.pick_random())
