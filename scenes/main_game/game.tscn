@@ -1,72 +1,557 @@
 [gd_scene load_steps=4 format=3 uid="uid://hxidr1h70ruk"]
 
 [ext_resource type="Script" path="res://scenes/main_game/game.gd" id="1_73igr"]
+[ext_resource type="Texture2D" uid="uid://cssvc6fl5u4ol" path="res://assets/main_game/areas/street.png" id="2_8ah13"]
+[ext_resource type="Texture2D" uid="uid://bja5f8dobfwp2" path="res://assets/main_game/stall.png" id="2_liho8"]
 [ext_resource type="PackedScene" uid="uid://d2g5x0hbh8ofm" path="res://scenes/minigame/minigame.tscn" id="2_xsin3"]
 [ext_resource type="PackedScene" uid="uid://cp4c4ufchbjoe" path="res://scenes/main_game/food_fryer.tscn" id="3_4fqso"]
+[ext_resource type="Texture2D" uid="uid://c87hoqqkkiwkv" path="res://assets/streetfoods/cooked/fishball.png" id="3_4lvat"]
+[ext_resource type="FontFile" uid="uid://pps1p2nmmn6s" path="res://assets/font/Fredoka/static/Fredoka-Regular.ttf" id="3_leplk"]
+[ext_resource type="Texture2D" uid="uid://cehulu2fhbxd1" path="res://assets/streetfoods/cooked/kikiam.png" id="4_0a7n4"]
+[ext_resource type="Texture2D" uid="uid://cnyphiwx3sw36" path="res://assets/food_stall/steamer/steamer_base.png" id="4_nu3v5"]
+[ext_resource type="Texture2D" uid="uid://meqfvp5njhfc" path="res://assets/streetfoods/cooked/squidball.png" id="5_qyupf"]
+[ext_resource type="Texture2D" uid="uid://chl72snoa8s2h" path="res://assets/food_stall/steamer/steamer-chicken_siomai.png" id="5_u5r45"]
+[ext_resource type="Texture2D" uid="uid://crhksqmmr28p5" path="res://assets/food_stall/steamer/steamer_front.png" id="5_xbejk"]
+[ext_resource type="Texture2D" uid="uid://c4lcekjw24rhw" path="res://assets/food_stall/steamer/steamer-pork_siomai.png" id="6_5acmp"]
+[ext_resource type="Texture2D" uid="uid://dqqap6q16l1ao" path="res://assets/main_game/food_trays/fishball_tray.png" id="6_upaje"]
+[ext_resource type="Texture2D" uid="uid://b16sxcmys35tx" path="res://assets/streetfoods/cooked/kwekkwek.png" id="6_xm2hg"]
+[ext_resource type="Texture2D" uid="uid://bnw2n2t7u6d6x" path="res://assets/main_game/food_trays/fishball_tray-highlight.png" id="7_0vjl5"]
+[ext_resource type="Texture2D" uid="uid://0wqguocmecv" path="res://assets/food_stall/steamer/steamer-japanese_siomai.png" id="7_kux0b"]
+[ext_resource type="Texture2D" uid="uid://dwkhnpiqbiqs5" path="res://assets/streetfoods/cooked/chicken_siomai.png" id="7_phxix"]
+[ext_resource type="Texture2D" uid="uid://c7xpkwiu4a1cp" path="res://assets/streetfoods/cooked/pork_siomai.png" id="8_d3bs2"]
+[ext_resource type="Texture2D" uid="uid://bs1esc4cmgnus" path="res://assets/main_game/food_trays/streetfood_tray.png" id="8_so6jo"]
+[ext_resource type="BitMap" uid="uid://ceui5c78m5hfn" path="res://assets/main_game/food_trays/streetfood_tray-clickmask.bmp" id="9_g2w7y"]
+[ext_resource type="Texture2D" uid="uid://bbhbmaqfbd0yu" path="res://assets/streetfoods/cooked/japanese_siomai.png" id="9_rl13o"]
+[ext_resource type="Texture2D" uid="uid://creyovhlh3fmn" path="res://assets/main_game/food_trays/squidball_tray.png" id="10_6ikmg"]
+[ext_resource type="Texture2D" uid="uid://dklujeofi7q0k" path="res://assets/food_stall/plastic_cup.png" id="10_obxi8"]
+[ext_resource type="Texture2D" uid="uid://dxxyrn2xbvsja" path="res://assets/main_game/food_trays/squidball_tray-highlight.png" id="11_0vyq0"]
+[ext_resource type="Texture2D" uid="uid://bnlxwstqhybdu" path="res://assets/main_game/food_trays/kikiam_tray.png" id="12_dtye2"]
+[ext_resource type="Texture2D" uid="uid://cwg4auhp6kd38" path="res://assets/main_game/food_trays/kikiam_tray-highlight.png" id="13_aon60"]
+[ext_resource type="Texture2D" uid="uid://dobxgxnp2kkcq" path="res://assets/main_game/food_trays/kwekkwek_tray.png" id="14_ss5h1"]
+[ext_resource type="Texture2D" uid="uid://b7kt6yhyp42gw" path="res://assets/main_game/food_trays/kwekkwek_tray-highlight.png" id="15_yxjjy"]
+[ext_resource type="Script" path="res://scenes/main_game/cooked_streetfood_label.gd" id="19_mgmco"]
+[ext_resource type="Script" path="res://scenes/main_game/money_container.gd" id="30_kkvto"]
+[ext_resource type="Texture2D" uid="uid://c7gr4e67rrwht" path="res://assets/restock_menu/money-icon.png" id="31_yxgy1"]
+[ext_resource type="Theme" uid="uid://c2lcebayb3f8q" path="res://assets/game_theme.tres" id="32_oq5tw"]
+
+[sub_resource type="Theme" id="Theme_ynjel"]
+Label/constants/outline_size = 10
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("3_leplk")
 
 [node name="Game" type="Node2D"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+visible = true
+modulate = Color(1, 1, 1, 1)
+self_modulate = Color(1, 1, 1, 1)
+show_behind_parent = false
+top_level = false
+clip_children = 0
+light_mask = 1
+visibility_layer = 1
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
+texture_filter = 0
+texture_repeat = 0
+material = null
+use_parent_material = false
+position = Vector2(0, 0)
+rotation = 0.0
+scale = Vector2(1, 1)
+skew = 0.0
 script = ExtResource("1_73igr")
 
+[node name="AreaSprite" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(640, 250)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_8ah13")
+
+[node name="Sprites" type="Node2D" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+visible = true
+modulate = Color(1, 1, 1, 1)
+self_modulate = Color(1, 1, 1, 1)
+show_behind_parent = false
+top_level = false
+clip_children = 0
+light_mask = 1
+visibility_layer = 1
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
+texture_filter = 0
+texture_repeat = 0
+material = null
+use_parent_material = false
+position = Vector2(0, 0)
+rotation = 0.0
+scale = Vector2(1, 1)
+skew = 0.0
+script = null
+
+[node name="StallSprite" type="Sprite2D" parent="Sprites"]
+position = Vector2(640, 360)
+scale = Vector2(2, 2)
+texture = ExtResource("2_liho8")
+
+[node name="SiomaiSteamer" type="Node2D" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+visible = true
+modulate = Color(1, 1, 1, 1)
+self_modulate = Color(1, 1, 1, 1)
+show_behind_parent = false
+top_level = false
+clip_children = 0
+light_mask = 1
+visibility_layer = 1
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
+texture_filter = 0
+texture_repeat = 0
+material = null
+use_parent_material = false
+position = Vector2(186, 264)
+rotation = 0.0
+scale = Vector2(1, 1)
+skew = 0.0
+script = null
+metadata/_edit_group_ = true
+
+[node name="SiomaiSteamerSprite" type="Sprite2D" parent="SiomaiSteamer"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_nu3v5")
+
+[node name="ChickenSiomai" type="Sprite2D" parent="SiomaiSteamer"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_u5r45")
+
+[node name="PorkSiomai" type="Sprite2D" parent="SiomaiSteamer"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_5acmp")
+
+[node name="JapaneseSiomai" type="Sprite2D" parent="SiomaiSteamer"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("7_kux0b")
+
+[node name="SiomaiSteamerGlassSprite" type="Sprite2D" parent="SiomaiSteamer"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_xbejk")
+
 [node name="FoodItemsButtons" type="Node2D" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+visible = true
+modulate = Color(1, 1, 1, 1)
+self_modulate = Color(1, 1, 1, 1)
+show_behind_parent = false
+top_level = false
+clip_children = 0
+light_mask = 1
+visibility_layer = 1
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
+texture_filter = 0
+texture_repeat = 0
+material = null
+use_parent_material = false
+position = Vector2(0, 0)
+rotation = 0.0
+scale = Vector2(1, 1)
+skew = 0.0
+script = null
 
-[node name="Fishball" type="Button" parent="FoodItemsButtons"]
-offset_left = 296.0
-offset_top = 467.0
-offset_right = 407.0
-offset_bottom = 572.0
-text = "Fishball"
+[node name="Fishball" type="TextureButton" parent="FoodItemsButtons"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 2
+auto_translate_mode = 0
+editor_description = ""
+visible = true
+modulate = Color(1, 1, 1, 1)
+self_modulate = Color(1, 1, 1, 1)
+show_behind_parent = false
+top_level = false
+clip_children = 0
+light_mask = 1
+visibility_layer = 1
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
+texture_filter = 0
+texture_repeat = 0
+material = null
+use_parent_material = false
+clip_contents = false
+custom_minimum_size = Vector2(0, 0)
+layout_direction = 0
+layout_mode = 3
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 49.0
+offset_top = 400.0
+offset_right = 549.0
+offset_bottom = 900.0
+grow_horizontal = 1
+grow_vertical = 1
+rotation = 0.0
+scale = Vector2(0.45, 0.45)
+pivot_offset = Vector2(0, 0)
+size_flags_horizontal = 1
+size_flags_vertical = 1
+size_flags_stretch_ratio = 1.0
+localize_numeral_system = true
+tooltip_text = ""
+focus_neighbor_left = NodePath("")
+focus_neighbor_top = NodePath("")
+focus_neighbor_right = NodePath("")
+focus_neighbor_bottom = NodePath("")
+focus_next = NodePath("")
+focus_previous = NodePath("")
+focus_mode = 2
+mouse_filter = 0
+mouse_force_pass_scroll_events = true
+mouse_default_cursor_shape = 0
+theme = null
+theme_type_variation = &""
+disabled = false
+toggle_mode = false
+button_pressed = false
+action_mode = 1
+button_mask = 1
+keep_pressed_outside = false
+button_group = null
+shortcut = null
+shortcut_feedback = true
+shortcut_in_tooltip = true
+texture_normal = ExtResource("6_upaje")
+texture_pressed = ExtResource("7_0vjl5")
+texture_hover = ExtResource("7_0vjl5")
+texture_disabled = ExtResource("8_so6jo")
+texture_focused = null
+texture_click_mask = ExtResource("9_g2w7y")
+ignore_texture_size = false
+stretch_mode = 2
+flip_h = false
+flip_v = false
+script = null
 
-[node name="Squidball" type="Button" parent="FoodItemsButtons"]
-offset_left = 297.0
-offset_top = 587.0
-offset_right = 408.0
-offset_bottom = 697.0
-text = "Squidball"
+[node name="Squidball" type="TextureButton" parent="FoodItemsButtons"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 2
+auto_translate_mode = 0
+editor_description = ""
+visible = true
+modulate = Color(1, 1, 1, 1)
+self_modulate = Color(1, 1, 1, 1)
+show_behind_parent = false
+top_level = false
+clip_children = 0
+light_mask = 1
+visibility_layer = 1
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
+texture_filter = 0
+texture_repeat = 0
+material = null
+use_parent_material = false
+clip_contents = false
+custom_minimum_size = Vector2(0, 0)
+layout_direction = 0
+layout_mode = 3
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 33.0
+offset_top = 506.0
+offset_right = 533.0
+offset_bottom = 1006.0
+grow_horizontal = 1
+grow_vertical = 1
+rotation = 0.0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(0, 0)
+size_flags_horizontal = 1
+size_flags_vertical = 1
+size_flags_stretch_ratio = 1.0
+localize_numeral_system = true
+tooltip_text = ""
+focus_neighbor_left = NodePath("")
+focus_neighbor_top = NodePath("")
+focus_neighbor_right = NodePath("")
+focus_neighbor_bottom = NodePath("")
+focus_next = NodePath("")
+focus_previous = NodePath("")
+focus_mode = 2
+mouse_filter = 0
+mouse_force_pass_scroll_events = true
+mouse_default_cursor_shape = 0
+theme = null
+theme_type_variation = &""
+disabled = false
+toggle_mode = false
+button_pressed = false
+action_mode = 1
+button_mask = 1
+keep_pressed_outside = false
+button_group = null
+shortcut = null
+shortcut_feedback = true
+shortcut_in_tooltip = true
+texture_normal = ExtResource("10_6ikmg")
+texture_pressed = ExtResource("11_0vyq0")
+texture_hover = ExtResource("11_0vyq0")
+texture_disabled = ExtResource("8_so6jo")
+texture_focused = null
+texture_click_mask = ExtResource("9_g2w7y")
+ignore_texture_size = false
+stretch_mode = 2
+flip_h = false
+flip_v = false
+script = null
 
-[node name="Kikiam" type="Button" parent="FoodItemsButtons"]
-offset_left = 432.0
-offset_top = 466.0
-offset_right = 547.0
-offset_bottom = 573.0
-text = "Kikiam"
+[node name="Kikiam" type="TextureButton" parent="FoodItemsButtons"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 2
+auto_translate_mode = 0
+editor_description = ""
+visible = true
+modulate = Color(1, 1, 1, 1)
+self_modulate = Color(1, 1, 1, 1)
+show_behind_parent = false
+top_level = false
+clip_children = 0
+light_mask = 1
+visibility_layer = 1
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
+texture_filter = 0
+texture_repeat = 0
+material = null
+use_parent_material = false
+clip_contents = false
+custom_minimum_size = Vector2(0, 0)
+layout_direction = 0
+layout_mode = 3
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 326.0
+offset_top = 398.0
+offset_right = 826.0
+offset_bottom = 898.0
+grow_horizontal = 1
+grow_vertical = 1
+rotation = 0.0
+scale = Vector2(0.45, 0.45)
+pivot_offset = Vector2(0, 0)
+size_flags_horizontal = 1
+size_flags_vertical = 1
+size_flags_stretch_ratio = 1.0
+localize_numeral_system = true
+tooltip_text = ""
+focus_neighbor_left = NodePath("")
+focus_neighbor_top = NodePath("")
+focus_neighbor_right = NodePath("")
+focus_neighbor_bottom = NodePath("")
+focus_next = NodePath("")
+focus_previous = NodePath("")
+focus_mode = 2
+mouse_filter = 0
+mouse_force_pass_scroll_events = true
+mouse_default_cursor_shape = 0
+theme = null
+theme_type_variation = &""
+disabled = false
+toggle_mode = false
+button_pressed = false
+action_mode = 1
+button_mask = 1
+keep_pressed_outside = false
+button_group = null
+shortcut = null
+shortcut_feedback = true
+shortcut_in_tooltip = true
+texture_normal = ExtResource("12_dtye2")
+texture_pressed = ExtResource("13_aon60")
+texture_hover = ExtResource("13_aon60")
+texture_disabled = ExtResource("8_so6jo")
+texture_focused = null
+texture_click_mask = ExtResource("9_g2w7y")
+ignore_texture_size = false
+stretch_mode = 2
+flip_h = false
+flip_v = false
+script = null
 
-[node name="KwekKwek" type="Button" parent="FoodItemsButtons"]
-offset_left = 432.0
-offset_top = 586.0
-offset_right = 546.0
-offset_bottom = 696.0
-text = "KwekKwek"
-
-[node name="ChickenSiomai" type="Button" parent="FoodItemsButtons"]
-offset_left = 21.0
-offset_top = 619.0
-offset_right = 262.0
-offset_bottom = 697.0
-text = "Chicken Siomai"
-
-[node name="PorkSiomai" type="Button" parent="FoodItemsButtons"]
-offset_left = 23.0
-offset_top = 533.0
-offset_right = 263.0
-offset_bottom = 609.0
-text = "Pork Siomai"
-
-[node name="JapaneseSiomai" type="Button" parent="FoodItemsButtons"]
-offset_left = 22.0
-offset_top = 446.0
-offset_right = 264.0
-offset_bottom = 524.0
-text = "Japanese Siomai"
-
-[node name="Juice" type="Button" parent="FoodItemsButtons"]
-offset_left = 44.0
-offset_top = 182.0
-offset_right = 224.0
-offset_bottom = 424.0
-text = "Juice Dispenser"
+[node name="KwekKwek" type="TextureButton" parent="FoodItemsButtons"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 2
+auto_translate_mode = 0
+editor_description = ""
+visible = true
+modulate = Color(1, 1, 1, 1)
+self_modulate = Color(1, 1, 1, 1)
+show_behind_parent = false
+top_level = false
+clip_children = 0
+light_mask = 1
+visibility_layer = 1
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
+texture_filter = 0
+texture_repeat = 0
+material = null
+use_parent_material = false
+clip_contents = false
+custom_minimum_size = Vector2(0, 0)
+layout_direction = 0
+layout_mode = 3
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 316.0
+offset_top = 509.0
+offset_right = 816.0
+offset_bottom = 1009.0
+grow_horizontal = 1
+grow_vertical = 1
+rotation = 0.0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(0, 0)
+size_flags_horizontal = 1
+size_flags_vertical = 1
+size_flags_stretch_ratio = 1.0
+localize_numeral_system = true
+tooltip_text = ""
+focus_neighbor_left = NodePath("")
+focus_neighbor_top = NodePath("")
+focus_neighbor_right = NodePath("")
+focus_neighbor_bottom = NodePath("")
+focus_next = NodePath("")
+focus_previous = NodePath("")
+focus_mode = 2
+mouse_filter = 0
+mouse_force_pass_scroll_events = true
+mouse_default_cursor_shape = 0
+theme = null
+theme_type_variation = &""
+disabled = false
+toggle_mode = false
+button_pressed = false
+action_mode = 1
+button_mask = 1
+keep_pressed_outside = false
+button_group = null
+shortcut = null
+shortcut_feedback = true
+shortcut_in_tooltip = true
+texture_normal = ExtResource("14_ss5h1")
+texture_pressed = ExtResource("15_yxjjy")
+texture_hover = ExtResource("15_yxjjy")
+texture_disabled = ExtResource("8_so6jo")
+texture_focused = null
+texture_click_mask = ExtResource("9_g2w7y")
+ignore_texture_size = false
+stretch_mode = 2
+flip_h = false
+flip_v = false
+script = null
 
 [node name="FoodFryer" parent="." instance=ExtResource("3_4fqso")]
-position = Vector2(1050, 545)
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+visible = true
+modulate = Color(1, 1, 1, 1)
+self_modulate = Color(1, 1, 1, 1)
+show_behind_parent = false
+top_level = false
+clip_children = 0
+light_mask = 1
+visibility_layer = 1
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
+texture_filter = 0
+texture_repeat = 0
+material = null
+use_parent_material = false
+position = Vector2(1101, 528)
+rotation = 0.0
+scale = Vector2(1, 1)
+skew = 0.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 offset_left = 570.0
@@ -79,7 +564,188 @@ theme_override_constants/separation = 20
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Fishball" type="Label" parent="HBoxContainer/FriedItems"]
+[node name="FriedItems" type="VBoxContainer" parent="CookedFoodContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -40
+
+[node name="FishballContainer" type="HBoxContainer" parent="CookedFoodContainer/HBoxContainer/FriedItems"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CookedFoodContainer/HBoxContainer/FriedItems/FishballContainer"]
+custom_minimum_size = Vector2(0, 96)
+layout_mode = 2
+tooltip_text = "FIshball"
+texture = ExtResource("3_4lvat")
+expand_mode = 3
+
+[node name="Fishball" type="Label" parent="CookedFoodContainer/HBoxContainer/FriedItems/FishballContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "0"
+script = ExtResource("19_mgmco")
+food_item_name = "fishball"
+
+[node name="KikiamContainer" type="HBoxContainer" parent="CookedFoodContainer/HBoxContainer/FriedItems"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CookedFoodContainer/HBoxContainer/FriedItems/KikiamContainer"]
+custom_minimum_size = Vector2(0, 96)
+layout_mode = 2
+tooltip_text = "Kikiam"
+texture = ExtResource("4_0a7n4")
+expand_mode = 2
+
+[node name="Kikiam" type="Label" parent="CookedFoodContainer/HBoxContainer/FriedItems/KikiamContainer"]
+layout_mode = 2
+text = "0"
+script = ExtResource("19_mgmco")
+food_item_name = "kikiam"
+
+[node name="SquidballContainer" type="HBoxContainer" parent="CookedFoodContainer/HBoxContainer/FriedItems"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CookedFoodContainer/HBoxContainer/FriedItems/SquidballContainer"]
+custom_minimum_size = Vector2(0, 96)
+layout_mode = 2
+tooltip_text = "Squidball"
+texture = ExtResource("5_qyupf")
+expand_mode = 2
+
+[node name="Squidball" type="Label" parent="CookedFoodContainer/HBoxContainer/FriedItems/SquidballContainer"]
+layout_mode = 2
+text = "0
+"
+script = ExtResource("19_mgmco")
+food_item_name = "squidball"
+
+[node name="KwekkwekContainer" type="HBoxContainer" parent="CookedFoodContainer/HBoxContainer/FriedItems"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CookedFoodContainer/HBoxContainer/FriedItems/KwekkwekContainer"]
+custom_minimum_size = Vector2(0, 96)
+layout_mode = 2
+tooltip_text = "Kwekkwek"
+texture = ExtResource("6_xm2hg")
+expand_mode = 2
+
+[node name="Kwekkwek" type="Label" parent="CookedFoodContainer/HBoxContainer/FriedItems/KwekkwekContainer"]
+layout_mode = 2
+text = "0
+"
+script = ExtResource("19_mgmco")
+food_item_name = "kwekkwek"
+
+[node name="UpgradeItems" type="VBoxContainer" parent="CookedFoodContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -40
+
+[node name="ChickenSiomaiContainer" type="HBoxContainer" parent="CookedFoodContainer/HBoxContainer/UpgradeItems"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CookedFoodContainer/HBoxContainer/UpgradeItems/ChickenSiomaiContainer"]
+custom_minimum_size = Vector2(0, 96)
+layout_mode = 2
+tooltip_text = "Chicken Siomai"
+texture = ExtResource("7_phxix")
+expand_mode = 2
+
+[node name="ChickenSiomai" type="Label" parent="CookedFoodContainer/HBoxContainer/UpgradeItems/ChickenSiomaiContainer"]
+layout_mode = 2
+text = "0
+"
+script = ExtResource("19_mgmco")
+
+[node name="PorkSiomaiContainer" type="HBoxContainer" parent="CookedFoodContainer/HBoxContainer/UpgradeItems"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CookedFoodContainer/HBoxContainer/UpgradeItems/PorkSiomaiContainer"]
+custom_minimum_size = Vector2(0, 96)
+layout_mode = 2
+tooltip_text = "Pork Siomai"
+texture = ExtResource("8_d3bs2")
+expand_mode = 2
+
+[node name="PorkSiomai" type="Label" parent="CookedFoodContainer/HBoxContainer/UpgradeItems/PorkSiomaiContainer"]
+layout_mode = 2
+text = "0"
+script = ExtResource("19_mgmco")
+
+[node name="JapaneseSiomaiContainer" type="HBoxContainer" parent="CookedFoodContainer/HBoxContainer/UpgradeItems"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CookedFoodContainer/HBoxContainer/UpgradeItems/JapaneseSiomaiContainer"]
+custom_minimum_size = Vector2(0, 96)
+layout_mode = 2
+tooltip_text = "Japanese Siomai"
+texture = ExtResource("9_rl13o")
+expand_mode = 2
+
+[node name="JapaneseSiomai" type="Label" parent="CookedFoodContainer/HBoxContainer/UpgradeItems/JapaneseSiomaiContainer"]
+layout_mode = 2
+text = "0"
+script = ExtResource("19_mgmco")
+
+[node name="JuiceContainer" type="HBoxContainer" parent="CookedFoodContainer/HBoxContainer/UpgradeItems"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CookedFoodContainer/HBoxContainer/UpgradeItems/JuiceContainer"]
+modulate = Color(0.572549, 1, 1, 1)
+custom_minimum_size = Vector2(0, 96)
+layout_mode = 2
+tooltip_text = "Juice"
+texture = ExtResource("10_obxi8")
+expand_mode = 2
+
+[node name="Juice" type="Label" parent="CookedFoodContainer/HBoxContainer/UpgradeItems/JuiceContainer"]
+layout_mode = 2
+text = "0
+"
+script = ExtResource("19_mgmco")
+
+[node name="Customers" type="Node2D" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+visible = true
+modulate = Color(1, 1, 1, 1)
+self_modulate = Color(1, 1, 1, 1)
+show_behind_parent = false
+top_level = false
+clip_children = 0
+light_mask = 1
+visibility_layer = 1
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
+texture_filter = 0
+texture_repeat = 0
+material = null
+use_parent_material = false
+position = Vector2(0, 0)
+rotation = 0.0
+scale = Vector2(1, 1)
+skew = 0.0
+script = null
+
+[node name="MoneyContainer" type="HBoxContainer" parent="."]
+offset_left = 1051.0
+offset_top = 6.0
+offset_right = 1264.0
+offset_bottom = 75.0
+script = ExtResource("30_kkvto")
+
+[node name="TextureRect" type="TextureRect" parent="MoneyContainer"]
+layout_mode = 2
+texture = ExtResource("31_yxgy1")
+expand_mode = 2
+
+[node name="MoneyLabel" type="Label" parent="MoneyContainer"]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 text = "Fishball: "
@@ -123,8 +789,34 @@ text = "Juice:"
 [node name="Customers" type="Node2D" parent="."]
 
 [node name="Minigame" parent="." instance=ExtResource("2_xsin3")]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 visible = false
+modulate = Color(1, 1, 1, 1)
+self_modulate = Color(1, 1, 1, 1)
+show_behind_parent = false
+top_level = false
+clip_children = 0
+light_mask = 1
+visibility_layer = 1
+z_index = 0
+z_as_relative = true
+y_sort_enabled = false
+texture_filter = 0
+texture_repeat = 0
+material = null
+use_parent_material = false
 position = Vector2(0, -1)
+rotation = 0.0
+scale = Vector2(1, 1)
+skew = 0.0
 
 [node name="DaytimeTimer" type="Timer" parent="."]
 
