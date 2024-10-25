@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b7gwwhnck8cog" path="res://scenes/restock_menu/item.tscn" id="1_d40ht"]
 [ext_resource type="Script" path="res://scenes/restock_menu/restock_menu.gd" id="1_vaiqw"]
 [ext_resource type="PackedScene" uid="uid://cqr7m6q65prfj" path="res://scenes/restock_menu/oil.tscn" id="3_2di2q"]
-[ext_resource type="Theme" uid="uid://bqlls726ggu3y" path="res://assets/game_theme.tres" id="3_y0nda"]
+[ext_resource type="Theme" uid="uid://c2lcebayb3f8q" path="res://assets/game_theme.tres" id="3_y0nda"]
 [ext_resource type="Texture2D" uid="uid://c7gr4e67rrwht" path="res://assets/restock_menu/money-icon.png" id="3_yu5g3"]
 [ext_resource type="Texture2D" uid="uid://dx6cspm410aiw" path="res://assets/restock_menu/store-bg.png" id="6_brll0"]
 

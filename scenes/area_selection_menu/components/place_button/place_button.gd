@@ -2,11 +2,10 @@ extends TextureButton
 
 class_name PlaceButton
 
-@export var description: String
-
 @onready var Description: Label = %Description
 @onready var Effects: AnimationPlayer = %AnimationPlayer
 
+@export var description: String
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
