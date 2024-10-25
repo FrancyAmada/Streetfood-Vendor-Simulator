@@ -8,6 +8,7 @@ const STREETFOOD_ORDER_SCENE = preload("res://scenes/main_game/order.tscn")
 @export_enum('student', 'normal', 'rich') var character_type: String = 'normal'
 
 signal start_minigame(streetfood_name: String, order: OrderButton)
+signal remove_character()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -35,6 +36,7 @@ func _on_start_minigame(streetfood_name: String, order: OrderButton):
 	
 func remove_customer():
 	if is_instance_valid(self):
+		emit_signal("remove_character")
 		queue_free()
 
 func generate_orders():

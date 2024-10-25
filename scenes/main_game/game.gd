@@ -10,6 +10,8 @@ signal received_tip(amount: int)
 
 @onready var minigame_node: Node2D = $Minigame
 @onready var food_fryer_node: FoodFryer = $FoodFryer
+
+@onready var spawn_interval_timer: Timer = $SpawnIntervalTimer
 @onready var daytime_timer: Timer = $DaytimeTimer
 
 @onready var fishball_tray: TextureButton = $FoodItemsButtons/Fishball
@@ -19,6 +21,7 @@ signal received_tip(amount: int)
 
 @onready var customer_points: Array = $Customers.get_children()
 
+var can_spawn: bool = false
 var in_minigame: bool = false
 
 var customer1: Customer = null
@@ -34,6 +37,8 @@ var customer3_pos: Vector2 = Vector2(720, 200)
 func _ready() -> void:
 	minigame_node.connect("minigame_finished", _on_minigame_finished)
 	generate_customers()
+	if !customer1 or !customer2 or !customer3:
+		spawn_interval_timer.start(MapData.MAP_SPAWN_INTERVAL[location])
 	# TEST BLOCK --------------------------
 	# -------------------------------------
 
@@ -42,7 +47,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	update_food_items_buttons()
 	update_siomai_steamer()
-	#generate_customers()
+	if can_spawn:
+		generate_customers()
 	if is_out_of_stock():
 		end_day()
 	
@@ -171,11 +177,15 @@ func spawn_customer(pos: int):
 			
 	#$Customers.add_child(customer_instance)
 	customer_instance.connect("start_minigame", _on_start_minigame)
+	customer_instance.connect("remove_character", _on_remove_character)
 	customer_points[pos - 1].add_child(customer_instance)
 	if pos == 1: customer1 = customer_instance
 	if pos == 2: customer2 = customer_instance
 	if pos == 3: customer3 = customer_instance
 	#customer_instance.set_customer_pos(customer1_pos)
+
+func _on_remove_character():
+	spawn_interval_timer.start(MapData.MAP_SPAWN_INTERVAL[location])
 	
 func _on_start_minigame(streetfood_name: String, order: OrderButton):
 	minigame_node.start_minigame(streetfood_name, order)
@@ -210,3 +220,7 @@ func get_tip(food_name: String, catched_count: int):
 		else:
 			return int(tip_amount * 0.5)
 	return 0
+
+
+func _on_spawn_interval_timer_timeout() -> void:
+	can_spawn = true

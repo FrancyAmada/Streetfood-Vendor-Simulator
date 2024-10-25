@@ -153,6 +153,7 @@ layout_mode = 2
 [node name="TextureRect" type="TextureRect" parent="CookedFoodContainer/HBoxContainer/FriedItems/FishballContainer"]
 custom_minimum_size = Vector2(0, 96)
 layout_mode = 2
+tooltip_text = "FIshball"
 texture = ExtResource("3_4lvat")
 expand_mode = 3
 
@@ -314,10 +315,13 @@ text = "999999"
 visible = false
 position = Vector2(0, -1)
 
+[node name="SpawnIntervalTimer" type="Timer" parent="."]
+
 [node name="DaytimeTimer" type="Timer" parent="."]
 
 [connection signal="pressed" from="FoodItemsButtons/Fishball" to="." method="_on_fishball_pressed"]
 [connection signal="pressed" from="FoodItemsButtons/Squidball" to="." method="_on_squidball_pressed"]
 [connection signal="pressed" from="FoodItemsButtons/Kikiam" to="." method="_on_kikiam_pressed"]
 [connection signal="pressed" from="FoodItemsButtons/KwekKwek" to="." method="_on_kwek_kwek_pressed"]
+[connection signal="timeout" from="SpawnIntervalTimer" to="." method="_on_spawn_interval_timer_timeout"]
 [connection signal="timeout" from="DaytimeTimer" to="." method="_on_daytime_timer_timeout"]
