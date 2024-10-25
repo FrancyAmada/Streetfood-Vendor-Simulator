@@ -6,7 +6,7 @@ signal minigame_finished(catched_count: int, catched_spoiled_count: int)
 @onready var stick_node: Node2D = $Stick
 @onready var dropper_node: Node2D = $Dropper
 
-
+var current_streetfood: String = ""
 var current_order = null
 var finished: bool = false
 
@@ -26,6 +26,7 @@ func _process(delta: float) -> void:
 func start_minigame(streetfood_name: String, order: OrderButton):
 	finished = false
 	current_order = order
+	current_streetfood = streetfood_name
 	Global.emit_signal("minigame_started")
 	visible = true
 	if streetfood_name == "kwekkwek":
@@ -48,7 +49,7 @@ func finish_minigame():
 	stick_node.activate_stick(false)
 	stick_node.move_to_center()
 	await get_tree().create_timer(2.5).timeout
-	emit_signal("minigame_finished", stick_node.current_catched_index, stick_node.catched_spoiled_count)
+	emit_signal("minigame_finished", current_streetfood, stick_node.current_catched_index, stick_node.catched_spoiled_count)
 	reset_minigame()
 	if current_order != null and is_instance_valid(current_order):
 		current_order.queue_free()

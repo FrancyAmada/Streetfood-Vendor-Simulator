@@ -55,30 +55,35 @@ columns = 2
 [node name="Fishball" parent="Items" instance=ExtResource("1_d40ht")]
 layout_mode = 2
 item_name = "Fishball"
+streetfood_name = "fishball"
 price = 75
 pack_size = 50
 
 [node name="Kikiam" parent="Items" instance=ExtResource("1_d40ht")]
 layout_mode = 2
 item_name = "Kikiam"
+streetfood_name = "kikiam"
 price = 100
 pack_size = 50
 
 [node name="Squidball" parent="Items" instance=ExtResource("1_d40ht")]
 layout_mode = 2
 item_name = "Squidball"
+streetfood_name = "squidball"
 price = 90
 pack_size = 50
 
 [node name="Kwek-kwek" parent="Items" instance=ExtResource("1_d40ht")]
 layout_mode = 2
 item_name = "Kwek-kwek"
+streetfood_name = "kwekkwek"
 price = 75
 pack_size = 20
 
 [node name="JapaneseSiomai" parent="Items" instance=ExtResource("1_d40ht")]
 layout_mode = 2
 item_name = "Japanese Siomai"
+streetfood_name = "japanese_siomai"
 price = 100
 pack_size = 30
 locked = true
@@ -87,6 +92,7 @@ is_siomai = true
 [node name="PorkSiomai" parent="Items" instance=ExtResource("1_d40ht")]
 layout_mode = 2
 item_name = "Pork Siomai"
+streetfood_name = "pork_siomai"
 price = 100
 pack_size = 25
 locked = true
@@ -95,6 +101,7 @@ is_siomai = true
 [node name="ChickenSiomai" parent="Items" instance=ExtResource("1_d40ht")]
 layout_mode = 2
 item_name = "Chicken Siomai"
+streetfood_name = "chicken_siomai"
 price = 100
 pack_size = 20
 locked = true
@@ -103,6 +110,7 @@ is_siomai = true
 [node name="Juice" parent="Items" instance=ExtResource("1_d40ht")]
 layout_mode = 2
 item_name = "Juice"
+streetfood_name = "juice"
 price = 80
 pack_size = 30
 locked = true

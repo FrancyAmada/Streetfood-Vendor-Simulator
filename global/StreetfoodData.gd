@@ -33,3 +33,10 @@ const STREETFOOD_SELL_PRICE: Dictionary = {
 	"japanese_siomai": 40,
 	"juice": 20,
 }
+
+const STREETFOOD_FRYING_SPACE: Dictionary = {
+	"fishball": 1,
+	"kikiam": 1.5,
+	"squidball": 1,
+	"kwekkwek": 2,
+}

@@ -33,7 +33,13 @@ func _process(delta: float) -> void:
 
 
 func add_streetfood(streetfood_name: String):
-	var frying_streetfood_instance: FryingStreetfood = FRYING_STREETFOOD.instantiate()
-	items_node.add_child(frying_streetfood_instance)
-	frying_streetfood_instance.set_food_item(streetfood_name)
-	frying_streetfood_instance.set_food_fryer_pos(global_position)
+	if items_count + StreetfoodData.STREETFOOD_FRYING_SPACE[streetfood_name] <= max_cookable_items_count:
+		items_count += StreetfoodData.STREETFOOD_FRYING_SPACE[streetfood_name]
+		var frying_streetfood_instance: FryingStreetfood = FRYING_STREETFOOD.instantiate()
+		items_node.add_child(frying_streetfood_instance)
+		frying_streetfood_instance.set_food_item(streetfood_name)
+		frying_streetfood_instance.set_food_fryer_pos(global_position)
+		frying_streetfood_instance.connect("is_cooked", _on_food_is_cooked)
+
+func _on_food_is_cooked(food_name: String):
+	items_count -= StreetfoodData.STREETFOOD_FRYING_SPACE[food_name]

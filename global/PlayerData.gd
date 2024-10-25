@@ -1,10 +1,15 @@
 extends Node
 
 signal cooked_item_updated(food_name: String)
+signal oil_level_updated(level: int)
 
+var money: int = 500
 
 var reputation: int = 50
 
+var oil_level: int = 4
+
+var siomai_unlocked = false
 
 const COOKED_ITEMS_DEFAULT: Dictionary = {
 	"fishball": 0,
@@ -43,3 +48,6 @@ func UPDATE_COOKED_ITEM(food_name: String, amount):
 	cooked_items[food_name] += amount
 	emit_signal("cooked_item_updated", food_name)
 	
+func UPDATE_OIL_LEVEL(level: int):
+	oil_level = level
+	emit_signal("oil_level_updated", oil_level)

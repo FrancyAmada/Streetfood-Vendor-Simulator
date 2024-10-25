@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://hxidr1h70ruk"]
+[gd_scene load_steps=35 format=3 uid="uid://hxidr1h70ruk"]
 
 [ext_resource type="Script" path="res://scenes/main_game/game.gd" id="1_73igr"]
 [ext_resource type="Texture2D" uid="uid://bw0365a5xnoxg" path="res://assets/main_game/areas/street.png" id="2_8ah13"]
@@ -10,10 +10,13 @@
 [ext_resource type="Texture2D" uid="uid://cehulu2fhbxd1" path="res://assets/streetfoods/cooked/kikiam.png" id="4_0a7n4"]
 [ext_resource type="Texture2D" uid="uid://cnyphiwx3sw36" path="res://assets/food_stall/steamer/steamer_base.png" id="4_nu3v5"]
 [ext_resource type="Texture2D" uid="uid://meqfvp5njhfc" path="res://assets/streetfoods/cooked/squidball.png" id="5_qyupf"]
+[ext_resource type="Texture2D" uid="uid://chl72snoa8s2h" path="res://assets/food_stall/steamer/steamer-chicken_siomai.png" id="5_u5r45"]
 [ext_resource type="Texture2D" uid="uid://crhksqmmr28p5" path="res://assets/food_stall/steamer/steamer_front.png" id="5_xbejk"]
+[ext_resource type="Texture2D" uid="uid://c4lcekjw24rhw" path="res://assets/food_stall/steamer/steamer-pork_siomai.png" id="6_5acmp"]
 [ext_resource type="Texture2D" uid="uid://dqqap6q16l1ao" path="res://assets/main_game/food_trays/fishball_tray.png" id="6_upaje"]
 [ext_resource type="Texture2D" uid="uid://b16sxcmys35tx" path="res://assets/streetfoods/cooked/kwekkwek.png" id="6_xm2hg"]
 [ext_resource type="Texture2D" uid="uid://bnw2n2t7u6d6x" path="res://assets/main_game/food_trays/fishball_tray-highlight.png" id="7_0vjl5"]
+[ext_resource type="Texture2D" uid="uid://0wqguocmecv" path="res://assets/food_stall/steamer/steamer-japanese_siomai.png" id="7_kux0b"]
 [ext_resource type="Texture2D" uid="uid://dwkhnpiqbiqs5" path="res://assets/streetfoods/cooked/chicken_siomai.png" id="7_phxix"]
 [ext_resource type="Texture2D" uid="uid://c7xpkwiu4a1cp" path="res://assets/streetfoods/cooked/pork_siomai.png" id="8_d3bs2"]
 [ext_resource type="Texture2D" uid="uid://bs1esc4cmgnus" path="res://assets/main_game/food_trays/streetfood_tray.png" id="8_so6jo"]
@@ -27,6 +30,9 @@
 [ext_resource type="Texture2D" uid="uid://dobxgxnp2kkcq" path="res://assets/main_game/food_trays/kwekkwek_tray.png" id="14_ss5h1"]
 [ext_resource type="Texture2D" uid="uid://b7kt6yhyp42gw" path="res://assets/main_game/food_trays/kwekkwek_tray-highlight.png" id="15_yxjjy"]
 [ext_resource type="Script" path="res://scenes/main_game/cooked_streetfood_label.gd" id="19_mgmco"]
+[ext_resource type="Script" path="res://scenes/main_game/money_container.gd" id="30_kkvto"]
+[ext_resource type="Texture2D" uid="uid://c7gr4e67rrwht" path="res://assets/restock_menu/money-icon.png" id="31_yxgy1"]
+[ext_resource type="Theme" uid="uid://bqlls726ggu3y" path="res://assets/game_theme.tres" id="32_oq5tw"]
 
 [sub_resource type="Theme" id="Theme_ynjel"]
 Label/constants/outline_size = 10
@@ -50,12 +56,24 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_liho8")
 
 [node name="SiomaiSteamer" type="Node2D" parent="."]
-position = Vector2(175, 247)
+position = Vector2(186, 264)
 metadata/_edit_group_ = true
 
 [node name="SiomaiSteamerSprite" type="Sprite2D" parent="SiomaiSteamer"]
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("4_nu3v5")
+
+[node name="ChickenSiomai" type="Sprite2D" parent="SiomaiSteamer"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_u5r45")
+
+[node name="PorkSiomai" type="Sprite2D" parent="SiomaiSteamer"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_5acmp")
+
+[node name="JapaneseSiomai" type="Sprite2D" parent="SiomaiSteamer"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("7_kux0b")
 
 [node name="SiomaiSteamerGlassSprite" type="Sprite2D" parent="SiomaiSteamer"]
 scale = Vector2(0.8, 0.8)
@@ -64,11 +82,11 @@ texture = ExtResource("5_xbejk")
 [node name="FoodItemsButtons" type="Node2D" parent="."]
 
 [node name="Fishball" type="TextureButton" parent="FoodItemsButtons"]
-offset_left = 37.0
-offset_top = 375.0
-offset_right = 537.0
-offset_bottom = 875.0
-scale = Vector2(0.5, 0.5)
+offset_left = 49.0
+offset_top = 400.0
+offset_right = 549.0
+offset_bottom = 900.0
+scale = Vector2(0.45, 0.45)
 texture_normal = ExtResource("6_upaje")
 texture_pressed = ExtResource("7_0vjl5")
 texture_hover = ExtResource("7_0vjl5")
@@ -76,11 +94,11 @@ texture_disabled = ExtResource("8_so6jo")
 texture_click_mask = ExtResource("9_g2w7y")
 
 [node name="Squidball" type="TextureButton" parent="FoodItemsButtons"]
-offset_left = -2.0
-offset_top = 474.0
-offset_right = 498.0
-offset_bottom = 974.0
-scale = Vector2(0.6, 0.6)
+offset_left = 33.0
+offset_top = 506.0
+offset_right = 533.0
+offset_bottom = 1006.0
+scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("10_6ikmg")
 texture_pressed = ExtResource("11_0vyq0")
 texture_hover = ExtResource("11_0vyq0")
@@ -88,11 +106,11 @@ texture_disabled = ExtResource("8_so6jo")
 texture_click_mask = ExtResource("9_g2w7y")
 
 [node name="Kikiam" type="TextureButton" parent="FoodItemsButtons"]
-offset_left = 310.0
-offset_top = 371.0
-offset_right = 810.0
-offset_bottom = 871.0
-scale = Vector2(0.5, 0.5)
+offset_left = 326.0
+offset_top = 398.0
+offset_right = 826.0
+offset_bottom = 898.0
+scale = Vector2(0.45, 0.45)
 texture_normal = ExtResource("12_dtye2")
 texture_pressed = ExtResource("13_aon60")
 texture_hover = ExtResource("13_aon60")
@@ -100,11 +118,11 @@ texture_disabled = ExtResource("8_so6jo")
 texture_click_mask = ExtResource("9_g2w7y")
 
 [node name="KwekKwek" type="TextureButton" parent="FoodItemsButtons"]
-offset_left = 293.0
-offset_top = 472.0
-offset_right = 793.0
-offset_bottom = 972.0
-scale = Vector2(0.6, 0.6)
+offset_left = 316.0
+offset_top = 509.0
+offset_right = 816.0
+offset_bottom = 1009.0
+scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("14_ss5h1")
 texture_pressed = ExtResource("15_yxjjy")
 texture_hover = ExtResource("15_yxjjy")
@@ -112,13 +130,13 @@ texture_disabled = ExtResource("8_so6jo")
 texture_click_mask = ExtResource("9_g2w7y")
 
 [node name="FoodFryer" parent="." instance=ExtResource("3_4fqso")]
-position = Vector2(1081, 533)
+position = Vector2(1101, 528)
 
 [node name="CookedFoodContainer" type="PanelContainer" parent="."]
-offset_left = 592.0
-offset_top = 422.0
-offset_right = 931.0
-offset_bottom = 686.0
+offset_left = 578.0
+offset_top = 402.0
+offset_right = 914.0
+offset_bottom = 666.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CookedFoodContainer"]
 layout_mode = 2
@@ -264,6 +282,25 @@ text = "0
 script = ExtResource("19_mgmco")
 
 [node name="Customers" type="Node2D" parent="."]
+
+[node name="MoneyContainer" type="HBoxContainer" parent="."]
+offset_left = 1051.0
+offset_top = 6.0
+offset_right = 1264.0
+offset_bottom = 75.0
+script = ExtResource("30_kkvto")
+
+[node name="TextureRect" type="TextureRect" parent="MoneyContainer"]
+layout_mode = 2
+texture = ExtResource("31_yxgy1")
+expand_mode = 2
+
+[node name="MoneyLabel" type="Label" parent="MoneyContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme = ExtResource("32_oq5tw")
+theme_override_font_sizes/font_size = 32
+text = "999999"
 
 [node name="Minigame" parent="." instance=ExtResource("2_xsin3")]
 visible = false
