@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://7mbctmvn4iiv"]
+[gd_scene load_steps=15 format=3 uid="uid://7mbctmvn4iiv"]
 
 [ext_resource type="PackedScene" uid="uid://b7gwwhnck8cog" path="res://scenes/restock_menu/item.tscn" id="1_d40ht"]
 [ext_resource type="Script" path="res://scenes/restock_menu/restock_menu.gd" id="1_vaiqw"]
@@ -6,6 +6,14 @@
 [ext_resource type="Theme" uid="uid://envhjmnpsmmu" path="res://assets/game_theme.tres" id="3_y0nda"]
 [ext_resource type="Texture2D" uid="uid://c7gr4e67rrwht" path="res://assets/restock_menu/money-icon.png" id="3_yu5g3"]
 [ext_resource type="Texture2D" uid="uid://dx6cspm410aiw" path="res://assets/restock_menu/store-bg.png" id="6_brll0"]
+[ext_resource type="Texture2D" uid="uid://csjefuj0v02jl" path="res://assets/streetfoods/packed/fishball.png" id="7_46iwe"]
+[ext_resource type="Texture2D" uid="uid://cqacgdgkil5rc" path="res://assets/streetfoods/packed/kikiam.png" id="7_cqw11"]
+[ext_resource type="Texture2D" uid="uid://gj7g0mgb1p26" path="res://assets/streetfoods/packed/squidball.png" id="8_npryt"]
+[ext_resource type="Texture2D" uid="uid://clta32053llxh" path="res://assets/streetfoods/packed/kwekkwek.png" id="9_10527"]
+[ext_resource type="Texture2D" uid="uid://c38ollflc0p3g" path="res://assets/streetfoods/packed/chicken_siomai.png" id="11_o483w"]
+[ext_resource type="Texture2D" uid="uid://cw1acr7ladu7l" path="res://assets/streetfoods/packed/pork_siomai.png" id="12_b2xx8"]
+[ext_resource type="Texture2D" uid="uid://cjt6jmhhvr03o" path="res://assets/streetfoods/packed/japanese_siomai.png" id="13_kdlrd"]
+[ext_resource type="Texture2D" uid="uid://jlebkaepnpq0" path="res://assets/customer_orders/blue_lemonade.png" id="14_n8ahv"]
 
 [node name="RestockMenu" type="Node2D"]
 _import_path = NodePath("")
@@ -171,6 +179,48 @@ streetfood_name = "juice"
 price = 80
 pack_size = 10
 locked = true
+
+[node name="PackSprites" type="Node2D" parent="."]
+
+[node name="FishballPackSprite" type="Sprite2D" parent="PackSprites"]
+position = Vector2(356, 87)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_46iwe")
+
+[node name="KikiamPackSprite" type="Sprite2D" parent="PackSprites"]
+position = Vector2(705, 87)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_cqw11")
+
+[node name="SquidballPackSprite" type="Sprite2D" parent="PackSprites"]
+position = Vector2(355, 251)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_npryt")
+
+[node name="KwekkwekPackSprite" type="Sprite2D" parent="PackSprites"]
+position = Vector2(705, 251)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("9_10527")
+
+[node name="ChickenSiomaiPackSprite" type="Sprite2D" parent="PackSprites"]
+position = Vector2(355, 415)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("11_o483w")
+
+[node name="PorkSiomaiPackSprite" type="Sprite2D" parent="PackSprites"]
+position = Vector2(705, 415)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("12_b2xx8")
+
+[node name="JapaneseSiomaiPackSprite4" type="Sprite2D" parent="PackSprites"]
+position = Vector2(355, 579)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("13_kdlrd")
+
+[node name="JuicePackSprite" type="Sprite2D" parent="PackSprites"]
+position = Vector2(713, 569)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("14_n8ahv")
 
 [node name="NextButton" type="Button" parent="."]
 offset_left = 1098.0

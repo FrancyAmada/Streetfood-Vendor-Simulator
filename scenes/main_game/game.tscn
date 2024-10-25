@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://hxidr1h70ruk"]
+[gd_scene load_steps=42 format=3 uid="uid://hxidr1h70ruk"]
 
 [ext_resource type="Script" path="res://scenes/main_game/game.gd" id="1_73igr"]
 [ext_resource type="Texture2D" uid="uid://cssvc6fl5u4ol" path="res://assets/main_game/areas/street.png" id="2_8ah13"]
@@ -43,6 +43,19 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6a408"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jvwe2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tgnic"]
+border_width_left = 15
+border_width_top = 20
+border_width_right = 15
+border_width_bottom = 10
+border_color = Color(0.295867, 0.295867, 0.295866, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_top = 25.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sdchy"]
 bg_color = Color(1, 0.709804, 0, 1)
@@ -610,10 +623,11 @@ position = Vector2(1087, 562)
 scale = Vector2(0.8, 0.8)
 
 [node name="CookedFoodContainer" type="PanelContainer" parent="."]
-offset_left = 578.0
-offset_top = 402.0
-offset_right = 914.0
-offset_bottom = 666.0
+offset_left = 585.0
+offset_top = 417.0
+offset_right = 921.0
+offset_bottom = 719.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tgnic")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CookedFoodContainer"]
 layout_mode = 2
@@ -761,6 +775,15 @@ text = "0
 "
 script = ExtResource("19_mgmco")
 food_item_name = "juice"
+
+[node name="CookedItemsLabel" type="Label" parent="."]
+offset_left = 600.0
+offset_top = 401.0
+offset_right = 775.0
+offset_bottom = 439.0
+theme = ExtResource("32_oq5tw")
+theme_override_font_sizes/font_size = 28
+text = "Ready Items"
 
 [node name="Customers" type="Node2D" parent="."]
 _import_path = NodePath("")
