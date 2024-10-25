@@ -221,7 +221,7 @@ scale = Vector2(1.2, 1.2)
 texture_normal = ExtResource("11_7wmkq")
 texture_pressed = ExtResource("13_o5sc8")
 texture_hover = ExtResource("13_2jmam")
-description = "This is the street."
+description = "This is street"
 
 [node name="School" parent="." instance=ExtResource("2_w5fv4")]
 offset_left = 436.0
@@ -233,7 +233,7 @@ texture_pressed = ExtResource("16_05070")
 texture_hover = ExtResource("15_btqjj")
 description = "This is school"
 
-[node name="Festive" parent="." instance=ExtResource("2_w5fv4")]
+[node name="Mall" parent="." instance=ExtResource("2_w5fv4")]
 offset_left = 814.0
 offset_top = 351.0
 offset_right = 1186.0
@@ -246,4 +246,4 @@ description = "This is mall"
 
 [connection signal="pressed" from="Street" to="." method="_on_street_pressed"]
 [connection signal="pressed" from="School" to="." method="_on_school_pressed"]
-[connection signal="pressed" from="Festive" to="." method="_on_festive_pressed"]
+[connection signal="pressed" from="Mall" to="." method="_on_mall_pressed"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b7gwwhnck8cog"]
 
 [ext_resource type="Script" path="res://scenes/restock_menu/item.gd" id="1_8vy5j"]
-[ext_resource type="Theme" uid="uid://bqlls726ggu3y" path="res://assets/game_theme.tres" id="2_3bx0x"]
+[ext_resource type="Theme" uid="uid://c2lcebayb3f8q" path="res://assets/game_theme.tres" id="2_3bx0x"]
 
 [node name="Item" type="VBoxContainer"]
 offset_right = 300.0
