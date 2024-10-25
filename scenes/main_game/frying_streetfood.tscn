@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cypow47ojio8q"]
+[gd_scene load_steps=7 format=3 uid="uid://cypow47ojio8q"]
 
 [ext_resource type="Script" path="res://scenes/main_game/frying_streetfood.gd" id="1_ak74e"]
+[ext_resource type="Texture2D" uid="uid://sj3opnver852" path="res://assets/streetfoods/raw/fishball.png" id="2_fecra"]
+[ext_resource type="Texture2D" uid="uid://diyewrw5agqsv" path="res://assets/others/extra/bubble.png" id="3_xeott"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_i4vbl"]
 friction = 0.8
@@ -8,6 +10,17 @@ bounce = 0.8
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0g562"]
 radius = 16.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bhefb"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 30.0
+gravity = Vector3(0, -98, 0)
+scale_min = 0.3
+scale_max = 0.6
+color = Color(0.989348, 1, 0.687725, 1)
+hue_variation_min = -0.14
+hue_variation_max = -0.14
 
 [node name="FryingStreetfood" type="RigidBody2D"]
 collision_layer = 4
@@ -19,3 +32,12 @@ script = ExtResource("1_ak74e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_0g562")
+
+[node name="UncookedSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_fecra")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+process_material = SubResource("ParticleProcessMaterial_bhefb")
+texture = ExtResource("3_xeott")
+lifetime = 0.3

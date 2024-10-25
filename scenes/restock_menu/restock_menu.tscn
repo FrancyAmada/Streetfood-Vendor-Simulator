@@ -82,6 +82,7 @@ item_name = "Japanese Siomai"
 price = 100
 pack_size = 30
 locked = true
+is_siomai = true
 
 [node name="PorkSiomai" parent="Items" instance=ExtResource("1_d40ht")]
 layout_mode = 2
@@ -89,6 +90,7 @@ item_name = "Pork Siomai"
 price = 100
 pack_size = 25
 locked = true
+is_siomai = true
 
 [node name="ChickenSiomai" parent="Items" instance=ExtResource("1_d40ht")]
 layout_mode = 2
@@ -96,6 +98,7 @@ item_name = "Chicken Siomai"
 price = 100
 pack_size = 20
 locked = true
+is_siomai = true
 
 [node name="Juice" parent="Items" instance=ExtResource("1_d40ht")]
 layout_mode = 2
@@ -114,4 +117,15 @@ theme_override_font_sizes/font_size = 48
 text = "NEXT
 "
 
+[node name="UnlockSiomai" type="Button" parent="."]
+offset_left = 1040.0
+offset_top = 143.0
+offset_right = 1253.0
+offset_bottom = 230.0
+theme = ExtResource("3_y0nda")
+text = "Unlock
+Siomai
+Price: 500"
+
 [connection signal="button_down" from="NextButton" to="." method="_on_next_button_button_down"]
+[connection signal="pressed" from="UnlockSiomai" to="." method="_on_unlock_siomai_pressed"]
