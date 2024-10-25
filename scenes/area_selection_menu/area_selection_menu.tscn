@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://by8jqacilhix"]
+[gd_scene load_steps=25 format=3 uid="uid://by8jqacilhix"]
 
 [ext_resource type="Script" path="res://scenes/area_selection_menu/area_selection_menu.gd" id="1_mlgwy"]
 [ext_resource type="Texture2D" uid="uid://ck8em8fak080y" path="res://assets/menu/area_selection/road.png" id="2_7qf1x"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://d2u6vq42dmxq8" path="res://assets/menu/area_selection/pressed/pressed_school.png" id="16_05070"]
 [ext_resource type="Texture2D" uid="uid://dn2qtm08neohy" path="res://assets/menu/area_selection/hover/hover_mall.png" id="17_rgne6"]
 [ext_resource type="Texture2D" uid="uid://cu5ul1a0yrroi" path="res://assets/menu/area_selection/pressed/pressed_mall.png" id="19_hrcyd"]
+[ext_resource type="Theme" uid="uid://c2lcebayb3f8q" path="res://assets/game_theme.tres" id="21_4q2xn"]
 [ext_resource type="Texture2D" uid="uid://d1msp017ckcd0" path="res://assets/menu/area_selection/disabled/disabled_mall.png" id="21_kabvl"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_e1xh5"]
@@ -250,6 +251,7 @@ offset_left = 124.167
 offset_top = 70.0
 offset_right = 262.167
 offset_bottom = 126.0
+theme = ExtResource("21_4q2xn")
 text = "Buy Permit"
 
 [connection signal="pressed" from="Street" to="." method="_on_street_pressed"]
