@@ -39,7 +39,10 @@ func _ready() -> void:
 	generate_customers()
 	if !customer1 or !customer2 or !customer3:
 		spawn_interval_timer.start(MapData.MAP_SPAWN_INTERVAL[location])
+		
 	# TEST BLOCK --------------------------
+	if !customer1:
+		spawn_customer(1)
 	# -------------------------------------
 
 
@@ -87,17 +90,17 @@ func update_siomai_steamer():
 	else:
 		$SiomaiSteamer.visible = false
 		
-	if PlayerData.stock_items["chicken_siomai"] <= 0:
+	if PlayerData.cooked_items["chicken_siomai"] <= 0:
 		$SiomaiSteamer/ChickenSiomai.visible = false
 	else:
 		$SiomaiSteamer/ChickenSiomai.visible = true
 	
-	if PlayerData.stock_items["pork_siomai"] <= 0:
+	if PlayerData.cooked_items["pork_siomai"] <= 0:
 		$SiomaiSteamer/PorkSiomai.visible = false
 	else:
 		$SiomaiSteamer/PorkSiomai.visible = true
 		
-	if PlayerData.stock_items["japanese_siomai"] <= 0:
+	if PlayerData.cooked_items["japanese_siomai"] <= 0:
 		$SiomaiSteamer/JapaneseSiomai.visible = false
 	else:
 		$SiomaiSteamer/JapaneseSiomai.visible = true
@@ -141,6 +144,15 @@ func end_day():
 	PlayerData.UPDATE_OIL_LEVEL(new_oil_level)
 	PlayerData.UPDATE_UPGRADES()
 	emit_signal("day_is_finished")
+	if customer1 != null:
+		customer1.queue_free()
+		customer1 = null
+	if customer2 != null:
+		customer2.queue_free()
+		customer2 = null
+	if customer3 != null:
+		customer3.queue_free()
+		customer3 = null
 
 func is_out_of_stock():
 	var out_of_stock: bool = true

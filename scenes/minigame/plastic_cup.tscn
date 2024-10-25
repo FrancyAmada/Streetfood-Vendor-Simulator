@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://b4h5abxuca0yf"]
+
+[ext_resource type="Texture2D" uid="uid://dklujeofi7q0k" path="res://assets/food_stall/plastic_cup.png" id="1_j12p1"]
+[ext_resource type="Script" path="res://scenes/minigame/plastic_cup.gd" id="1_x27el"]
+[ext_resource type="Texture2D" uid="uid://j04w5guxt5qb" path="res://assets/food_stall/plastic_cup-outer.png" id="2_i0bt0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gvf3b"]
+bg_color = Color(5.19812e-06, 0.642044, 0.984412, 1)
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color(0, 0.778405, 0.866513, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sdov1"]
+size = Vector2(220, 20)
+
+[node name="PlasticCup" type="Node2D"]
+script = ExtResource("1_x27el")
+
+[node name="InnerCup" type="Sprite2D" parent="."]
+clip_children = 1
+texture = ExtResource("1_j12p1")
+
+[node name="ProgressBar" type="ProgressBar" parent="InnerCup"]
+offset_left = -129.0
+offset_top = -87.0
+offset_right = 129.0
+offset_bottom = 250.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_gvf3b")
+value = 50.0
+fill_mode = 3
+
+[node name="OuterCupSprite" type="Sprite2D" parent="."]
+modulate = Color(0.560784, 0.560784, 0.560784, 0.741176)
+texture = ExtResource("2_i0bt0")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+position = Vector2(0, -100)
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("RectangleShape2D_sdov1")
+
+[connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]

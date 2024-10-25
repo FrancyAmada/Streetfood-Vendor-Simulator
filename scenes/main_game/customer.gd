@@ -16,6 +16,11 @@ func _ready() -> void:
 	var gender = 'male' if (n==0) else 'female'
 	sprite.texture = load('res://assets/customers/' + gender + '-' + character_type + '.png')
 	generate_orders()
+	
+	# TEST BLOCK -------------------
+	#add_order("juice")
+	#add_order("chicken_siomai")
+	# ------------------------------
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

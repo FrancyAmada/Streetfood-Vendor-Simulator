@@ -12,6 +12,8 @@ const SIOMAI_UPGRADE_COST: int = 600
 
 const JUICE_UPGRADE_COST: int = 300
 
+const MALL_PERMIT_COST: int = 3000
+
 func UNLOCK_SIOMAI():
 	PlayerData.siomai_unlocked = true
 	emit_signal("unlock_siomai")

@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bl54jbhvf0xqp"]
+
+[ext_resource type="Script" path="res://scenes/minigame/juice_droplet.gd" id="1_xtsfv"]
+
+[sub_resource type="Gradient" id="Gradient_nl6yw"]
+offsets = PackedFloat32Array(0, 0.727273, 1)
+colors = PackedColorArray(0.418238, 0.601976, 1, 1, 0.196078, 0.376471, 1, 1, 0, 0.615686, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_y4bnn"]
+gradient = SubResource("Gradient_nl6yw")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8, 0.2)
+metadata/_snap_enabled = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6blxv"]
+
+[node name="JuiceDroplet" type="Node2D"]
+script = ExtResource("1_xtsfv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = SubResource("GradientTexture2D_y4bnn")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_6blxv")

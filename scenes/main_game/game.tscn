@@ -294,6 +294,7 @@ layout_mode = 2
 text = "0
 "
 script = ExtResource("19_mgmco")
+food_item_name = "chicken_siomai"
 
 [node name="PorkSiomaiContainer" type="HBoxContainer" parent="CookedFoodContainer/HBoxContainer/UpgradeItems"]
 layout_mode = 2
@@ -309,6 +310,7 @@ expand_mode = 2
 layout_mode = 2
 text = "0"
 script = ExtResource("19_mgmco")
+food_item_name = "pork_siomai"
 
 [node name="JapaneseSiomaiContainer" type="HBoxContainer" parent="CookedFoodContainer/HBoxContainer/UpgradeItems"]
 layout_mode = 2
@@ -324,6 +326,7 @@ expand_mode = 2
 layout_mode = 2
 text = "0"
 script = ExtResource("19_mgmco")
+food_item_name = "japanese_siomai"
 
 [node name="JuiceContainer" type="HBoxContainer" parent="CookedFoodContainer/HBoxContainer/UpgradeItems"]
 layout_mode = 2
@@ -341,6 +344,7 @@ layout_mode = 2
 text = "0
 "
 script = ExtResource("19_mgmco")
+food_item_name = "juice"
 
 [node name="Customers" type="Node2D" parent="."]
 
@@ -348,10 +352,10 @@ script = ExtResource("19_mgmco")
 position = Vector2(368, 209)
 
 [node name="2" type="Marker2D" parent="Customers"]
-position = Vector2(690, 209)
+position = Vector2(665, 209)
 
 [node name="3" type="Marker2D" parent="Customers"]
-position = Vector2(970, 209)
+position = Vector2(955, 209)
 
 [node name="EndDayButton" type="Button" parent="."]
 offset_left = 1124.0
