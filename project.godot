@@ -25,6 +25,7 @@ StreetfoodData="*res://global/StreetfoodData.gd"
 PlayerData="*res://global/PlayerData.gd"
 Global="*res://global/Global.gd"
 AudioManager="*res://audio/audio_manager.gd"
+MapData="*res://global/MapData.gd"
 
 [display]
 
@@ -36,3 +37,4 @@ window/stretch/mode="canvas_items"
 
 2d_physics/layer_2="DroppingItems"
 2d_physics/layer_3="FryingItems"
+2d_physics/layer_4="JuiceDroplet"

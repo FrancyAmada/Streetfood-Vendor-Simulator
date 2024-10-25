@@ -43,10 +43,13 @@ func reset():
 	global_position.y = starting_y
 	current_catched_index = 0
 	catched_spoiled_count = 0
+	left_area_catched = false
+	middle_area_catched = false
+	right_area_catched = false
 
 func move_to_center():
 	var tween: Tween = create_tween()
-	tween.tween_property(self, "global_position", Vector2(640, 300), 1)
+	tween.tween_property(self, "global_position", Vector2(640, 340), 1)
 
 func _on_stick_head_area_area_entered(area: Area2D) -> void:
 	if area.get_parent() and current_catched_index < max_catched_index:

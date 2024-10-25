@@ -52,7 +52,7 @@ offset_bottom = 679.0
 theme = ExtResource("3_y0nda")
 
 [node name="Oil" parent="." instance=ExtResource("3_2di2q")]
-price = 50
+price = 40
 
 [node name="Money" type="Node2D" parent="."]
 _import_path = NodePath("")
@@ -113,35 +113,35 @@ columns = 2
 layout_mode = 2
 item_name = "Fishball"
 streetfood_name = "fishball"
-price = 75
-pack_size = 50
+price = 100
+pack_size = 40
 
 [node name="Kikiam" parent="Items" instance=ExtResource("1_d40ht")]
 layout_mode = 2
 item_name = "Kikiam"
 streetfood_name = "kikiam"
-price = 100
-pack_size = 50
+price = 120
+pack_size = 40
 
 [node name="Squidball" parent="Items" instance=ExtResource("1_d40ht")]
 layout_mode = 2
 item_name = "Squidball"
 streetfood_name = "squidball"
-price = 90
-pack_size = 50
+price = 100
+pack_size = 30
 
 [node name="Kwek-kwek" parent="Items" instance=ExtResource("1_d40ht")]
 layout_mode = 2
 item_name = "Kwek-kwek"
 streetfood_name = "kwekkwek"
-price = 75
+price = 120
 pack_size = 20
 
-[node name="JapaneseSiomai" parent="Items" instance=ExtResource("1_d40ht")]
+[node name="ChickenSiomai" parent="Items" instance=ExtResource("1_d40ht")]
 layout_mode = 2
-item_name = "Japanese Siomai"
-streetfood_name = "japanese_siomai"
-price = 100
+item_name = "Chicken Siomai"
+streetfood_name = "chicken_siomai"
+price = 150
 pack_size = 30
 locked = true
 is_siomai = true
@@ -150,17 +150,17 @@ is_siomai = true
 layout_mode = 2
 item_name = "Pork Siomai"
 streetfood_name = "pork_siomai"
-price = 100
-pack_size = 25
+price = 180
+pack_size = 30
 locked = true
 is_siomai = true
 
-[node name="ChickenSiomai" parent="Items" instance=ExtResource("1_d40ht")]
+[node name="JapaneseSiomai" parent="Items" instance=ExtResource("1_d40ht")]
 layout_mode = 2
-item_name = "Chicken Siomai"
-streetfood_name = "chicken_siomai"
-price = 100
-pack_size = 20
+item_name = "Japanese Siomai"
+streetfood_name = "japanese_siomai"
+price = 200
+pack_size = 30
 locked = true
 is_siomai = true
 
@@ -169,7 +169,7 @@ layout_mode = 2
 item_name = "Juice"
 streetfood_name = "juice"
 price = 80
-pack_size = 30
+pack_size = 10
 locked = true
 
 [node name="NextButton" type="Button" parent="."]
@@ -190,7 +190,19 @@ offset_bottom = 230.0
 theme = ExtResource("3_y0nda")
 text = "Unlock
 Siomai
-Price: 500"
+Price: 600"
+
+[node name="UnlockJuice" type="Button" parent="."]
+offset_left = 1042.0
+offset_top = 286.0
+offset_right = 1255.0
+offset_bottom = 391.0
+theme = ExtResource("3_y0nda")
+text = "Unlock
+Juice
+Price: 300
+"
 
 [connection signal="button_down" from="NextButton" to="." method="_on_next_button_button_down"]
 [connection signal="pressed" from="UnlockSiomai" to="." method="_on_unlock_siomai_pressed"]
+[connection signal="pressed" from="UnlockJuice" to="." method="_on_unlock_juice_pressed"]

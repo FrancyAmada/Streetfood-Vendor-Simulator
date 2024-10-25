@@ -20,7 +20,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if activated:
 		if spawn_timer.is_stopped() and spawnable_items_count > 0:
-			spawn_timer.start(0.3)
+			spawn_timer.start(0.8)
 		
 		if spawnable_items_count <= 0 and !finished:
 			stop()

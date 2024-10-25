@@ -1,5 +1,6 @@
 extends Node2D
 
+signal game_is_lost()
 signal next_is_pressed()
 
 @onready var items = $Items.get_children()
@@ -38,17 +39,24 @@ func _on_refill_oil() -> void:
 	
 	
 func _on_next_button_button_down() -> void:
-	AudioManager.play_click_sfx()
-	if PlayerData.oil_level <= 0 :
+	if PlayerData.oil_level <= 0:
+		if PlayerData.money < oil.price:
+			emit_signal("game_is_lost")
 		print("BUY MORE OIL")
 		return
 	print("NEXT")
 	emit_signal("next_is_pressed")
 
 func _on_unlock_siomai_pressed() -> void:
-	AudioManager.play_click_sfx()
-	if PlayerData.money >= 500:
-		PlayerData.money -= 500
+	if PlayerData.money >= Global.SIOMAI_UPGRADE_COST:
+		PlayerData.money -= Global.SIOMAI_UPGRADE_COST
 		Global.UNLOCK_SIOMAI()
 		$UnlockSiomai.disabled = true
 		$UnlockSiomai.visible = false
+
+func _on_unlock_juice_pressed() -> void:
+	if PlayerData.money >= Global.JUICE_UPGRADE_COST:
+		PlayerData.money -= Global.JUICE_UPGRADE_COST
+		Global.UNLOCK_JUICE()
+		$UnlockJuice.disabled = true
+		$UnlockJuice.visible = false

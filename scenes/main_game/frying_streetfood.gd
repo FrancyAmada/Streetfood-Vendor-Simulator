@@ -35,9 +35,10 @@ func set_food_item(food_name: String):
 	set_texture(food_name)
 	set_collision_shape(food_name)
 	await get_tree().create_timer(StreetfoodData.STREETFOOD_COOKTIME[food_name]).timeout
-	emit_signal("is_cooked", food_name)
-	PlayerData.UPDATE_COOKED_ITEM(food_name, 1)
-	queue_free()
+	if is_instance_valid(self):
+		emit_signal("is_cooked", food_name)
+		PlayerData.UPDATE_COOKED_ITEM(food_name, 1)
+		queue_free()
 
 func map_range(value, start1, stop1, start2, stop2):
 	return (value - start1) / (stop1 - start1) * (stop2 - start2) + start2
