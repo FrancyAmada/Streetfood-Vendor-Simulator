@@ -123,7 +123,7 @@ func update_juice_dispenser():
 	$JuiceDispenser/TooltipPanel.tooltip_text = "Juice: " + str(PlayerData.cooked_items["juice"])
 
 func start_day():
-	daytime_timer.start(300)
+	daytime_timer.start(360)
 	PlayerData.RESET_COOKED_ITEMS_COUNT()
 	set_upgrades_cooked_stock_count()
 	

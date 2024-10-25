@@ -3,7 +3,10 @@ extends Node
 signal cooked_item_updated(food_name: String)
 signal oil_level_updated(level: int)
 
-var money: int = 4000
+var first_play: bool = true
+var mission_finished: bool = false
+
+var money: int = 9999
 
 var reputation: int = 50
 
