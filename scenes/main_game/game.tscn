@@ -136,7 +136,7 @@ position = Vector2(1101, 528)
 offset_left = 578.0
 offset_top = 402.0
 offset_right = 914.0
-offset_bottom = 666.0
+offset_bottom = 694.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CookedFoodContainer"]
 layout_mode = 2
@@ -153,7 +153,7 @@ layout_mode = 2
 [node name="TextureRect" type="TextureRect" parent="CookedFoodContainer/HBoxContainer/FriedItems/FishballContainer"]
 custom_minimum_size = Vector2(0, 96)
 layout_mode = 2
-tooltip_text = "FIshball"
+tooltip_text = "Fishball"
 texture = ExtResource("3_4lvat")
 expand_mode = 3
 
@@ -233,6 +233,7 @@ layout_mode = 2
 text = "0
 "
 script = ExtResource("19_mgmco")
+food_item_name = "chicken_siomai"
 
 [node name="PorkSiomaiContainer" type="HBoxContainer" parent="CookedFoodContainer/HBoxContainer/UpgradeItems"]
 layout_mode = 2
@@ -248,6 +249,7 @@ expand_mode = 2
 layout_mode = 2
 text = "0"
 script = ExtResource("19_mgmco")
+food_item_name = "pork_siomai"
 
 [node name="JapaneseSiomaiContainer" type="HBoxContainer" parent="CookedFoodContainer/HBoxContainer/UpgradeItems"]
 layout_mode = 2
@@ -263,6 +265,7 @@ expand_mode = 2
 layout_mode = 2
 text = "0"
 script = ExtResource("19_mgmco")
+food_item_name = "japanese_siomai"
 
 [node name="JuiceContainer" type="HBoxContainer" parent="CookedFoodContainer/HBoxContainer/UpgradeItems"]
 layout_mode = 2
@@ -280,6 +283,7 @@ layout_mode = 2
 text = "0
 "
 script = ExtResource("19_mgmco")
+food_item_name = "juice"
 
 [node name="Customers" type="Node2D" parent="."]
 
