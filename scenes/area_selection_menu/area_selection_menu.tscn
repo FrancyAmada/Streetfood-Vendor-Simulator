@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://by8jqacilhix"]
+[gd_scene load_steps=24 format=3 uid="uid://by8jqacilhix"]
 
 [ext_resource type="Script" path="res://scenes/area_selection_menu/area_selection_menu.gd" id="1_mlgwy"]
 [ext_resource type="Texture2D" uid="uid://ck8em8fak080y" path="res://assets/menu/area_selection/road.png" id="2_7qf1x"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cb7jwaiqeln66" path="res://scenes/area_selection_menu/components/place_button/place_button.tscn" id="2_w5fv4"]
 [ext_resource type="Texture2D" uid="uid://dkxcorbdllm0m" path="res://assets/menu/area_selection/street_lamp.png" id="4_iwk18"]
 [ext_resource type="PackedScene" uid="uid://dbt5dv3jetjqb" path="res://scenes/menu/clouds/clouds.tscn" id="4_rht4b"]
-[ext_resource type="Script" path="res://scenes/menu/clouds/clouds.gd" id="5_tdm7s"]
 [ext_resource type="Texture2D" uid="uid://k6e7xb88ta60" path="res://assets/others/clouds/cloud_1.png" id="5_x1vqy"]
 [ext_resource type="Script" path="res://scenes/menu/clouds/cloud.gd" id="6_7c8ce"]
 [ext_resource type="Texture2D" uid="uid://mig33mly5623" path="res://assets/others/clouds/cloud_2.png" id="7_okjql"]
@@ -20,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://d2u6vq42dmxq8" path="res://assets/menu/area_selection/pressed/pressed_school.png" id="16_05070"]
 [ext_resource type="Texture2D" uid="uid://dn2qtm08neohy" path="res://assets/menu/area_selection/hover/hover_mall.png" id="17_rgne6"]
 [ext_resource type="Texture2D" uid="uid://cu5ul1a0yrroi" path="res://assets/menu/area_selection/pressed/pressed_mall.png" id="19_hrcyd"]
-[ext_resource type="Theme" uid="uid://c2lcebayb3f8q" path="res://assets/game_theme.tres" id="21_4q2xn"]
+[ext_resource type="Theme" uid="uid://envhjmnpsmmu" path="res://assets/game_theme.tres" id="21_4q2xn"]
 [ext_resource type="Texture2D" uid="uid://d1msp017ckcd0" path="res://assets/menu/area_selection/disabled/disabled_mall.png" id="21_kabvl"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_e1xh5"]
@@ -104,7 +103,6 @@ texture = ExtResource("4_iwk18")
 
 [node name="Clouds" parent="Backround" instance=ExtResource("4_rht4b")]
 position = Vector2(1335, 70)
-script = ExtResource("5_tdm7s")
 
 [node name="Cloud1" type="Sprite2D" parent="Backround/Clouds"]
 scale = Vector2(0.75, 0.75)

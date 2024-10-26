@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://chl72snoa8s2h" path="res://assets/food_stall/steamer/steamer-chicken_siomai.png" id="5_u5r45"]
 [ext_resource type="Texture2D" uid="uid://crhksqmmr28p5" path="res://assets/food_stall/steamer/steamer_front.png" id="5_xbejk"]
 [ext_resource type="Texture2D" uid="uid://c4lcekjw24rhw" path="res://assets/food_stall/steamer/steamer-pork_siomai.png" id="6_5acmp"]
-[ext_resource type="Theme" path="res://assets/tooltip_theme.tres" id="6_jb85f"]
+[ext_resource type="Theme" uid="uid://ct05pg6dp071m" path="res://assets/tooltip_theme.tres" id="6_jb85f"]
 [ext_resource type="Texture2D" uid="uid://dqqap6q16l1ao" path="res://assets/main_game/food_trays/fishball_tray.png" id="6_upaje"]
 [ext_resource type="Texture2D" uid="uid://b16sxcmys35tx" path="res://assets/streetfoods/cooked/kwekkwek.png" id="6_xm2hg"]
 [ext_resource type="Texture2D" uid="uid://bnw2n2t7u6d6x" path="res://assets/main_game/food_trays/fishball_tray-highlight.png" id="7_0vjl5"]
