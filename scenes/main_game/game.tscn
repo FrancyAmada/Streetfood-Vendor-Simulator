@@ -374,8 +374,12 @@ text = "Ready Items"
 [node name="1" type="Marker2D" parent="Customers"]
 position = Vector2(368, 209)
 
+[node name="SpawnIntervalTimer1" type="Timer" parent="Customers/1"]
+
 [node name="2" type="Marker2D" parent="Customers"]
 position = Vector2(665, 209)
+
+[node name="SpawnIntervalTimer2" type="Timer" parent="Customers/2"]
 
 [node name="3" type="Marker2D" parent="Customers"]
 position = Vector2(955, 209)
@@ -399,6 +403,8 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_sdchy")
 layout_mode = 2
 tooltip_text = "Player Money"
 theme = ExtResource("6_jb85f")
+
+[node name="SpawnIntervalTimer3" type="Timer" parent="Customers/3"]
 script = ExtResource("30_kkvto")
 
 [node name="TextureRect" type="TextureRect" parent="MoneyContainer/MoneyBoxContainer"]
@@ -417,8 +423,6 @@ text = "999999"
 visible = false
 position = Vector2(0, -1)
 
-[node name="SpawnIntervalTimer" type="Timer" parent="."]
-
 [node name="DaytimeTimer" type="Timer" parent="."]
 
 [connection signal="pressed" from="FoodItemsButtons/Fishball" to="." method="_on_fishball_pressed"]
@@ -426,5 +430,7 @@ position = Vector2(0, -1)
 [connection signal="pressed" from="FoodItemsButtons/Kikiam" to="." method="_on_kikiam_pressed"]
 [connection signal="pressed" from="FoodItemsButtons/KwekKwek" to="." method="_on_kwek_kwek_pressed"]
 [connection signal="pressed" from="EndDayButton" to="." method="_on_end_day_button_pressed"]
-[connection signal="timeout" from="SpawnIntervalTimer" to="." method="_on_spawn_interval_timer_timeout"]
+[connection signal="timeout" from="Customers/1/SpawnIntervalTimer1" to="." method="_on_spawn_interval_timer_1_timeout"]
+[connection signal="timeout" from="Customers/2/SpawnIntervalTimer2" to="." method="_on_spawn_interval_timer_2_timeout"]
+[connection signal="timeout" from="Customers/3/SpawnIntervalTimer3" to="." method="_on_spawn_interval_timer_3_timeout"]
 [connection signal="timeout" from="DaytimeTimer" to="." method="_on_daytime_timer_timeout"]
