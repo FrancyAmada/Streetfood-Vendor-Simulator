@@ -9,7 +9,7 @@ const STREETFOOD_ORDER_SCENE = preload("res://scenes/main_game/order.tscn")
 @export_enum('student', 'normal', 'rich') var character_type: String = 'normal'
 
 signal start_minigame(streetfood_name: String, order: OrderButton)
-signal remove_character()
+signal removed_character(customer: String)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -46,7 +46,7 @@ func _on_start_minigame(streetfood_name: String, order: OrderButton):
 	
 func remove_customer():
 	if is_instance_valid(self):
-		emit_signal("remove_character")
+		emit_signal("removed_character", get_parent().name)
 		queue_free()
 
 func generate_orders():
@@ -55,24 +55,29 @@ func generate_orders():
 		if PlayerData.stock_items[item] != 0 or PlayerData.cooked_items[item] != 0:
 			available_items.append(item)
 			
-	if !get_parent().get_parent().get_parent().is_out_of_stock() or len(available_items) > 0:
-		if character_type == 'student':
-			add_order(available_items.pick_random())
+	var extra_order_chance = 1 + (PlayerData.reputation / 100)
+	var orders_to_add = []
+
+	if get_parent().get_parent().get_parent().is_out_of_stock() or len(available_items) > 0:
+		return
+
+	match character_type:
+		"student":
+			orders_to_add.append(available_items.pick_random())
+			if randf() < extra_order_chance:
+				orders_to_add.append(available_items.pick_random())
 		
-		if character_type == 'normal':
-			var n = randi_range(0, 1)
-			if n == 0: 
-				add_order(available_items.pick_random())
-			else:
-				add_order(available_items.pick_random())
-				add_order(available_items.pick_random())
-			
-		if character_type == 'rich':
-			var n = randi_range(0, 9)
-			if n < 3:
-				add_order(available_items.pick_random())
-				add_order(available_items.pick_random())
-			else:
-				add_order(available_items.pick_random())
-				add_order(available_items.pick_random())
-				add_order(available_items.pick_random())
+		"normal":
+			var base_orders = randi_range(1, 2)
+			for i in range(base_orders):
+				orders_to_add.append(available_items.pick_random())
+			if randf() < extra_order_chance:
+				orders_to_add.append(available_items.pick_random())
+		
+		"rich":
+			var base_orders = randi_range(2, 3)
+			for i in range(base_orders):
+				orders_to_add.append(available_items.pick_random())
+
+	for order in orders_to_add:
+		add_order(order)
