@@ -11,7 +11,9 @@ signal received_tip(amount: int)
 @onready var minigame_node: Node2D = $Minigame
 @onready var food_fryer_node: FoodFryer = $FoodFryer
 
-@onready var spawn_interval_timer: Timer = $SpawnIntervalTimer
+@onready var spawn_interval_timer1: Timer = $"Customers/1/SpawnIntervalTimer1"
+@onready var spawn_interval_timer2: Timer = $"Customers/2/SpawnIntervalTimer2"
+@onready var spawn_interval_timer3: Timer = $"Customers/3/SpawnIntervalTimer3"
 @onready var daytime_timer: Timer = $DaytimeTimer
 
 @onready var fishball_tray: TextureButton = $FoodItemsButtons/Fishball
@@ -21,7 +23,9 @@ signal received_tip(amount: int)
 
 @onready var customer_points: Array = $Customers.get_children()
 
-var can_spawn: bool = false
+var can_spawn1: bool = false
+var can_spawn2: bool = false
+var can_spawn3: bool = false
 var in_minigame: bool = false
 
 var customer1: Customer = null
@@ -36,23 +40,27 @@ var customer3_pos: Vector2 = Vector2(720, 200)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	minigame_node.connect("minigame_finished", _on_minigame_finished)
-	generate_customers()
-	if !customer1 or !customer2 or !customer3:
-		spawn_interval_timer.start(MapData.MAP_SPAWN_INTERVAL[location])
-		
-	# TEST BLOCK --------------------------
-	#if !customer1:
-		#spawn_customer(1)
-	# -------------------------------------
-
+	generate_customer(1)
+	generate_customer(2)
+	generate_customer(3)
+	if !customer1:
+		spawn_interval_timer1.start(randi_range(MapData.MAP_SPAWN_INTERVAL[location] * (1 + PlayerData.reputation) - 10, MapData.MAP_SPAWN_INTERVAL[location] + 10))
+	if !customer2:
+		spawn_interval_timer2.start(randi_range(MapData.MAP_SPAWN_INTERVAL[location] * (1 + PlayerData.reputation) - 10, MapData.MAP_SPAWN_INTERVAL[location] + 10))
+	if !customer3:
+		spawn_interval_timer3.start(randi_range(MapData.MAP_SPAWN_INTERVAL[location] * (1 + PlayerData.reputation) - 10, MapData.MAP_SPAWN_INTERVAL[location] + 10))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	update_food_items_buttons()
 	update_siomai_steamer()
 	update_juice_dispenser()
-	if can_spawn:
-		generate_customers()
+	if can_spawn1:
+		generate_customer(1)
+	if can_spawn2:
+		generate_customer(2)
+	if can_spawn3:
+		generate_customer(3)
 	if is_out_of_stock():
 		end_day()
 	
@@ -191,17 +199,20 @@ func _on_kwek_kwek_pressed() -> void:
 func can_fry_food(food_name: String):
 	return PlayerData.stock_items[food_name] > 0 and food_fryer_node.can_fry(food_name)
 
-func generate_customers():
+func generate_customer(customer: int):
 	var rng = RandomNumberGenerator.new()
-	if !customer1 && rng.randi_range(0,1)== 0:
-		print("SPAWN C1")
-		spawn_customer(1)
-	if !customer2 && rng.randi_range(0,1)== 0:
-		print("SPAWN C2")
-		spawn_customer(2)
-	if !customer3 && rng.randi_range(0,1)== 0:
-		print("SPAWN C3")
-		spawn_customer(3)
+	if customer == 1:
+		if !customer1 && rng.randi_range(0,1)== 0:
+			print("SPAWN C1")
+			spawn_customer(1)
+	if customer == 2:
+		if !customer2 && rng.randi_range(0,1)== 0:
+			print("SPAWN C2")
+			spawn_customer(2)
+	if customer == 3:
+		if !customer3 && rng.randi_range(0,1)== 0:
+			print("SPAWN C3")
+			spawn_customer(3)
 
 func spawn_customer(pos: int):
 	var customer_instance: Customer = CUSTOMER_SCENE.instantiate()
@@ -220,15 +231,21 @@ func spawn_customer(pos: int):
 			
 	#$Customers.add_child(customer_instance)
 	customer_instance.connect("start_minigame", _on_start_minigame)
-	customer_instance.connect("remove_character", _on_remove_character)
+	customer_instance.connect("removed_character", _on_removed_character)
 	customer_points[pos - 1].add_child(customer_instance)
 	if pos == 1: customer1 = customer_instance
 	if pos == 2: customer2 = customer_instance
 	if pos == 3: customer3 = customer_instance
 	#customer_instance.set_customer_pos(customer1_pos)
 
-func _on_remove_character():
-	spawn_interval_timer.start(MapData.MAP_SPAWN_INTERVAL[location])
+func _on_removed_character(customer: String):
+	if customer == '1':
+		spawn_interval_timer1.start(randi_range(MapData.MAP_SPAWN_INTERVAL[location] * (1 + PlayerData.reputation) - 10, MapData.MAP_SPAWN_INTERVAL[location] + 10))
+	if customer == '2':
+		spawn_interval_timer2.start(randi_range(MapData.MAP_SPAWN_INTERVAL[location] * (1 + PlayerData.reputation) - 10, MapData.MAP_SPAWN_INTERVAL[location] + 10))
+	if customer == '3':
+		spawn_interval_timer3.start(randi_range(MapData.MAP_SPAWN_INTERVAL[location] * (1 + PlayerData.reputation) - 10, MapData.MAP_SPAWN_INTERVAL[location] + 10))
+	#spawn_interval_timer.start(randi_range(MapData.MAP_SPAWN_INTERVAL[location] - 10, MapData.MAP_SPAWN_INTERVAL[location] + 10))
 	
 func _on_start_minigame(streetfood_name: String, order: OrderButton):
 	minigame_node.start_minigame(streetfood_name, order)
@@ -267,8 +284,16 @@ func get_tip(food_name: String, catched_count: int):
 	return 0
 
 
-func _on_spawn_interval_timer_timeout() -> void:
-	can_spawn = true
+func _on_spawn_interval_timer_1_timeout() -> void:
+	can_spawn1 = true
+
+
+func _on_spawn_interval_timer_2_timeout() -> void:
+	can_spawn2 = true
+
+
+func _on_spawn_interval_timer_3_timeout() -> void:
+	can_spawn3 = true
 
 func _on_end_day_button_pressed() -> void:
 	end_day()
