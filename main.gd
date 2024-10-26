@@ -46,6 +46,7 @@ func _on_intro_finished():
 	animation_player.play("fade_out")
 	await animation_player.animation_finished
 	main_game.start_day()
+	AudioManager.play_game_music()
 
 func _on_day_is_finished():
 	animation_player.play("fade_in")
