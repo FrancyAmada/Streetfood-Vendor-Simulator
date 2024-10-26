@@ -38,6 +38,7 @@ func _on_mall_pressed() -> void:
 func update_selected_area(area: String):
 	selected_area = area
 	selected_area_label.text = "Selected Area: " + selected_area.capitalize()
+	PlayerData.current_location = area
 
 func _on_buy_permit_pressed() -> void:
 	if PlayerData.money >= Global.MALL_PERMIT_COST:

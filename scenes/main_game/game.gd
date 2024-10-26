@@ -11,6 +11,8 @@ signal received_tip(amount: int)
 @onready var minigame_node: Node2D = $Minigame
 @onready var food_fryer_node: FoodFryer = $FoodFryer
 
+@onready var area_background: Sprite2D = $AreaSprite
+
 @onready var spawn_interval_timer: Timer = $SpawnIntervalTimer
 @onready var daytime_timer: Timer = $DaytimeTimer
 
@@ -20,6 +22,8 @@ signal received_tip(amount: int)
 @onready var kwekkwek_tray: TextureButton = $FoodItemsButtons/KwekKwek
 
 @onready var customer_points: Array = $Customers.get_children()
+
+var total_catched_spoiled_count: int = 0
 
 var can_spawn: bool = false
 var in_minigame: bool = false
@@ -123,9 +127,17 @@ func update_juice_dispenser():
 	$JuiceDispenser/TooltipPanel.tooltip_text = "Juice: " + str(PlayerData.cooked_items["juice"])
 
 func start_day():
+	total_catched_spoiled_count = 0
+	location = PlayerData.current_location
 	daytime_timer.start(360)
 	PlayerData.RESET_COOKED_ITEMS_COUNT()
 	set_upgrades_cooked_stock_count()
+	update_area_background()
+	
+func update_area_background():
+	var area_texture = load("res://assets/main_game/areas/" + PlayerData.current_location + ".png")
+	if area_texture:
+		area_background.texture = area_texture
 	
 func set_upgrades_cooked_stock_count():
 	for item in PlayerData.stock_items:
@@ -247,6 +259,8 @@ func _on_minigame_finished(food_name: String, catched_count: int, catched_spoile
 	elif catched_count / StreetfoodData.REQUIRED_COOKED_FOOD[food_name] < 0.5:
 		AudioManager.play_chaching_sfx()
 		PlayerData.money += StreetfoodData.STREETFOOD_SELL_PRICE[food_name] / 2
+		
+	total_catched_spoiled_count += catched_spoiled_count
 	minigame_node.visible = false
 	in_minigame = false
 	print("CATCHED ITEMS COUNT: ", catched_count)

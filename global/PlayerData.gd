@@ -6,7 +6,7 @@ signal oil_level_updated(level: int)
 var first_play: bool = true
 var mission_finished: bool = false
 
-var money: int = 9999
+var money: int = 500
 
 var reputation: int = 50
 
@@ -14,6 +14,8 @@ var oil_level: int = 2
 
 var siomai_unlocked = false
 var juice_unlocked = false
+
+var current_location: String = "street"
 
 const COOKED_ITEMS_DEFAULT: Dictionary = {
 	"fishball": 0,

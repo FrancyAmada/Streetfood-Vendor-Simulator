@@ -54,9 +54,12 @@ func _on_day_is_finished():
 	main_game.visible = false
 	var event_rand: int = RandomNumberGenerator.new().randi_range(1, 6)
 	var event_choice: int = RandomNumberGenerator.new().randi_range(1, 6)
+	var poison_event_rand: int = RandomNumberGenerator.new().randi_range(0, 100)
 	if PlayerData.money >= 10000 and !PlayerData.mission_finished:
 		event_scene.visible = true
 		event_scene.play_event("treatment")
+	elif poison_event_rand < main_game.total_catched_spoiled_count:
+		event_scene.play_event("food_poisoning")
 	elif event_rand == event_choice:
 		event_scene.visible = true
 		var keys = Global.EVENTS.keys()
